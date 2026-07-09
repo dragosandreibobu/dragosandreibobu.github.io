@@ -1,732 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragoș-Andrei Bobu - Project Ecosystem</title>
-    <meta name="description" content="Central portfolio and software staging hub mapping Dragoș-Andrei Bobu's multi-organization ecosystem of semantic curriculum engines, graphics systems, AI/ML models, and academic archives.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dragoș-Andrei Bobu - Interactive Engineering Room</title>
+<meta name="description" content="Static-first interactive engineering room portfolio for Dragoș-Andrei Bobu." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050607;--card:rgba(13,16,24,.72);--line:rgba(255,255,255,.09);--text:#f5f5f4;--muted:#a7adb8;--sub:#76808e;--blue:#93c5fd;--orange:#fed7aa;--green:#86efac;--wood:#7c4a2d;--mono:'IBM Plex Mono',monospace;--sans:'Inter',sans-serif;--head:'Outfit',sans-serif}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--sans);line-height:1.6;color:var(--text);background:radial-gradient(circle at 12% 0%,rgba(96,165,250,.12),transparent 28rem),radial-gradient(circle at 90% 10%,rgba(249,115,22,.09),transparent 30rem),linear-gradient(180deg,#050607,#080a0e 46%,#050607)}a{color:inherit}.nav{position:sticky;top:0;z-index:20;background:rgba(5,6,7,.78);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}.nav-inner{width:min(1240px,calc(100% - 2rem));margin:auto;padding:.9rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{font-family:var(--head);font-weight:800;text-decoration:none}.brand:before{content:"";display:inline-block;width:.9rem;height:.9rem;border-radius:50%;background:#60a5fa;margin-right:.65rem;box-shadow:0 0 24px #60a5fa}.links{display:flex;gap:clamp(.8rem,1.7vw,1.4rem);align-items:center;color:var(--muted);font-size:.94rem}.links a{text-decoration:none}.links a:hover{color:var(--blue)}.pill{padding:.5rem .8rem;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.045)}main{overflow:hidden}.hero{width:min(1420px,calc(100% - 2rem));min-height:calc(100vh - 72px);margin:auto;padding:clamp(2rem,4vw,4.5rem) 0;display:grid;grid-template-columns:minmax(300px,.82fr) minmax(520px,1.18fr);align-items:center;gap:clamp(2rem,5vw,5rem)}.badge,.eyebrow,.zone{display:inline-flex;width:max-content;border:1px solid rgba(147,197,253,.24);border-radius:999px;background:rgba(96,165,250,.08);color:var(--blue);padding:.32rem .72rem;font:600 .72rem var(--mono);letter-spacing:.045em;text-transform:uppercase}.copy h1{margin-top:1.35rem;font:800 clamp(2.4rem,6vw,5.8rem)/.92 var(--head);letter-spacing:-.055em;max-width:780px}.copy p{margin-top:1.25rem;max-width:670px;color:var(--muted);font-size:clamp(1rem,1.45vw,1.18rem)}.actions{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.8rem}.btn{display:inline-flex;min-height:44px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;padding:.7rem 1rem;background:rgba(255,255,255,.055);color:var(--text);text-decoration:none;font-weight:800;cursor:pointer}.btn.primary{border-color:transparent;background:linear-gradient(135deg,#60a5fa,#2563eb);box-shadow:0 16px 42px rgba(37,99,235,.24)}.room{position:relative;min-height:clamp(520px,70vh,780px);border:1px solid rgba(255,255,255,.1);border-radius:32px;overflow:hidden;background:radial-gradient(circle at 50% 18%,rgba(249,115,22,.1),transparent 16rem),linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));box-shadow:0 40px 110px rgba(0,0,0,.42);isolation:isolate}.room:before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.04),transparent 25%,transparent 75%,rgba(255,255,255,.035)),radial-gradient(circle at 50% 88%,rgba(124,74,45,.25),transparent 22rem)}#room-canvas{position:absolute;inset:0;z-index:2;width:100%;height:100%;opacity:0;transition:.35s opacity}#room-canvas.ready{opacity:1}.static-room{position:absolute;inset:0;z-index:1;perspective:900px;background:linear-gradient(155deg,rgba(31,41,55,.54),rgba(3,7,18,.24)),radial-gradient(circle at 52% 28%,rgba(255,255,255,.08),transparent 18rem)}.wall{position:absolute;inset:6% 7% 24%;transform:rotateX(6deg);border:1px solid rgba(255,255,255,.06);background:linear-gradient(180deg,#12161d,#080b10)}.blackboard{position:absolute;inset:8% 8% 22%;border:12px solid #4d3423;border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.035),transparent 32%),repeating-linear-gradient(0deg,rgba(255,255,255,.014) 0 1px,transparent 1px 12px),#10231d;box-shadow:inset 0 0 60px rgba(0,0,0,.55);color:#d7eadf;font:500 clamp(.62rem,1vw,.88rem) var(--mono);display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:.9rem;padding:clamp(1rem,2vw,2rem)}.blackboard span:nth-child(even){transform:rotate(1deg)}.desk{position:absolute;left:10%;right:10%;bottom:8%;height:29%;border-radius:22px 22px 0 0;background:linear-gradient(90deg,rgba(255,255,255,.12),transparent 22%,transparent 68%,rgba(0,0,0,.2)),linear-gradient(180deg,#8b5636,#3c2116);box-shadow:0 -26px 70px rgba(0,0,0,.22)}.monitor{position:absolute;left:33%;bottom:46%;width:34%;min-height:46%;border:10px solid #07080b;border-radius:14px;background:#0b1220;box-shadow:0 0 34px rgba(96,165,250,.18)}.bar{padding:.32rem .55rem;background:rgba(96,165,250,.14);color:#bfdbfe;font:.68rem var(--mono)}.window{position:absolute;border:1px solid rgba(147,197,253,.22);border-radius:8px;background:rgba(15,23,42,.88);color:var(--muted);font:.62rem var(--mono);padding:.4rem}.projects{left:8%;top:30%;width:45%;height:28%}.research{right:8%;top:26%;width:32%;height:22%}.teaching{left:24%;bottom:12%;width:48%;height:22%}.notebook{position:absolute;left:10%;bottom:18%;width:22%;min-height:40%;border-radius:8px;background:linear-gradient(110deg,#f1e4bd,#cbb67e);color:#1f2937;font:.72rem var(--mono);padding:.85rem;transform:rotate(-7deg);box-shadow:0 18px 34px rgba(0,0,0,.25)}.lamp{position:absolute;right:14%;bottom:28%;width:4%;height:45%;border-radius:20px;background:#111827;box-shadow:0 0 60px rgba(250,204,21,.2)}.lamp:before{content:"";position:absolute;right:-240%;top:-12%;width:360%;height:24%;border-radius:999px;background:#fbbf24;box-shadow:0 0 58px rgba(251,191,36,.46)}.hotspots{position:absolute;inset:0;z-index:5;pointer-events:none}.hotspot{position:absolute;display:inline-flex;align-items:center;gap:.42rem;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(5,6,7,.72);color:var(--text);padding:.48rem .68rem;font:.72rem var(--mono);cursor:pointer;pointer-events:auto;backdrop-filter:blur(12px)}.hotspot:hover,.hotspot.active{border-color:rgba(147,197,253,.72);background:rgba(15,23,42,.82)}.dot{width:.58rem;height:.58rem;border-radius:50%;background:#60a5fa;box-shadow:0 0 20px #60a5fa}.h-board{top:20%;left:21%}.h-monitor{top:46%;left:51%}.h-notebook{top:68%;left:20%}.h-desk{top:74%;right:18%}.panel{position:absolute;z-index:6;right:clamp(1rem,2vw,1.4rem);bottom:clamp(1rem,2vw,1.4rem);width:min(360px,calc(100% - 2rem));padding:1.2rem;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(5,6,7,.76);backdrop-filter:blur(18px);box-shadow:0 20px 70px rgba(0,0,0,.36)}.panel h2{margin-top:.55rem;font:700 1.35rem var(--head)}.panel p:not(.eyebrow){margin-top:.5rem;color:var(--muted);font-size:.92rem}.panel a{display:inline-flex;margin-top:1rem;color:var(--blue);font-weight:800;text-decoration:none}.container{width:min(1200px,calc(100% - 2rem));margin:auto}.section{padding:clamp(3rem,6vw,6rem) 0}.section h2{margin-top:.8rem;font:800 clamp(2rem,4vw,3.4rem)/1 var(--head);letter-spacing:-.035em}.section-desc{margin-top:.9rem;color:var(--muted);font-size:1.02rem;max-width:820px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2rem}.card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.014)),var(--card);padding:1.35rem;box-shadow:0 24px 54px rgba(0,0,0,.18);text-decoration:none}.card:hover{transform:translateY(-3px);border-color:rgba(147,197,253,.28);transition:.18s}.card h3{font:700 1.18rem/1.18 var(--head)}.card p{margin-top:.75rem;color:var(--muted);font-size:.93rem}.zone{margin-bottom:1rem;color:var(--orange);border-color:rgba(251,146,60,.24);background:rgba(251,146,60,.08);font-size:.66rem}.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.meta span{border:1px solid rgba(147,197,253,.14);border-radius:999px;background:rgba(96,165,250,.07);color:#bfdbfe;padding:.25rem .55rem;font:.7rem var(--mono)}.project-links{display:flex;gap:.6rem;margin-top:1rem}.project-links a{flex:1;text-align:center;border:1px solid var(--line);border-radius:999px;padding:.55rem .65rem;text-decoration:none;font-weight:800;font-size:.83rem}.project-links a.primary{background:rgba(96,165,250,.16);border-color:rgba(147,197,253,.32)}footer{margin-top:4rem;border-top:1px solid var(--line);background:rgba(5,6,7,.8)}.foot{width:min(1200px,calc(100% - 2rem));margin:auto;padding:2.4rem 0;display:flex;justify-content:space-between;gap:1rem;color:var(--muted);font-size:.9rem}.foot a{color:var(--blue);text-decoration:none}body.static #room-canvas{display:none}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.001ms!important;animation-duration:.001ms!important;animation-iteration-count:1!important}}@media(max-width:980px){.hero{grid-template-columns:1fr;min-height:auto}.room{min-height:560px}.nav-inner,.foot{flex-direction:column;align-items:flex-start}.links{width:100%;overflow-x:auto;padding-bottom:.25rem}}@media(max-width:640px){.hero,.container,.nav-inner,.foot{width:min(100% - 1rem,1200px)}.copy h1{font-size:2.5rem}.room{min-height:620px;border-radius:24px}.panel{left:.7rem;right:.7rem;width:auto}.hotspot{font-size:.66rem;padding:.42rem .55rem}.h-board{top:15%;left:8%}.h-monitor{top:42%;left:46%}.h-notebook{top:61%;left:7%}.h-desk{top:70%;right:6%}.project-links{flex-direction:column}}
+</style>
 </head>
 <body>
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-brand">
-                <span class="brand-glow"></span>
-                <span class="brand-text">D.A.B. Portfolio</span>
-            </a>
-            <nav class="nav-links">
-                <a href="#about">Profile</a>
-                <a href="#areas">Areas</a>
-                <a href="#orgs">Organizations</a>
-                <a href="#flagships">Flagships</a>
-                <a href="https://github.com/dragosandreibobu" target="_blank" class="nav-btn">GitHub Profile</a>
-            </nav>
-        </div>
-    </header>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#room">D.A.B. Engine Room</a>
+    <nav class="links" aria-label="Primary navigation">
+      <a href="#room">Room</a><a href="#profile">Profile</a><a href="#areas">Areas</a><a href="#orgs">Organizations</a><a href="#flagships">Flagships</a>
+      <a class="pill" href="https://github.com/dragosandreibobu" target="_blank" rel="noreferrer">GitHub</a>
+    </nav>
+  </div>
+</header>
 
-    <main class="container">
-        <!-- Hero / Profile -->
-        <section id="about" class="hero-section">
-            <div class="hero-glow"></div>
-            <span class="badge">Ecosystem Central Hub</span>
-            <h1 class="hero-title">Dragoș-Andrei Bobu</h1>
-            <p class="hero-subtitle">Teacher &bull; Computer Science Graduate &bull; Software Builder &bull; Curriculum-System Designer &bull; AI/ML & Engine Developer</p>
-            <p class="hero-bio">
-                A software engineer, educator, and AI/ML practitioner dedicated to building interactive pedagogical systems, modular game engines, and semantic knowledge representations. This hub serves as the primary map for a multi-organization ecosystem of production-facing repositories, research projects, and academic archives.
-            </p>
-        </section>
+<main>
+<section id="room" class="hero">
+  <div class="copy">
+    <span class="badge">Static-first WebGL prototype</span>
+    <h1>A software engineering room for the whole project ecosystem.</h1>
+    <p>Blackboard for teaching and research, EngineOS monitor for live systems, notebook for design notes, and desk objects that route into GitHub organizations, flagship projects, and technical areas.</p>
+    <div class="actions">
+      <a class="btn primary" href="#orgs">Browse ecosystem</a>
+      <a class="btn" href="#flagships">See flagships</a>
+      <button class="btn" id="toggle-room" type="button" aria-pressed="true">Interactive Mode: ON</button>
+    </div>
+  </div>
+  <div class="room" aria-label="Interactive engineering room scene">
+    <canvas id="room-canvas" aria-label="3D room scene with clickable project zones"></canvas>
+    <div class="static-room" aria-hidden="true">
+      <div class="wall"><div class="blackboard"><span>graph theory</span><span>compiler pipeline → AST → IR</span><span>OpenGL projection matrices</span><span>curriculum concept graph</span><span>ML agent hooks</span><span>lesson plan + proof sketch</span></div></div>
+      <div class="desk"><div class="monitor"><div class="bar">EngineOS</div><div class="window projects">Projects</div><div class="window research">Research</div><div class="window teaching">Teaching</div></div><div class="notebook">TODO<br>scene graph<br>lesson plan<br>shader notes</div><div class="lamp"></div></div>
+    </div>
+    <div class="hotspots" aria-label="Room hotspots">
+      <button class="hotspot h-board active" data-hotspot="blackboard" type="button"><span class="dot"></span>Blackboard</button>
+      <button class="hotspot h-monitor" data-hotspot="monitor" type="button"><span class="dot"></span>EngineOS</button>
+      <button class="hotspot h-notebook" data-hotspot="notebook" type="button"><span class="dot"></span>Notebook</button>
+      <button class="hotspot h-desk" data-hotspot="desk" type="button"><span class="dot"></span>Desk</button>
+    </div>
+    <aside class="panel" aria-live="polite">
+      <p class="eyebrow">Selected zone</p><h2 id="panel-title">Blackboard</h2>
+      <p id="panel-body">Teaching, research, graph algorithms, compiler sketches, rendering math, and curriculum-system reasoning.</p>
+      <a id="panel-link" href="#areas">Open mapped section</a>
+    </aside>
+  </div>
+</section>
 
-        <!-- Ecosystem Areas -->
-        <section id="areas" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Ecosystem Areas</h2>
-                <p class="section-desc">Visual mapping of software and research disciplines across specialized organizations.</p>
-            </div>
-            <div class="areas-grid">
-                <div class="area-card">
-                    <h3>Education Technology & Curriculum Engines</h3>
-                    <p>Structured concept graphs and pathway recommendation backends.</p>
-                    <span class="area-link">curricula-live</span>
-                </div>
-                <div class="area-card">
-                    <h3>Digital Teaching Tools</h3>
-                    <p>Classroom-ready interactive manuals, sketchbooks, and dashboard tools.</p>
-                    <span class="area-link">manualdigital, DigitalChalkLab</span>
-                </div>
-                <div class="area-card">
-                    <h3>Game Engines & Graphics</h3>
-                    <p>C++/OpenGL rendering loops, FreeGLUT wrappers, and simulation systems.</p>
-                    <span class="area-link">Machine-Learning-Compatible-Game-Engine</span>
-                </div>
-                <div class="area-card">
-                    <h3>AI & Machine Learning</h3>
-                    <p>FastAPI predictors, PyTorch ordinal classifiers, and forecasting ensembles.</p>
-                    <span class="area-link">Hyperspace-Intelligence, ScalpScanClassifier</span>
-                </div>
-                <div class="area-card">
-                    <h3>Computer Vision & Interactive Sensors</h3>
-                    <p>Depth scanner interfaces, WPF utilities, and OpenCV lab sets.</p>
-                    <span class="area-link">Bluebird-Studio, ScalpScanClassifier</span>
-                </div>
-                <div class="area-card">
-                    <h3>Market Analysis & Crawlers</h3>
-                    <p>Selenium product crawlers and pricing analysis trackers.</p>
-                    <span class="area-link">Price-Radar</span>
-                </div>
-                <div class="area-card">
-                    <h3>University Archives</h3>
-                    <p>Theoretical math modeling and BSc computer science directories.</p>
-                    <span class="area-link">UAIC-BSc-ComputerScience, UAIC-BSc-Math</span>
-                </div>
-                <div class="area-card">
-                    <h3>Hackathons & Experiments</h3>
-                    <p>Rapid-prototyped game-jam engines and predictive challenges.</p>
-                    <span class="area-link">Bluebird-Studio, Hyperspace-Intelligence</span>
-                </div>
-            </div>
-        </section>
+<div class="container">
+<section id="profile" class="section">
+  <span class="eyebrow">Profile</span><h2>Teacher-engineer profile</h2>
+  <p class="section-desc">Software engineer, educator, and AI/ML practitioner building interactive pedagogical systems, modular game-engine experiments, semantic curriculum tools, and technical archives.</p>
+  <div class="grid">
+    <article class="card"><h3>Core identity</h3><p>Computer science graduate with teaching experience and a project ecosystem spanning education technology, graphics, simulation, AI/ML, data workflows, and technical documentation.</p></article>
+    <article class="card"><h3>Portfolio concept</h3><p>The homepage becomes a navigable technical room: each object acts as a conceptual portal into a real repository cluster or research direction.</p></article>
+    <article class="card"><h3>Implementation stance</h3><p>Accessible HTML content remains first-class. WebGL is an enhancement, not a dependency, so the site stays fast on GitHub Pages and usable on mobile.</p></article>
+  </div>
+</section>
 
-        <!-- Organizations Grid -->
-        <section id="orgs" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Organizations</h2>
-                <p class="section-desc">Focused organizational hubs routing specific software development, research, and course assets.</p>
-            </div>
-            <div class="org-grid">
-                <!-- curricula-live -->
-                <a href="https://curricula-live.github.io" class="org-card" style="--glow-color: rgba(16, 185, 129, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon green">☘</span>
-                        <h3>curricula-live</h3>
-                    </div>
-                    <p class="org-desc">Semantic curriculum planning platform containing Next.js landing surfaces, API backends, and knowledge graphs.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Active</span>
-                        <span class="meta-item">Semantic Graph</span>
-                    </div>
-                </a>
+<section id="areas" class="section">
+  <span class="eyebrow">Room map</span><h2>Ecosystem areas</h2>
+  <p class="section-desc">The room objects map to the main disciplines in the repository ecosystem.</p>
+  <div class="grid">
+    <article class="card"><span class="zone">Blackboard</span><h3>Education Technology & Curriculum Engines</h3><p>Structured concept graphs, prerequisite chains, planning workflows, and curriculum recommendation engines.</p><div class="meta"><span>curricula-live</span></div></article>
+    <article class="card"><span class="zone">Notebook</span><h3>Digital Teaching Tools</h3><p>Classroom-ready interactive manuals, sketchbooks, accessibility utilities, and technical lesson systems.</p><div class="meta"><span>manualdigital</span><span>DigitalChalkLab</span></div></article>
+    <article class="card"><span class="zone">Desk</span><h3>Game Engines & Graphics</h3><p>C++/OpenGL rendering loops, FreeGLUT wrappers, scene systems, and simulation-oriented experiments.</p><div class="meta"><span>MLCGE</span></div></article>
+    <article class="card"><span class="zone">EngineOS</span><h3>AI & Machine Learning</h3><p>FastAPI predictors, PyTorch classifiers, forecasting ensembles, and ML-compatible simulation hooks.</p><div class="meta"><span>Hyperspace</span><span>ScalpScan</span></div></article>
+    <article class="card"><span class="zone">Sensors shelf</span><h3>Computer Vision & Interactive Sensors</h3><p>Depth scanner interfaces, OpenCV lab sets, camera workflows, and human-aware technical tools.</p><div class="meta"><span>Bluebird</span><span>OpenCV</span></div></article>
+    <article class="card"><span class="zone">Terminal</span><h3>Market Analysis & Crawlers</h3><p>Selenium crawlers, price tracking, structured datasets, and product-analysis dashboards.</p><div class="meta"><span>Price-Radar</span></div></article>
+  </div>
+</section>
 
-                <!-- manualdigital -->
-                <a href="https://manualdigital.github.io" class="org-card" style="--glow-color: rgba(6, 182, 212, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon cyan">✦</span>
-                        <h3>manualdigital</h3>
-                    </div>
-                    <p class="org-desc">Classroom informatics manual ecosystem, covering WebTech and JavaTech labs, as well as AI/algorithmic classroom demos.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Teaching</span>
-                        <span class="meta-item">Manuals</span>
-                    </div>
-                </a>
+<section id="orgs" class="section">
+  <span class="eyebrow">Portals</span><h2>Organizations</h2>
+  <p class="section-desc">Focused hubs routing software development, research material, and course assets.</p>
+  <div class="grid">
+    <a class="card" href="https://curricula-live.github.io" target="_blank" rel="noreferrer"><h3>curricula-live</h3><p>Semantic curriculum planning platform with landing surfaces, API backends, and knowledge graphs.</p><div class="meta"><span>Active</span><span>Semantic Graph</span></div></a>
+    <a class="card" href="https://manualdigital.github.io" target="_blank" rel="noreferrer"><h3>manualdigital</h3><p>Classroom informatics manual ecosystem covering WebTech, JavaTech, AI demos, and teaching guides.</p><div class="meta"><span>Teaching</span><span>Manuals</span></div></a>
+    <a class="card" href="https://DigitalChalkLab.github.io" target="_blank" rel="noreferrer"><h3>DigitalChalkLab</h3><p>Classroom/dev sketchbook, software lessons, accessibility tools, OCR systems, and interaction prototypes.</p><div class="meta"><span>Active</span><span>Sketchbook</span></div></a>
+    <a class="card" href="https://Machine-Learning-Compatible-Game-Engine.github.io" target="_blank" rel="noreferrer"><h3>MLCGE Lab</h3><p>OpenGL graphics rendering, simulation loops, editor tooling, and C++ engine modules.</p><div class="meta"><span>Research</span><span>C++/OpenGL</span></div></a>
+    <a class="card" href="https://Bluebird-Studio.github.io" target="_blank" rel="noreferrer"><h3>Bluebird-Studio</h3><p>Creative studio for game jams, interactive graphics, raylib prototypes, and Kinect depth sensors.</p><div class="meta"><span>Creative</span><span>Games</span></div></a>
+    <a class="card" href="https://Hyperspace-Intelligence.github.io" target="_blank" rel="noreferrer"><h3>Hyperspace-Intelligence</h3><p>AI research lab with forecasting models, computer vision notebooks, and applied ML projects.</p><div class="meta"><span>Research</span><span>Data Science</span></div></a>
+    <a class="card" href="https://Price-Radar.github.io" target="_blank" rel="noreferrer"><h3>Price-Radar</h3><p>Planned organization for scrapers, product crawlers, and market forecast regression models.</p><div class="meta"><span>Planned</span><span>Crawlers</span></div></a>
+    <a class="card" href="https://ScalpScanClassifier.github.io" target="_blank" rel="noreferrer"><h3>ScalpScanClassifier</h3><p>AI classification pipeline and multi-head PyTorch diagnostic service from Innovation Labs work.</p><div class="meta"><span>Active</span><span>Deep Learning</span></div></a>
+    <a class="card" href="https://UAIC-BSc-ComputerScience.github.io" target="_blank" rel="noreferrer"><h3>UAIC-BSc-CS</h3><p>Academic course archives, labs, compiler work, systems programming, networking, and databases.</p><div class="meta"><span>Archive</span><span>Coursework</span></div></a>
+  </div>
+</section>
 
-                <!-- DigitalChalkLab -->
-                <a href="https://DigitalChalkLab.github.io" class="org-card" style="--glow-color: rgba(249, 115, 22, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon orange">✏</span>
-                        <h3>DigitalChalkLab</h3>
-                    </div>
-                    <p class="org-desc">Unified classroom/dev sketchbook and accessibility tools, hosting the software sketchbook and DocVoiceNav OCR system.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Active</span>
-                        <span class="meta-item">Accessibility</span>
-                    </div>
-                </a>
+<section id="flagships" class="section">
+  <span class="eyebrow">Objects on the desk</span><h2>Flagship projects</h2>
+  <p class="section-desc">Representative projects exposed as cards after the interactive room entry point.</p>
+  <div class="grid" id="projects"></div>
+</section>
+</div>
+</main>
 
-                <!-- Machine-Learning-Compatible-Game-Engine -->
-                <a href="https://Machine-Learning-Compatible-Game-Engine.github.io" class="org-card" style="--glow-color: rgba(239, 68, 68, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon red">▲</span>
-                        <h3>MLCGE Lab</h3>
-                    </div>
-                    <p class="org-desc">OpenGL graphics rendering, simulation loops, editor tooling, and C++ modules ready for agent API bounds.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Research</span>
-                        <span class="meta-item">C++/OpenGL</span>
-                    </div>
-                </a>
+<footer><div class="foot"><p>Dragoș-Andrei Bobu &copy; 2026. Static-first personal portfolio room.</p><p><a href="https://dragosandreibobu.github.io">dragosandreibobu.github.io</a> &bull; <a href="https://github.com/dragosandreibobu" target="_blank" rel="noreferrer">GitHub Profile</a></p></div></footer>
 
-                <!-- Bluebird-Studio -->
-                <a href="https://Bluebird-Studio.github.io" class="org-card" style="--glow-color: rgba(0, 188, 255, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon blue">❖</span>
-                        <h3>Bluebird-Studio</h3>
-                    </div>
-                    <p class="org-desc">Creative studio for game jams, interactive graphics, raylib co-op engines, and Kinect depth sensors.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Creative</span>
-                        <span class="meta-item">Games</span>
-                    </div>
-                </a>
-
-                <!-- Hyperspace-Intelligence -->
-                <a href="https://Hyperspace-Intelligence.github.io" class="org-card" style="--glow-color: rgba(168, 85, 247, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon purple">☁</span>
-                        <h3>Hyperspace-Intelligence</h3>
-                    </div>
-                    <p class="org-desc">AI research lab featuring forecasting models, CatBoost/LightGBM ensembles, and computer vision notebook guides.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Research</span>
-                        <span class="meta-item">Data Science</span>
-                    </div>
-                </a>
-
-                <!-- Price-Radar -->
-                <a href="https://Price-Radar.github.io" class="org-card" style="--glow-color: rgba(245, 158, 11, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon gold">☀</span>
-                        <h3>Price-Radar</h3>
-                    </div>
-                    <p class="org-desc">Planned organization mapping scrapers, product crawlers, and market forecast regression models.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Planned</span>
-                        <span class="meta-item">Crawlers</span>
-                    </div>
-                </a>
-
-                <!-- ScalpScanClassifier -->
-                <a href="https://ScalpScanClassifier.github.io" class="org-card" style="--glow-color: rgba(236, 72, 153, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon pink">✿</span>
-                        <h3>ScalpScanClassifier</h3>
-                    </div>
-                    <p class="org-desc">AI classification pipeline and multi-head PyTorch diagnostic service developed during Innovation Labs.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Active</span>
-                        <span class="meta-item">Deep Learning</span>
-                    </div>
-                </a>
-
-                <!-- UAIC-BSc-ComputerScience -->
-                <a href="https://UAIC-BSc-ComputerScience.github.io" class="org-card" style="--glow-color: rgba(30, 58, 138, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon navy">🎓</span>
-                        <h3>UAIC-BSc-CS</h3>
-                    </div>
-                    <p class="org-desc">Academic course archives, labs, compiler assignments, and TCP socket-based console multiplayer chess in C.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Archive</span>
-                        <span class="meta-item">coursework</span>
-                    </div>
-                </a>
-
-                <!-- UAIC-BSc-Math -->
-                <a href="https://UAIC-BSc-Math.github.io" class="org-card" style="--glow-color: rgba(16, 185, 129, 0.25);">
-                    <div class="org-header">
-                        <span class="org-icon mint">∑</span>
-                        <h3>UAIC-BSc-Math</h3>
-                    </div>
-                    <p class="org-desc">Private academic repository mapping calculus, numerical PDE analysis, graph theory, and mathematical sciences.</p>
-                    <div class="org-meta">
-                        <span class="meta-item">Archive</span>
-                        <span class="meta-item">Math</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Flagship Projects -->
-        <section id="flagships" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Flagship Projects</h2>
-                <p class="section-desc">Key highlighted projects across the organizations.</p>
-            </div>
-            <div class="projects-grid" id="flagships-container">
-                <!-- Generated by script -->
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <p>Dragoș-Andrei Bobu &copy; 2026. Part of the personal portfolio project ecosystem.</p>
-            <p><a href="https://dragosandreibobu.github.io">dragosandreibobu.github.io</a> &bull; <a href="https://github.com/dragosandreibobu" target="_blank">GitHub Profile</a></p>
-        </div>
-    </footer>
-
-    <script>
-        const projects = [
-  {
-    "name": "curricula.live platform",
-    "slug": "curricula-live-platform",
-    "organization": "curricula-live",
-    "status": "Active",
-    "summary": "Next.js App Router, React, TypeScript, and Tailwind CSS v4 landing portal mapping the layer divisions (engine, print, schools, mobile) of the curriculum planner.",
-    "repo": "https://github.com/curricula-live/landing",
-    "live": "https://curricula.live",
-    "tags": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "TailwindCSS v4"
-    ],
-    "related": [
-      "manualdigital",
-      "DigitalChalkLab"
-    ]
-  },
-  {
-    "name": "curricula-live knowledge-graph",
-    "slug": "knowledge-graph",
-    "organization": "curricula-live",
-    "status": "Active / Research",
-    "summary": "Prerequisite mapping, curriculum planner and recommendation graph built on React + Vite (frontend) and FastAPI (backend). Runs structured JSON content schemas.",
-    "repo": "https://github.com/curricula-live/knowledge-graph",
-    "live": "",
-    "tags": [
-      "React",
-      "Vite",
-      "FastAPI",
-      "JSON Schema",
-      "Graph Theory"
-    ],
-    "related": [
-      "manualdigital",
-      "DigitalChalkLab"
-    ]
-  },
-  {
-    "name": "curricula.live api",
-    "slug": "curricula-api",
-    "organization": "curricula-live",
-    "status": "Active",
-    "summary": "FastAPI backend microservice handling concept validation, curriculum node dependencies, and recommendation outputs.",
-    "repo": "https://github.com/curricula-live/api",
-    "live": "",
-    "tags": [
-      "FastAPI",
-      "Python",
-      "pytest",
-      "REST API"
-    ],
-    "related": [
-      "manualdigital"
-    ]
-  },
-  {
-    "name": "discipline-taxonomy",
-    "slug": "discipline-taxonomy",
-    "organization": "curricula-live",
-    "status": "Active",
-    "summary": "Academic-discipline seed taxonomy table modeling academic paths and domain-structured trees.",
-    "repo": "https://github.com/curricula-live/discipline-taxonomy",
-    "live": "https://curricula-live.github.io/discipline-taxonomy/",
-    "tags": [
-      "HTML",
-      "CSS",
-      "Taxonomy",
-      "JSON"
-    ],
-    "related": [
-      "UAIC-BSc-ComputerScience",
-      "UAIC-BSc-Math"
-    ]
-  },
-  {
-    "name": "FormalMethods / formal-methods-dafny",
-    "slug": "formal-methods-dafny",
-    "organization": "curricula-live",
-    "status": "Research / Teaching Archive",
-    "summary": "Dafny models and formal-methods coursework testing logical verification, program correctness, and post-conditions.",
-    "repo": "https://github.com/curricula-live/FormalMethods",
-    "live": "",
-    "tags": [
-      "Dafny",
-      "Formal Verification",
-      "Logic",
-      "Algorithms"
-    ],
-    "related": [
-      "UAIC-BSc-ComputerScience",
-      "UAIC-BSc-Math"
-    ]
-  },
-  {
-    "name": "RDF-Food-Ontology",
-    "slug": "rdf-food-ontology",
-    "organization": "curricula-live",
-    "status": "Research",
-    "summary": "Question-answering system using rdflib to process RDF-based food ontologies and NLTK for natural language query generation.",
-    "repo": "https://github.com/curricula-live/RDF-Food-Ontology",
-    "live": "",
-    "tags": [
-      "Python",
-      "RDF",
-      "rdflib",
-      "NLTK",
-      "Ontology"
-    ],
-    "related": [
-      "Hyperspace-Intelligence"
-    ]
-  },
-  {
-    "name": "manualdigital.tech / teach-material",
-    "slug": "teach-material",
-    "organization": "manualdigital",
-    "status": "Active / Teaching Archive",
-    "summary": "High school informatics lesson plans, structured teaching tools, and coding guidelines.",
-    "repo": "https://github.com/manualdigital/teach-material",
-    "live": "https://manualdigital.github.io/teach-material/",
-    "tags": [
-      "Markdown",
-      "Informatics",
-      "Pedagogy",
-      "Secondary Education"
-    ],
-    "related": [
-      "curricula-live",
-      "DigitalChalkLab"
-    ]
-  },
-  {
-    "name": "caiet.me / WebTech-Foundations",
-    "slug": "webtech-foundations",
-    "organization": "manualdigital",
-    "status": "Active / Teaching Archive",
-    "summary": "Web technologies curriculum and lessons covering basic to advanced frontend, interactive scripts, and student portals.",
-    "repo": "https://github.com/manualdigital/WebTech-Foundations",
-    "live": "",
-    "tags": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Teaching"
-    ],
-    "related": [
-      "curricula-live",
-      "DigitalChalkLab"
-    ]
-  },
-  {
-    "name": "JavaTech-Practice",
-    "slug": "javatech-practice",
-    "organization": "manualdigital",
-    "status": "Active / Teaching Archive",
-    "summary": "Advanced programming lab guides in Java covering design patterns, threads, network sockets, and database integrations.",
-    "repo": "https://github.com/manualdigital/JavaTech-Practice",
-    "live": "",
-    "tags": [
-      "Java",
-      "Design Patterns",
-      "Concurrency",
-      "Sockets"
-    ],
-    "related": [
-      "UAIC-BSc-ComputerScience"
-    ]
-  },
-  {
-    "name": "Algorithmic Teaching Demos",
-    "slug": "algorithmic-teaching-demos",
-    "organization": "manualdigital",
-    "status": "Teaching Archive / Experimental",
-    "summary": "Collection of interactive AI and search problem visualizers including WaterJug-Problem, n-queens, Nash-Equilibrium, and Cliff-Walking RL.",
-    "repo": "https://github.com/manualdigital/WaterJug-Problem",
-    "live": "",
-    "tags": [
-      "Python",
-      "AI",
-      "Q-Learning",
-      "Game Theory",
-      "Algorithms"
-    ],
-    "related": [
-      "DigitalChalkLab"
-    ]
-  },
-  {
-    "name": "Software sketchbook",
-    "slug": "sketchbook",
-    "organization": "DigitalChalkLab",
-    "status": "Active",
-    "summary": "Unified teaching notebook for frontend UI components, backend routes, database schemes, distributed systems labs, and setup utilities.",
-    "repo": "https://github.com/DigitalChalkLab/sketchbook",
-    "live": "https://chalkcircuit-lab.github.io/sketchbook/",
-    "tags": [
-      "HTML",
-      "JavaScript",
-      "Java",
-      "Systems",
-      "Database"
-    ],
-    "related": [
-      "manualdigital",
-      "curricula-live"
-    ]
-  },
-  {
-    "name": "DocVoiceNav",
-    "slug": "docvoicenav",
-    "organization": "DigitalChalkLab",
-    "status": "Active / Research",
-    "summary": "Accessibility OCR system capturing documents via mobile camera and processing text extraction over Wi-Fi to a local backend for text-to-speech feedback.",
-    "repo": "https://github.com/DigitalChalkLab/DocVoiceNav",
-    "live": "",
-    "tags": [
-      "FastAPI",
-      "Flutter",
-      "EasyOCR",
-      "Python",
-      "TTS"
-    ],
-    "related": [
-      "manualdigital",
-      "UAIC-BSc-ComputerScience"
-    ]
-  },
-  {
-    "name": "shopCrawler.py & shopViz.py",
-    "slug": "shop-crawler",
-    "organization": "DigitalChalkLab",
-    "status": "Experimental",
-    "summary": "E-commerce web scraping utility built with Python/Selenium alongside an analytics visualization dashboard.",
-    "repo": "https://github.com/DigitalChalkLab/shopCrawler.py",
-    "live": "",
-    "tags": [
-      "Python",
-      "Selenium",
-      "Data Visualization",
-      "Crawlers"
-    ],
-    "related": [
-      "Price-Radar",
-      "Hyperspace-Intelligence"
-    ]
-  },
-  {
-    "name": "KinectSchoolScanner",
-    "slug": "kinect-school-scanner",
-    "organization": "Bluebird-Studio",
-    "status": "Active / Research",
-    "summary": "WPF Kinect v1 depth/RGB room scanner that generates colored point clouds and exports ASCII PLY files for Blender workflows.",
-    "repo": "https://github.com/Bluebird-Studio/KinectSchoolScanner",
-    "live": "",
-    "tags": [
-      "WPF",
-      ".NET Framework 4.8",
-      "Kinect SDK v1.8",
-      "Blender",
-      "C#"
-    ],
-    "related": [
-      "DigitalChalkLab",
-      "Machine-Learning-Compatible-Game-Engine"
-    ]
-  },
-  {
-    "name": "fiicode-2026-overcoded",
-    "slug": "fiicode-2026-overcoded",
-    "organization": "Bluebird-Studio",
-    "status": "Active",
-    "summary": "Local co-op game prototype inspired by Overcooked where players coordinate tasks to survive computer science semesters.",
-    "repo": "https://github.com/Bluebird-Studio/fiicode-2026-overcoded",
-    "live": "",
-    "tags": [
-      "C++17",
-      "raylib",
-      "CMake",
-      "Game Jam"
-    ],
-    "related": [
-      "Machine-Learning-Compatible-Game-Engine"
-    ]
-  },
-  {
-    "name": "fiicode-2026-predictive-demand-prediction",
-    "slug": "predictive-demand-prediction",
-    "organization": "Hyperspace-Intelligence",
-    "status": "Archived / ML Competition",
-    "summary": "Retail network sales forecasting system using recursive gradient-boosted trees (CatBoost, LightGBM, XGBoost) and out-of-fold blending, scoring 2.0704 public leaderboard.",
-    "repo": "https://github.com/Hyperspace-Intelligence/fiicode-2026-predictive-demand-prediction",
-    "live": "",
-    "tags": [
-      "Python",
-      "CatBoost",
-      "LightGBM",
-      "XGBoost",
-      "Forecasting"
-    ],
-    "related": [
-      "Price-Radar"
-    ]
-  },
-  {
-    "name": "CAVA2026Lab / Computer Vision Labs",
-    "slug": "cava-lab",
-    "organization": "Hyperspace-Intelligence",
-    "status": "Research / Teaching Archive",
-    "summary": "Computer vision coursework, matrix processing operations, and filters archive.",
-    "repo": "https://github.com/Hyperspace-Intelligence/CAVA2026Lab",
-    "live": "",
-    "tags": [
-      "Python",
-      "OpenCV",
-      "Computer Vision",
-      "Notebooks"
-    ],
-    "related": [
-      "UAIC-BSc-ComputerScience"
-    ]
-  },
-  {
-    "name": "Machine Learning Compatible Game Engine (full-suite)",
-    "slug": "mlcge-full-suite",
-    "organization": "Machine-Learning-Compatible-Game-Engine",
-    "status": "Research / Thesis",
-    "summary": "Experimental graphics suite combining a C++/OpenGL rendering core, PyQt editor interface, and simulation loops prepared for future ML-agent bridges.",
-    "repo": "https://github.com/Machine-Learning-Compatible-Game-Engine/full-suite",
-    "live": "",
-    "tags": [
-      "C++",
-      "OpenGL",
-      "PyQt",
-      "Game Engine",
-      "Simulation"
-    ],
-    "related": [
-      "DigitalChalkLab",
-      "Hyperspace-Intelligence",
-      "UAIC-BSc-ComputerScience"
-    ]
-  },
-  {
-    "name": "supEngine",
-    "slug": "sup-engine",
-    "organization": "Machine-Learning-Compatible-Game-Engine",
-    "status": "Active / Research",
-    "summary": "Focused C++/FreeGLUT engine prototype supporting primitive drawing, simple component-based game objects, and input layers.",
-    "repo": "https://github.com/Machine-Learning-Compatible-Game-Engine/supEngine",
-    "live": "",
-    "tags": [
-      "C++",
-      "OpenGL",
-      "FreeGLUT",
-      "Simulation Core"
-    ],
-    "related": [
-      "DigitalChalkLab"
-    ]
-  },
-  {
-    "name": "abstract-template-for-opengl-render-engine",
-    "slug": "opengl-render-engine",
-    "organization": "Machine-Learning-Compatible-Game-Engine",
-    "status": "Research",
-    "summary": "Shader compilation wrappers, vertex array layouts, textures, and ImGui diagnostics diagnostics helper engine.",
-    "repo": "https://github.com/Machine-Learning-Compatible-Game-Engine/abstract-template-for-opengl-render-engine",
-    "live": "",
-    "tags": [
-      "C++",
-      "OpenGL",
-      "ImGui",
-      "Renderer"
-    ],
-    "related": [
-      "UAIC-BSc-ComputerScience"
-    ]
-  },
-  {
-    "name": "ScalpScan Ordinal Classifier",
-    "slug": "scalpscan-classifier",
-    "organization": "ScalpScanClassifier",
-    "status": "Active / Research",
-    "summary": "FastAPI backend and multi-head PyTorch neural model trained on ordinal criteria for scalp-condition classification and matching product catalog recommending.",
-    "repo": "https://github.com/dragosandreibobu/InnovationLabs-2026-Scalp-Condition-Classifier",
-    "live": "",
-    "tags": [
-      "PyTorch",
-      "FastAPI",
-      "Deep Learning",
-      "Ordinal Regression"
-    ],
-    "related": [
-      "Hyperspace-Intelligence",
-      "UAIC-BSc-ComputerScience"
-    ]
-  },
-  {
-    "name": "Networked Chess over Sockets (Chess-CLI)",
-    "slug": "chess-cli",
-    "organization": "UAIC-BSc-ComputerScience",
-    "status": "Teaching Archive",
-    "summary": "Console-based multiplayer chess game using TCP sockets in C, featuring client-server structures and basic network protocols.",
-    "repo": "https://github.com/dragosandreibobu/Chess-CLI",
-    "live": "",
-    "tags": [
-      "C",
-      "Sockets",
-      "Networking",
-      "CLI",
-      "Game Logic"
-    ],
-    "related": [
-      "UAIC-BSc-ComputerScience"
-    ]
-  },
-  {
-    "name": "BSc-ComputerScience-FII-UAIC",
-    "slug": "cs-fii-uaic-archive",
-    "organization": "UAIC-BSc-ComputerScience",
-    "status": "Teaching Archive",
-    "summary": "Structured coursework repository mapping 3 years of computer science labs: compilers, operating systems, advanced programming, networks, and databases.",
-    "repo": "https://github.com/UAIC-BSc-ComputerScience/BSc-ComputerScience-FII-UAIC",
-    "live": "",
-    "tags": [
-      "Academic",
-      "Coursework",
-      "UAIC FII",
-      "Software Engineering"
-    ],
-    "related": [
-      "UAIC-BSc-Math"
-    ]
-  },
-  {
-    "name": "UAIC-BSc-Math Archive",
-    "slug": "math-fii-uaic-archive",
-    "organization": "UAIC-BSc-Math",
-    "status": "Teaching Archive",
-    "summary": "Mathematical-computing coursework archive: functional analysis, numerical analysis, evolutionary computation, graph theory, and bachelor thesis drafts.",
-    "repo": "https://github.com/UAIC-BSc-Math/mf4eld",
-    "live": "",
-    "tags": [
-      "Academic",
-      "Mathematics",
-      "Functional Analysis",
-      "PDEs"
-    ],
-    "related": [
-      "curricula-live"
-    ]
-  }
-];
-        const container = document.getElementById('flagships-container');
-
-        projects.forEach(p => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            
-            const badges = p.tags.slice(0, 3).map(t => `<span class="tag">${t}</span>`).join('');
-            
-            card.innerHTML = `
-                <div class="project-card-header">
-                    <span class="project-status">${p.status}</span>
-                    <span class="project-org">${p.organization}</span>
-                </div>
-                <h3>${p.name}</h3>
-                <p>${p.summary}</p>
-                <div class="project-tags">${badges}</div>
-                <div class="project-links">
-                    <a href="${p.repo}" target="_blank" class="link-btn">Code Repository</a>
-                    ${p.live ? `<a href="${p.live}" target="_blank" class="link-btn primary">Live Demo</a>` : ''}
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    </script>
+<script type="module">
+const zones={blackboard:{title:'Blackboard',body:'Teaching, research, graph algorithms, compiler sketches, rendering math, and curriculum-system reasoning.',link:'#areas'},monitor:{title:'EngineOS monitor',body:'The project operating surface: live demos, GitHub organizations, research windows, and flagship repositories.',link:'#flagships'},notebook:{title:'Engineering notebook',body:'Design traces, lesson plans, TODOs, architecture notes, graph traversals, proofs, and implementation fragments.',link:'#profile'},desk:{title:'Workbench desk',body:'The practical layer: engine prototypes, crawlers, Kinect tools, computer vision experiments, and applied systems.',link:'#orgs'}};
+const projects=[['curricula.live platform','curricula-live','Active','Landing and platform surfaces for a curriculum planner organized around engine, print, schools, and mobile layers.','https://github.com/curricula-live/landing','https://curricula.live',['Next.js','React','TypeScript']],['Software sketchbook','DigitalChalkLab','Active','Unified teaching notebook for frontend components, backend routes, database schemas, and distributed systems labs.','https://github.com/DigitalChalkLab/sketchbook','https://chalkcircuit-lab.github.io/sketchbook/',['HTML','JavaScript','Teaching']],['Machine Learning Compatible Game Engine','MLCGE Lab','Research / Thesis','Experimental graphics suite combining a C++/OpenGL rendering core, editor interface, and ML-oriented simulation hooks.','https://github.com/Machine-Learning-Compatible-Game-Engine/full-suite','',['C++','OpenGL','Simulation']],['KinectSchoolScanner','Bluebird-Studio','Active / Research','WPF Kinect v1 depth/RGB room scanner that generates colored point clouds and exports ASCII PLY files for Blender.','https://github.com/Bluebird-Studio/KinectSchoolScanner','',['WPF','Kinect','C#']],['ScalpScan Ordinal Classifier','ScalpScanClassifier','Active / Research','FastAPI backend and multi-head PyTorch neural model trained on ordinal criteria for scalp-condition classification.','https://github.com/dragosandreibobu/InnovationLabs-2026-Scalp-Condition-Classifier','',['PyTorch','FastAPI','ML']],['Predictive Demand Prediction','Hyperspace-Intelligence','Archived / ML Competition','Retail sales forecasting system using gradient-boosted trees, recursive features, and out-of-fold blending.','https://github.com/Hyperspace-Intelligence/fiicode-2026-predictive-demand-prediction','',['Python','CatBoost','Forecasting']]];
+document.querySelectorAll('[data-hotspot]').forEach(b=>b.addEventListener('click',()=>selectZone(b.dataset.hotspot)));
+function selectZone(k){const z=zones[k]||zones.blackboard;document.getElementById('panel-title').textContent=z.title;document.getElementById('panel-body').textContent=z.body;document.getElementById('panel-link').href=z.link;document.querySelectorAll('[data-hotspot]').forEach(b=>b.classList.toggle('active',b.dataset.hotspot===k));}
+document.getElementById('projects').innerHTML=projects.map(p=>`<article class="card"><div class="meta"><span>${p[2]}</span><span>${p[1]}</span></div><h3>${p[0]}</h3><p>${p[3]}</p><div class="meta">${p[6].map(t=>`<span>${t}</span>`).join('')}</div><div class="project-links"><a href="${p[4]}" target="_blank" rel="noreferrer">Code Repository</a>${p[5]?`<a class="primary" href="${p[5]}" target="_blank" rel="noreferrer">Live Demo</a>`:''}</div></article>`).join('');
+let enabled=localStorage.getItem('room-mode')!=='static';const toggle=document.getElementById('toggle-room'),canvas=document.getElementById('room-canvas');toggle.onclick=async()=>{enabled=!enabled;localStorage.setItem('room-mode',enabled?'interactive':'static');toggle.textContent=enabled?'Interactive Mode: ON':'Interactive Mode: OFF';toggle.setAttribute('aria-pressed',String(enabled));document.body.classList.toggle('static',!enabled);if(enabled&&!window.__roomStarted)start3d();};
+if(!enabled||matchMedia('(prefers-reduced-motion: reduce)').matches){document.body.classList.add('static');toggle.textContent='Interactive Mode: OFF';toggle.setAttribute('aria-pressed','false')}else start3d();
+async function start3d(){if(!canvas)return;window.__roomStarted=true;try{const T=await import('https://unpkg.com/three@0.165.0/build/three.module.js');const r=new T.WebGLRenderer({canvas,antialias:true,alpha:true});const s=new T.Scene();s.fog=new T.Fog(0x050607,7.5,13);const c=new T.PerspectiveCamera(42,1,.1,100);c.position.set(0,1.6,6.4);const room=new T.Group();s.add(room);s.add(new T.AmbientLight(0x8aa2c0,.62));const l1=new T.PointLight(0xffc987,2.2,8);l1.position.set(2.4,3.8,2.4);s.add(l1);const l2=new T.PointLight(0x60a5fa,1.3,7);l2.position.set(-2.2,2.4,2.2);s.add(l2);const click=[],targets=new Map();function box(n,size,pos,color,target){const m=new T.Mesh(new T.BoxGeometry(...size),new T.MeshStandardMaterial({color,roughness:.78,metalness:.04}));m.name=n;m.position.set(...pos);if(target){m.userData.hotspot=target;click.push(m);targets.set(target,m)}room.add(m);return m}box('floor',[8.2,.12,6.2],[0,-1.35,0],0x3a2418);box('left-wall',[.12,4.4,6.2],[-4.1,.8,-.2],0x111827);box('right-wall',[.12,4.4,6.2],[4.1,.8,-.2],0x0f172a);box('back-wall',[8.2,4.4,.12],[0,.8,-3.15],0x101820);box('blackboard',[4.6,2,.08],[0,1.45,-3.04],0x123025,'blackboard');box('desk',[5.4,.28,1.8],[0,-.72,-.2],0x7c4a2d,'desk');box('monitor',[1.8,1.05,.08],[.55,.02,-.95],0x05070b,'monitor');box('screen',[1.62,.88,.03],[.55,.02,-.89],0x0a1f3d);box('notebook',[1.05,.08,.75],[-1.45,-.53,.04],0xd8c18a,'notebook');box('keyboard',[1.25,.06,.28],[.62,-.54,.26],0x101827);box('lamp-post',[.08,1.05,.08],[2.32,-.15,-.3],0x111827);box('lamp-head',[.72,.16,.28],[2.1,.46,-.38],0xf59e0b);const g=new T.PointLight(0x60a5fa,1.4,3.2);g.position.set(.55,.16,-.55);room.add(g);const ray=new T.Raycaster(),ptr=new T.Vector2();function resize(){const b=canvas.getBoundingClientRect();r.setPixelRatio(Math.min(devicePixelRatio,1.8));r.setSize(Math.max(b.width,1),Math.max(b.height,1),false);c.aspect=b.width/b.height;c.updateProjectionMatrix()}function point(e){const b=canvas.getBoundingClientRect();ptr.x=((e.clientX-b.left)/b.width)*2-1;ptr.y=-((e.clientY-b.top)/b.height)*2+1}canvas.addEventListener('click',e=>{point(e);ray.setFromCamera(ptr,c);const hit=ray.intersectObjects(click,false)[0];if(hit?.object?.userData?.hotspot)selectZone(hit.object.userData.hotspot)});canvas.addEventListener('pointermove',e=>{point(e);ray.setFromCamera(ptr,c);canvas.style.cursor=ray.intersectObjects(click,false)[0]?'pointer':'default'});addEventListener('resize',resize);resize();canvas.classList.add('ready');function tick(t){if(!enabled)return;room.rotation.y=Math.sin(t*.00035)*.025;r.render(s,c);requestAnimationFrame(tick)}tick(0)}catch(e){console.warn('3D failed; static room remains available.',e);document.body.classList.add('static')}}
+</script>
 </body>
 </html>
