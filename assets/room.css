@@ -702,6 +702,10 @@ body.static #room-canvas { display: none; }
   text-decoration: none;
 }
 
+noscript {
+  display: contents;
+}
+
 .info-card:hover,
 .org-card:hover,
 .project-card:hover {
