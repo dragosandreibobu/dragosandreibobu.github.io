@@ -862,3 +862,8 @@ body.static #room-canvas { display: none; }
   .mobile-card h3 { font-size: 1.15rem; }
   .mobile-card p { font-size: 0.84rem; }
 }
+
+@media (min-width: 1600px) {
+  .lab-hero { width: min(1760px, calc(100% - 2rem)); }
+  .scene-frame { min-height: 860px; }
+}
