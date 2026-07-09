@@ -1,58 +1,53 @@
 const zones = {
   board: {
     title: 'Blackboard wall',
-    body: 'A technical blackboard used as the main knowledge map for systems, algorithms, ML, rendering, infrastructure, compilers, simulation, and teaching notes.',
+    body: 'A readable knowledge wall for systems, graphs, machine learning, rendering, infrastructure, compilers, simulation, and teaching notes.',
     link: '#areas'
   },
   'board-systems': {
-    title: 'Blackboard · Systems architecture',
-    body: 'Web surfaces, API layers, authentication, persistence, workers, deployment, and reliability notes.',
+    title: 'Blackboard · Systems',
+    body: 'Architecture notes: web surfaces, API layers, auth, persistence, queues, workers, and deployment boundaries.',
     link: '#areas'
   },
   'board-graphs': {
-    title: 'Blackboard · Graph algorithms',
-    body: 'BFS, DFS, Dijkstra, shortest paths, prerequisite graphs, course graphs, and knowledge-map traversal.',
+    title: 'Blackboard · Graphs',
+    body: 'Graph thinking: BFS, DFS, Dijkstra, prerequisite chains, knowledge graphs, and route finding.',
     link: '#areas'
   },
   'board-ml': {
     title: 'Blackboard · Machine learning',
-    body: 'Classifiers, forecasting, feature pipelines, model evaluation, AI/ML services, and simulation hooks.',
+    body: 'ML notes: features, models, ordinal heads, forecasting, evaluation, and simulation hooks.',
     link: '#flagships'
   },
   'board-rendering': {
-    title: 'Blackboard · Rendering pipeline',
-    body: 'OpenGL, shader flow, scene objects, cameras, transformations, visual experiments, and graphics sketchbooks.',
+    title: 'Blackboard · Rendering',
+    body: 'Graphics notes: model transforms, shader flow, rasterization, post-processing, cameras, and PBR thinking.',
     link: '#flagships'
   },
   'board-infra': {
     title: 'Blackboard · Infrastructure',
-    body: 'GitHub Pages, CI, static deploys, backend services, Supabase, Render, and project-operating workflows.',
+    body: 'Infrastructure notes: GitHub Pages, CI, static deploys, Supabase, Render, and project operating workflows.',
     link: '#orgs'
   },
   'board-compilers': {
-    title: 'Blackboard · Compiler notes',
-    body: 'Tokens, ASTs, intermediate representation, code generation, optimization notes, and systems coursework.',
+    title: 'Blackboard · Compilers',
+    body: 'Compiler notes: tokens, ASTs, IR, assembly, constant folding, and dead-code elimination.',
     link: '#areas'
   },
   monitor: {
     title: 'EngineOS monitor',
-    body: 'Modern project dashboard: repositories, live demos, research, teaching material, resume surface, blog, and contact routes.',
+    body: 'Modern project dashboard with repositories, live demos, research, teaching material, resume surface, blog, and contact routes.',
     link: '#flagships'
   },
   'monitor-projects': {
-    title: 'EngineOS · Projects window',
-    body: 'Flagship projects exposed as a modern desktop dashboard with status, stacks, live links, and source routes.',
+    title: 'EngineOS · Projects',
+    body: 'Flagship projects exposed as modern dashboard cards with status, stack, live links, and source routes.',
     link: '#flagships'
   },
-  'monitor-research': {
-    title: 'EngineOS · Research window',
-    body: 'Research threads across AI/ML, graphics, graph systems, computer vision, and technical pedagogy.',
+  'monitor-map': {
+    title: 'EngineOS · System map',
+    body: 'A map of project relationships across curriculum tools, engine work, AI/ML, graphics, and teaching systems.',
     link: '#areas'
-  },
-  notebook: {
-    title: 'Teaching notebook',
-    body: 'Lesson plans, graph traversals, projection matrices, architecture notes, TODOs, and explanation-first engineering traces.',
-    link: '#profile'
   },
   'notebook-algorithm': {
     title: 'Notebook · Algorithm page',
@@ -65,7 +60,7 @@ const zones = {
     link: '#profile'
   },
   keyboard: {
-    title: 'Desktop · Keyboard and input',
+    title: 'Desktop · Keyboard',
     body: 'Coding, editing, debugging, writing, and fast iteration across project repositories.',
     link: '#flagships'
   },
@@ -124,7 +119,7 @@ function selectZone(key) {
   link.target = zone.link.startsWith('http') ? '_blank' : '';
   link.rel = zone.link.startsWith('http') ? 'noreferrer' : '';
   document.querySelectorAll('[data-hotspot]').forEach((button) => {
-    button.classList.toggle('active', button.dataset.hotspot === key || key.startsWith(button.dataset.hotspot));
+    button.classList.toggle('active', key === button.dataset.hotspot || key.startsWith(button.dataset.hotspot));
   });
 }
 
@@ -200,16 +195,16 @@ function buildRoomScene(THREE, canvas) {
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.06;
+  renderer.toneMappingExposure = 1.05;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x050504);
-  scene.fog = new THREE.FogExp2(0x050504, 0.017);
+  scene.fog = new THREE.FogExp2(0x050504, 0.015);
 
-  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
-  const cameraTarget = new THREE.Vector3(0.1, 0.56, -1.78);
-  const baseCamera = new THREE.Vector3(0.18, 1.34, 6.42);
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+  const cameraTarget = new THREE.Vector3(0.08, 0.58, -1.8);
+  const baseCamera = new THREE.Vector3(0.1, 1.32, 6.32);
   camera.position.copy(baseCamera);
 
   const root = new THREE.Group();
@@ -323,18 +318,6 @@ function buildRoomScene(THREE, canvas) {
     ctx.closePath();
   }
 
-  function softNoise(ctx, width, height, opacity = 0.004) {
-    const image = ctx.getImageData(0, 0, width, height);
-    for (let i = 0; i < image.data.length; i += 4) {
-      const value = 118 + Math.floor(Math.random() * 34);
-      image.data[i] = value;
-      image.data[i + 1] = value;
-      image.data[i + 2] = value;
-      image.data[i + 3] = Math.floor(255 * opacity);
-    }
-    ctx.putImageData(image, 0, 0);
-  }
-
   function makeWoodTexture(key, base = '#321b0f') {
     return canvasTexture(key, 1536, 1536, (ctx, w, h) => {
       const grad = ctx.createLinearGradient(0, 0, w, h);
@@ -343,116 +326,118 @@ function buildRoomScene(THREE, canvas) {
       grad.addColorStop(1, '#160b06');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 110; i++) {
         const y = Math.random() * h;
-        ctx.strokeStyle = i % 6 === 0 ? 'rgba(231,155,88,.13)' : 'rgba(0,0,0,.13)';
-        ctx.lineWidth = Math.random() * 1.6 + 0.25;
+        ctx.strokeStyle = i % 6 === 0 ? 'rgba(231,155,88,.12)' : 'rgba(0,0,0,.11)';
+        ctx.lineWidth = Math.random() * 1.4 + 0.2;
         ctx.beginPath();
         ctx.moveTo(-60, y);
-        for (let x = -60; x < w + 100; x += 60) ctx.lineTo(x, y + Math.sin(x * 0.012 + i) * 7);
+        for (let x = -60; x < w + 100; x += 60) ctx.lineTo(x, y + Math.sin(x * 0.012 + i) * 6);
         ctx.stroke();
       }
     });
   }
 
   function makeWallTexture() {
-    return canvasTexture('clean-dark-wall-v5', 1024, 1024, (ctx, w, h) => {
+    return canvasTexture('clean-dark-wall-v7', 1024, 1024, (ctx, w, h) => {
       ctx.fillStyle = '#15110e';
       ctx.fillRect(0, 0, w, h);
       const vignette = ctx.createRadialGradient(w * 0.5, h * 0.45, 30, w * 0.5, h * 0.45, w * 0.85);
-      vignette.addColorStop(0, 'rgba(255,235,200,.035)');
+      vignette.addColorStop(0, 'rgba(255,235,200,.03)');
       vignette.addColorStop(1, 'rgba(0,0,0,.18)');
       ctx.fillStyle = vignette;
       ctx.fillRect(0, 0, w, h);
-      for (let y = 0; y < h; y += 28) {
-        ctx.strokeStyle = 'rgba(255,255,255,.012)';
+    }, true);
+  }
+
+  function makeBoardBaseTexture() {
+    return canvasTexture('board-base-clean-v7', 2048, 620, (ctx, w, h) => {
+      ctx.fillStyle = '#0f251d';
+      ctx.fillRect(0, 0, w, h);
+      const sheen = ctx.createLinearGradient(0, 0, w, h);
+      sheen.addColorStop(0, 'rgba(255,255,235,.035)');
+      sheen.addColorStop(1, 'rgba(0,0,0,.22)');
+      ctx.fillStyle = sheen;
+      ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = 'rgba(232,234,223,.12)';
+      ctx.lineWidth = 2;
+      for (let x = w / 6; x < w; x += w / 6) {
         ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
+        ctx.moveTo(x, 24);
+        ctx.lineTo(x, h - 24);
         ctx.stroke();
       }
     }, true);
   }
 
-  function makeBlackboardTexture() {
-    return canvasTexture('blackboard-clean-sections-v6', 4096, 2048, (ctx, w, h) => {
-      ctx.fillStyle = '#0f241c';
-      ctx.fillRect(0, 0, w, h);
-      const sheen = ctx.createLinearGradient(0, 0, w, h);
-      sheen.addColorStop(0, 'rgba(255,255,235,.045)');
-      sheen.addColorStop(0.35, 'rgba(255,255,235,.012)');
-      sheen.addColorStop(1, 'rgba(0,0,0,.22)');
-      ctx.fillStyle = sheen;
-      ctx.fillRect(0, 0, w, h);
-      softNoise(ctx, w, h, 0.006);
+  function makeBoardSectionTexture(key, title, lines, accent = '#e8eadf') {
+    return canvasTexture(`board-section-${key}-v3`, 1050, 1700, (ctx, w, h) => {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = 'rgba(255,255,255,0.015)';
+      roundRect(ctx, 28, 28, w - 56, h - 56, 44);
+      ctx.fill();
 
-      const sections = [
-        ['Systems', ['Web → API Gateway', 'Auth → CDN', 'Postgres / Redis', 'workers / queues']],
-        ['Graphs', ['G = (V, E)', 'BFS / DFS', 'Dijkstra', 'curriculum paths']],
-        ['Machine Learning', ['features → model', 'ordinal heads', 'forecasting', 'evaluation']],
-        ['Rendering', ['Model → Vertex', 'Rasterizer', 'Fragment → PostFX', 'PBR / shadows']],
-        ['Infrastructure', ['Docker', 'GitHub Actions', 'Supabase', 'static deploys']],
-        ['Compilers', ['tokens → AST', 'IR → ASM', 'constant folding', 'dead code elim.']]
-      ];
-
-      sections.forEach((section, i) => {
-        const colW = w / 6;
-        const x = i * colW + 76;
-        const y = 150;
-        if (i > 0) {
-          ctx.strokeStyle = 'rgba(232,234,223,.2)';
-          ctx.lineWidth = 3;
-          ctx.beginPath();
-          ctx.moveTo(i * colW, 58);
-          ctx.lineTo(i * colW, h - 58);
-          ctx.stroke();
-        }
-        ctx.strokeStyle = i % 2 ? 'rgba(244,210,142,.86)' : 'rgba(232,234,223,.88)';
-        ctx.fillStyle = ctx.strokeStyle;
-        ctx.font = '700 78px IBM Plex Mono, Consolas, monospace';
-        ctx.fillText(section[0], x, y);
-        ctx.lineWidth = 4;
-        ctx.beginPath();
-        ctx.moveTo(x, y + 34);
-        ctx.lineTo(x + Math.min(470, colW - 120), y + 34);
-        ctx.stroke();
-        ctx.font = '500 56px IBM Plex Mono, Consolas, monospace';
-        section[1].forEach((line, j) => ctx.fillText(line, x, y + 132 + j * 84));
-      });
-
-      ctx.strokeStyle = 'rgba(232,234,223,.86)';
-      ctx.lineWidth = 5;
-      const pts = [[0, 0], [160, -110], [330, 30], [190, 160], [450, 178], [516, -52]];
-      const gx = 725;
-      const gy = 960;
-      pts.forEach(([x, y], idx) => {
-        ctx.beginPath();
-        ctx.arc(gx + x, gy + y, 25, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.font = '500 38px IBM Plex Mono, Consolas, monospace';
-        ctx.fillText(String(idx + 1), gx + x - 11, gy + y + 13);
-      });
-      [[0,1],[0,3],[1,2],[1,3],[2,5],[3,4],[4,5]].forEach(([a,b]) => {
-        ctx.beginPath();
-        ctx.moveTo(gx + pts[a][0], gy + pts[a][1]);
-        ctx.lineTo(gx + pts[b][0], gy + pts[b][1]);
-        ctx.stroke();
-      });
-
-      ctx.strokeStyle = 'rgba(137,240,177,.72)';
-      ctx.lineWidth = 5;
+      ctx.fillStyle = accent;
+      ctx.font = '800 132px IBM Plex Mono, Consolas, monospace';
+      ctx.fillText(title, 78, 190);
+      ctx.strokeStyle = accent;
+      ctx.lineWidth = 8;
       ctx.beginPath();
-      for (let i = 0; i < 360; i++) {
-        const x = 1700 + i * 3.2;
-        const y = 1320 + Math.sin(i * 0.16) * 68 + Math.sin(i * 0.04) * 34;
-        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-      }
+      ctx.moveTo(78, 240);
+      ctx.lineTo(w - 92, 240);
       ctx.stroke();
+
+      ctx.fillStyle = '#f5f1db';
+      ctx.font = '700 92px IBM Plex Mono, Consolas, monospace';
+      lines.forEach((line, i) => ctx.fillText(line, 88, 400 + i * 160));
+
+      ctx.strokeStyle = 'rgba(245,241,219,.78)';
+      ctx.lineWidth = 8;
+      if (key === 'graphs') {
+        const pts = [[180, 1100], [430, 930], [660, 1130], [430, 1325], [800, 1340]];
+        pts.forEach(([x, y]) => {
+          ctx.beginPath(); ctx.arc(x, y, 38, 0, Math.PI * 2); ctx.stroke();
+        });
+        [[0,1],[1,2],[0,3],[3,4],[2,4]].forEach(([a,b]) => {
+          ctx.beginPath(); ctx.moveTo(pts[a][0], pts[a][1]); ctx.lineTo(pts[b][0], pts[b][1]); ctx.stroke();
+        });
+      } else if (key === 'ml') {
+        ctx.beginPath();
+        for (let i = 0; i < 260; i++) {
+          const x = 110 + i * 3.1;
+          const y = 1180 + Math.sin(i * 0.14) * 60 + Math.sin(i * 0.035) * 32;
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        ctx.fillText('ŷ', 800, 1240);
+      } else if (key === 'render') {
+        ['MODEL', 'VERTEX', 'FRAG', 'POST'].forEach((t, i) => {
+          const x = 85 + i * 235;
+          roundRect(ctx, x, 1090, 190, 105, 18);
+          ctx.stroke();
+          ctx.font = '700 48px IBM Plex Mono, Consolas, monospace';
+          ctx.fillText(t, x + 22, 1160);
+          if (i < 3) {
+            ctx.beginPath(); ctx.moveTo(x + 190, 1142); ctx.lineTo(x + 230, 1142); ctx.stroke();
+          }
+        });
+      } else if (key === 'systems' || key === 'infra') {
+        const boxes = [[90, 1030, 'WEB'], [390, 1030, 'API'], [690, 1030, 'DB'], [390, 1280, 'JOB']];
+        boxes.forEach(([x, y, t]) => {
+          roundRect(ctx, x, y, 220, 120, 20);
+          ctx.stroke();
+          ctx.font = '700 58px IBM Plex Mono, Consolas, monospace';
+          ctx.fillText(t, x + 52, y + 78);
+        });
+        [[200, 1090, 390, 1090], [610, 1090, 690, 1090], [500, 1150, 500, 1280]].forEach(([x1,y1,x2,y2]) => {
+          ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+        });
+      }
     }, true);
   }
 
   function makeScreenTexture() {
-    return canvasTexture('engine-os-modern-v6', 2800, 1200, (ctx, w, h) => {
+    return canvasTexture('engine-os-modern-v8', 2800, 1200, (ctx, w, h) => {
       const bg = ctx.createLinearGradient(0, 0, w, h);
       bg.addColorStop(0, '#08111f');
       bg.addColorStop(0.55, '#0b1628');
@@ -539,17 +524,13 @@ function buildRoomScene(THREE, canvas) {
       ctx.strokeStyle = 'rgba(143,199,255,.48)';
       ctx.lineWidth = 6;
       const nodes = [[1940,520],[2110,455],[2280,560],[2110,685],[2420,700]];
-      nodes.forEach(([x, y]) => {
-        ctx.beginPath(); ctx.arc(x, y, 34, 0, Math.PI * 2); ctx.stroke();
-      });
-      [[0,1],[1,2],[0,3],[3,4],[2,4]].forEach(([a,b]) => {
-        ctx.beginPath(); ctx.moveTo(nodes[a][0], nodes[a][1]); ctx.lineTo(nodes[b][0], nodes[b][1]); ctx.stroke();
-      });
+      nodes.forEach(([x, y]) => { ctx.beginPath(); ctx.arc(x, y, 34, 0, Math.PI * 2); ctx.stroke(); });
+      [[0,1],[1,2],[0,3],[3,4],[2,4]].forEach(([a,b]) => { ctx.beginPath(); ctx.moveTo(nodes[a][0], nodes[a][1]); ctx.lineTo(nodes[b][0], nodes[b][1]); ctx.stroke(); });
     }, true);
   }
 
   function makeNotebookTexture() {
-    return canvasTexture('notebook-clean-v6', 1800, 1040, (ctx, w, h) => {
+    return canvasTexture('notebook-clean-v8', 1800, 1040, (ctx, w, h) => {
       ctx.fillStyle = '#eadfbe';
       ctx.fillRect(0, 0, w, h);
       ctx.strokeStyle = 'rgba(40,60,80,.16)';
@@ -574,7 +555,7 @@ function buildRoomScene(THREE, canvas) {
   }
 
   function makeTerminalTexture() {
-    return canvasTexture('terminal-clean-v6', 1400, 820, (ctx, w, h) => {
+    return canvasTexture('terminal-clean-v8', 1400, 820, (ctx, w, h) => {
       ctx.fillStyle = '#05070b';
       ctx.fillRect(0, 0, w, h);
       ctx.strokeStyle = 'rgba(143,199,255,.2)';
@@ -594,11 +575,11 @@ function buildRoomScene(THREE, canvas) {
   }
 
   const wallMaterial = material('academic-wall', { color: 0xffffff, map: makeWallTexture(), roughness: 0.96 });
-  const woodMaterial = material('dark-walnut', { color: 0xffffff, map: makeWoodTexture('dark-walnut-v6'), roughness: 0.72, metalness: 0.03 });
-  const floorMaterial = material('floor-wood', { color: 0xffffff, map: makeWoodTexture('floor-boards-v6', '#21130c'), roughness: 0.88 });
+  const woodMaterial = material('dark-walnut', { color: 0xffffff, map: makeWoodTexture('dark-walnut-v8'), roughness: 0.72, metalness: 0.03 });
+  const floorMaterial = material('floor-wood', { color: 0xffffff, map: makeWoodTexture('floor-boards-v8', '#21130c'), roughness: 0.88 });
   const blackMaterial = material('soft-black', { color: 0x05070a, roughness: 0.62, metalness: 0.06 });
   const brassMaterial = material('aged-brass', { color: 0x7d5629, roughness: 0.42, metalness: 0.58 });
-  const boardMaterial = material('chalk-board', { color: 0xffffff, map: makeBlackboardTexture(), roughness: 0.9 });
+  const boardBaseMaterial = material('board-base', { color: 0xffffff, map: makeBoardBaseTexture(), roughness: 0.92 });
   const paperMaterial = material('paper', { color: 0xffffff, map: makeNotebookTexture(), roughness: 0.88 });
   const screenTexture = makeScreenTexture();
   const screenMaterial = material('screen', { color: 0xffffff, map: screenTexture, roughness: 0.18, metalness: 0.02, emissive: new THREE.Color(0x265f9f), emissiveIntensity: 0.5, emissiveMap: screenTexture });
@@ -634,25 +615,35 @@ function buildRoomScene(THREE, canvas) {
   box('right-wall', [0.16, 4.7, 7.2], [5.25, 0.98, 0.1], wallMaterial, { receiveShadow: true, castShadow: false });
   box('ceiling-shadow', [10.5, 0.12, 7.2], [0, 3.36, 0.1], material('ceiling', { color: 0x090806, roughness: 0.98 }), { castShadow: false });
 
-  plane('blackboard-surface', [7.9, 2.38], [0, 1.62, -2.995], boardMaterial, { hotspot: 'board' });
-  box('board-frame-top', [8.24, 0.16, 0.18], [0, 2.88, -2.92], woodMaterial, { hotspot: 'board' });
-  box('board-frame-bottom', [8.24, 0.16, 0.2], [0, 0.36, -2.92], woodMaterial, { hotspot: 'board' });
-  box('board-frame-left', [0.16, 2.62, 0.18], [-4.1, 1.62, -2.92], woodMaterial, { hotspot: 'board' });
-  box('board-frame-right', [0.16, 2.62, 0.18], [4.1, 1.62, -2.92], woodMaterial, { hotspot: 'board' });
+  plane('blackboard-base', [8.05, 2.42], [0, 1.62, -3.0], boardBaseMaterial, { hotspot: 'board' });
+  box('board-frame-top', [8.34, 0.16, 0.18], [0, 2.9, -2.92], woodMaterial, { hotspot: 'board' });
+  box('board-frame-bottom', [8.34, 0.16, 0.2], [0, 0.34, -2.92], woodMaterial, { hotspot: 'board' });
+  box('board-frame-left', [0.16, 2.66, 0.18], [-4.17, 1.62, -2.92], woodMaterial, { hotspot: 'board' });
+  box('board-frame-right', [0.16, 2.66, 0.18], [4.17, 1.62, -2.92], woodMaterial, { hotspot: 'board' });
 
-  const boardZones = ['board-systems', 'board-graphs', 'board-ml', 'board-rendering', 'board-infra', 'board-compilers'];
+  const boardSections = [
+    ['board-systems', 'SYSTEMS', ['WEB', 'API', 'AUTH', 'DB'], '#f4d28e', 'systems'],
+    ['board-graphs', 'GRAPHS', ['BFS', 'DFS', 'DIJKSTRA', 'PATHS'], '#e8eadf', 'graphs'],
+    ['board-ml', 'ML', ['FEATURES', 'MODEL', 'LOSS', 'EVAL'], '#89f0b1', 'ml'],
+    ['board-rendering', 'RENDER', ['MODEL', 'VERTEX', 'FRAG', 'POSTFX'], '#8fc7ff', 'render'],
+    ['board-infra', 'INFRA', ['CI', 'PAGES', 'SUPABASE', 'RENDER'], '#f4d28e', 'infra'],
+    ['board-compilers', 'COMPILE', ['TOKENS', 'AST', 'IR', 'ASM'], '#e8eadf', 'compiler']
+  ];
   const boardColWidth = 7.9 / 6;
-  boardZones.forEach((zone, i) => {
+  boardSections.forEach(([zone, title, lines, accent, key], i) => {
     const x = -3.95 + boardColWidth / 2 + i * boardColWidth;
+    const tex = makeBoardSectionTexture(key, title, lines, accent);
+    const mat = material(`board-section-${zone}`, { color: 0xffffff, map: tex, transparent: true, roughness: 0.88 });
+    plane(`board-section-${i}`, [boardColWidth - 0.08, 2.25], [x, 1.62, -2.982], mat, { hotspot: zone });
     hitbox(`board-${i}`, [boardColWidth, 2.55, 0.45], [x, 1.62, -2.72], zone);
-    highlight(`board-${i}`, [boardColWidth - 0.06, 2.28], [x, 1.62, -2.965], zone);
+    highlight(`board-${i}`, [boardColWidth - 0.08, 2.25], [x, 1.62, -2.965], zone);
   });
 
-  box('desktop-slab', [7.6, 0.34, 2.15], [0, -0.62, -0.02], woodMaterial, { hotspot: 'notebook' });
-  box('desk-front', [7.75, 0.9, 0.18], [0, -1.03, 1.12], woodMaterial, { hotspot: 'notebook' });
+  box('desktop-slab', [7.6, 0.34, 2.15], [0, -0.62, -0.02], woodMaterial, { hotspot: 'notebook-algorithm' });
+  box('desk-front', [7.75, 0.9, 0.18], [0, -1.03, 1.12], woodMaterial, { hotspot: 'notebook-teaching' });
   box('desk-left-leg', [0.28, 1.3, 0.28], [-3.35, -1.1, -0.72], woodMaterial);
   box('desk-right-leg', [0.28, 1.3, 0.28], [3.35, -1.1, -0.72], woodMaterial);
-  hitbox('desktop-left', [2.2, 0.5, 1.4], [-2.25, -0.42, 0.18], 'notebook');
+  hitbox('desktop-left', [2.2, 0.5, 1.4], [-2.25, -0.42, 0.18], 'notebook-algorithm');
   hitbox('desktop-center', [2.4, 0.5, 1.35], [0.2, -0.42, 0.52], 'keyboard');
   hitbox('desktop-right', [2.2, 0.5, 1.45], [2.6, -0.42, 0.55], 'circuit');
 
@@ -662,12 +653,12 @@ function buildRoomScene(THREE, canvas) {
   box('monitor-stand-neck', [0.2, 0.56, 0.14], [0.22, -0.56, -0.78], blackMaterial, { hotspot: 'monitor' });
   box('monitor-stand-base', [1.18, 0.07, 0.58], [0.22, -0.88, -0.62], blackMaterial, { hotspot: 'monitor' });
   hitbox('monitor-projects', [2.42, 1.55, 0.5], [-0.86, 0.16, -0.35], 'monitor-projects');
-  hitbox('monitor-research', [2.42, 1.55, 0.5], [1.3, 0.16, -0.35], 'monitor-research');
+  hitbox('monitor-map', [2.42, 1.55, 0.5], [1.3, 0.16, -0.35], 'monitor-map');
   highlight('monitor-projects', [2.18, 1.12], [-0.88, 0.19, -0.658], 'monitor-projects');
-  highlight('monitor-research', [2.18, 1.12], [1.3, 0.19, -0.657], 'monitor-research');
+  highlight('monitor-map', [2.18, 1.12], [1.3, 0.19, -0.657], 'monitor-map');
 
-  box('open-notebook', [1.92, 0.06, 1.1], [-1.55, -0.4, 0.42], paperMaterial, { hotspot: 'notebook' });
-  box('notebook-spine', [0.08, 0.07, 1.16], [-1.55, -0.36, 0.42], blackMaterial, { hotspot: 'notebook' });
+  box('open-notebook', [1.92, 0.06, 1.1], [-1.55, -0.4, 0.42], paperMaterial, { hotspot: 'notebook-algorithm' });
+  box('notebook-spine', [0.08, 0.07, 1.16], [-1.55, -0.36, 0.42], blackMaterial, { hotspot: 'notebook-teaching' });
   hitbox('notebook-algorithm', [0.96, 0.42, 1.22], [-2.05, -0.28, 0.42], 'notebook-algorithm');
   hitbox('notebook-teaching', [0.96, 0.42, 1.22], [-1.06, -0.28, 0.42], 'notebook-teaching');
   highlight('notebook-left', [0.88, 1.0], [-2.04, -0.35, 0.42], 'notebook-algorithm', { rx: -Math.PI / 2 });
@@ -700,20 +691,20 @@ function buildRoomScene(THREE, canvas) {
   hitbox('contact-card', [1.22, 0.4, 0.9], [3.28, -0.32, 0.92], 'contact', { rz: 0.04 });
 
   const bookSpecs = [
-    ['book-rendering', 'Real-Time Rendering', 0x4c2f22],
-    ['book-graphs', 'Graph Algorithms', 0x22314a],
-    ['book-systems', 'Distributed Systems', 0x5b3b27],
-    ['book-ml', 'Machine Learning', 0x2f4933],
-    ['notebook', 'Teaching Methods', 0x43273a]
+    ['book-rendering', 0x4c2f22],
+    ['book-graphs', 0x22314a],
+    ['book-systems', 0x5b3b27],
+    ['book-ml', 0x2f4933],
+    ['notebook-teaching', 0x43273a]
   ];
-  bookSpecs.forEach(([zone, label, color], i) => {
+  bookSpecs.forEach(([zone, color], i) => {
     box(`book-stack-${i}`, [1.3, 0.14, 0.54], [-3.23, -0.46 + i * 0.15, -0.36], material(`book-${i}-mat`, { color, roughness: 0.65 }), { hotspot: zone, rz: 0.015 * (i - 2) });
     hitbox(`book-stack-${i}`, [1.42, 0.2, 0.68], [-3.23, -0.46 + i * 0.15, -0.36], zone, { rz: 0.015 * (i - 2) });
   });
 
   for (let shelf = 0; shelf < 3; shelf++) {
     box(`bookshelf-plank-${shelf}`, [1.3, 0.07, 0.42], [4.34, 1.95 - shelf * 0.48, -2.15], woodMaterial, { hotspot: 'book-systems' });
-    for (let i = 0; i < 8; i++) box(`shelf-book-${shelf}-${i}`, [0.095, 0.36 + Math.random() * 0.14, 0.28], [3.84 + i * 0.12, 2.13 - shelf * 0.48, -2.0], material(`shelf-book-${shelf}-${i}-mat`, { color: bookSpecs[(i + shelf) % bookSpecs.length][2], roughness: 0.68 }), { hotspot: bookSpecs[(i + shelf) % bookSpecs.length][0] });
+    for (let i = 0; i < 8; i++) box(`shelf-book-${shelf}-${i}`, [0.095, 0.36 + Math.random() * 0.14, 0.28], [3.84 + i * 0.12, 2.13 - shelf * 0.48, -2.0], material(`shelf-book-${shelf}-${i}-mat`, { color: bookSpecs[(i + shelf) % bookSpecs.length][1], roughness: 0.68 }), { hotspot: bookSpecs[(i + shelf) % bookSpecs.length][0] });
   }
   hitbox('bookshelf-top', [1.65, 0.62, 0.72], [4.32, 1.95, -1.95], 'book-rendering');
   hitbox('bookshelf-mid', [1.65, 0.62, 0.72], [4.32, 1.47, -1.95], 'book-graphs');
@@ -815,10 +806,10 @@ function buildRoomScene(THREE, canvas) {
   function animate(time) {
     const t = time * 0.001;
     if (drift && interactive) {
-      camera.position.x = baseCamera.x + Math.sin(t * 0.22) * 0.05;
-      camera.position.y = baseCamera.y + Math.sin(t * 0.17) * 0.022;
-      camera.position.z = baseCamera.z + Math.sin(t * 0.15) * 0.055;
-      root.rotation.y = Math.sin(t * 0.1) * 0.0035;
+      camera.position.x = baseCamera.x + Math.sin(t * 0.22) * 0.045;
+      camera.position.y = baseCamera.y + Math.sin(t * 0.17) * 0.02;
+      camera.position.z = baseCamera.z + Math.sin(t * 0.15) * 0.052;
+      root.rotation.y = Math.sin(t * 0.1) * 0.003;
     } else {
       camera.position.lerp(baseCamera, 0.04);
       root.rotation.y *= 0.96;
@@ -846,7 +837,7 @@ function buildRoomScene(THREE, canvas) {
     });
 
     if (hoveredZone) {
-      hoverLight.intensity += (0.48 - hoverLight.intensity) * 0.14;
+      hoverLight.intensity += (0.42 - hoverLight.intensity) * 0.14;
       const targetBox = hitboxes.find((box) => box.userData.hotspot === hoveredZone);
       if (targetBox) hoverLight.position.lerp(targetBox.getWorldPosition(new THREE.Vector3()), 0.18);
     } else {
