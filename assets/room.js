@@ -87,10 +87,12 @@ function selectZone(key) {
   const zone = zones[key] || zones.board;
   document.getElementById('panel-title').textContent = zone.title;
   document.getElementById('panel-body').textContent = zone.body;
+
   const link = document.getElementById('panel-link');
   link.href = zone.link;
   link.target = zone.link.startsWith('http') ? '_blank' : '';
   link.rel = zone.link.startsWith('http') ? 'noreferrer' : '';
+
   document.querySelectorAll('[data-hotspot]').forEach((button) => {
     button.classList.toggle('active', button.dataset.hotspot === key);
   });
@@ -121,26 +123,28 @@ const canvas = document.getElementById('room-canvas');
 let interactiveEnabled = localStorage.getItem('room-mode') !== 'static';
 let started = false;
 
+function canUseWebGLMode() {
+  return window.matchMedia('(min-width: 761px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 function setMode(enabled) {
-  interactiveEnabled = enabled;
-  document.body.classList.toggle('static', !enabled);
+  interactiveEnabled = enabled && canUseWebGLMode();
+  document.body.classList.toggle('static', !interactiveEnabled);
+
   if (toggle) {
-    toggle.textContent = enabled ? 'Interactive Mode: ON' : 'Interactive Mode: OFF';
-    toggle.setAttribute('aria-pressed', String(enabled));
+    toggle.textContent = interactiveEnabled ? 'Interactive Mode: ON' : 'Interactive Mode: OFF';
+    toggle.setAttribute('aria-pressed', String(interactiveEnabled));
   }
-  localStorage.setItem('room-mode', enabled ? 'interactive' : 'static');
-  if (enabled && !started && window.matchMedia('(min-width: 761px)').matches) start3D();
+
+  localStorage.setItem('room-mode', interactiveEnabled ? 'interactive' : 'static');
+  if (interactiveEnabled && !started) start3D();
 }
 
 if (toggle) {
   toggle.addEventListener('click', () => setMode(!interactiveEnabled));
 }
 
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !interactiveEnabled) {
-  setMode(false);
-} else if (window.matchMedia('(min-width: 761px)').matches) {
-  setMode(true);
-}
+setMode(interactiveEnabled);
 
 async function start3D() {
   if (!canvas || started) return;
