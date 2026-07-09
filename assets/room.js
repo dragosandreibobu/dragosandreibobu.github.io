@@ -1,18 +1,78 @@
 const zones = {
   board: {
     title: 'Blackboard wall',
-    body: 'System architecture, graph algorithms, machine learning, rendering, infrastructure, compiler notes, simulations, and teaching methodology.',
+    body: 'A technical blackboard used as the main knowledge map for systems, algorithms, ML, rendering, infrastructure, compilers, simulation, and teaching notes.',
+    link: '#areas'
+  },
+  'board-systems': {
+    title: 'Blackboard · Systems architecture',
+    body: 'Web surfaces, API layers, authentication, persistence, workers, deployment, and reliability notes.',
+    link: '#areas'
+  },
+  'board-graphs': {
+    title: 'Blackboard · Graph algorithms',
+    body: 'BFS, DFS, Dijkstra, shortest paths, prerequisite graphs, course graphs, and knowledge-map traversal.',
+    link: '#areas'
+  },
+  'board-ml': {
+    title: 'Blackboard · Machine learning',
+    body: 'Classifiers, forecasting, feature pipelines, model evaluation, AI/ML services, and simulation hooks.',
+    link: '#flagships'
+  },
+  'board-rendering': {
+    title: 'Blackboard · Rendering pipeline',
+    body: 'OpenGL, shader flow, scene objects, cameras, transformations, visual experiments, and graphics sketchbooks.',
+    link: '#flagships'
+  },
+  'board-infra': {
+    title: 'Blackboard · Infrastructure',
+    body: 'GitHub Pages, CI, static deploys, backend services, Supabase, Render, and project-operating workflows.',
+    link: '#orgs'
+  },
+  'board-compilers': {
+    title: 'Blackboard · Compiler notes',
+    body: 'Tokens, ASTs, intermediate representation, code generation, optimization notes, and systems coursework.',
     link: '#areas'
   },
   monitor: {
     title: 'EngineOS monitor',
-    body: 'Project dashboard: repositories, live demos, research, teaching material, resume surface, blog, and contact routes.',
+    body: 'Modern project dashboard: repositories, live demos, research, teaching material, resume surface, blog, and contact routes.',
     link: '#flagships'
+  },
+  'monitor-projects': {
+    title: 'EngineOS · Projects window',
+    body: 'Flagship projects exposed as a modern desktop dashboard with status, stacks, live links, and source routes.',
+    link: '#flagships'
+  },
+  'monitor-research': {
+    title: 'EngineOS · Research window',
+    body: 'Research threads across AI/ML, graphics, graph systems, computer vision, and technical pedagogy.',
+    link: '#areas'
   },
   notebook: {
     title: 'Teaching notebook',
     body: 'Lesson plans, graph traversals, projection matrices, architecture notes, TODOs, and explanation-first engineering traces.',
     link: '#profile'
+  },
+  'notebook-algorithm': {
+    title: 'Notebook · Algorithm page',
+    body: 'Algorithm walkthroughs, pseudocode, graph traversal notes, and problem-solving traces.',
+    link: '#areas'
+  },
+  'notebook-teaching': {
+    title: 'Notebook · Teaching page',
+    body: 'Lesson flow, scaffolding, examples, exercises, assessment, and classroom-ready explanations.',
+    link: '#profile'
+  },
+  keyboard: {
+    title: 'Desktop · Keyboard and input',
+    body: 'Coding, editing, debugging, writing, and fast iteration across project repositories.',
+    link: '#flagships'
+  },
+  circuit: {
+    title: 'Desktop · Circuit board',
+    body: 'Hardware-adjacent experiments, Kinect work, sensors, computer vision, and technical interfaces.',
+    link: '#areas'
   },
   github: {
     title: 'GitHub terminal',
@@ -23,78 +83,48 @@ const zones = {
     title: 'Contact card',
     body: 'Professional context, collaboration, teaching, research, and engineering opportunities.',
     link: '#orgs'
+  },
+  'book-rendering': {
+    title: 'Book · Real-time rendering',
+    body: 'Graphics, OpenGL, rendering loops, shaders, transformations, and visual software experiments.',
+    link: '#flagships'
+  },
+  'book-graphs': {
+    title: 'Book · Graph algorithms',
+    body: 'Knowledge graphs, shortest paths, curriculum prerequisites, and algorithmic thinking.',
+    link: '#areas'
+  },
+  'book-systems': {
+    title: 'Book · Distributed systems',
+    body: 'Backends, infrastructure, services, APIs, deployment, and system integration.',
+    link: '#areas'
+  },
+  'book-ml': {
+    title: 'Book · Machine learning',
+    body: 'Forecasting, classifiers, ordinal models, computer vision, and applied machine learning systems.',
+    link: '#flagships'
   }
 };
 
 const projects = [
-  {
-    name: 'curricula.live platform',
-    organization: 'curricula-live',
-    status: 'Active',
-    summary: 'Landing and platform surfaces for a curriculum planner organized around engine, print, schools, and mobile layers.',
-    repo: 'https://github.com/curricula-live/landing',
-    live: 'https://curricula.live',
-    tags: ['Next.js', 'React', 'TypeScript']
-  },
-  {
-    name: 'Software sketchbook',
-    organization: 'DigitalChalkLab',
-    status: 'Active',
-    summary: 'Unified teaching notebook for frontend components, backend routes, database schemas, and distributed systems labs.',
-    repo: 'https://github.com/DigitalChalkLab/sketchbook',
-    live: 'https://chalkcircuit-lab.github.io/sketchbook/',
-    tags: ['HTML', 'JavaScript', 'Teaching']
-  },
-  {
-    name: 'Machine Learning Compatible Game Engine',
-    organization: 'MLCGE Lab',
-    status: 'Research / Thesis',
-    summary: 'Experimental graphics suite combining a C++/OpenGL rendering core, editor interface, and ML-oriented simulation hooks.',
-    repo: 'https://github.com/Machine-Learning-Compatible-Game-Engine/full-suite',
-    live: '',
-    tags: ['C++', 'OpenGL', 'Simulation']
-  },
-  {
-    name: 'KinectSchoolScanner',
-    organization: 'Bluebird-Studio',
-    status: 'Active / Research',
-    summary: 'WPF Kinect v1 depth/RGB room scanner that generates colored point clouds and exports ASCII PLY files for Blender.',
-    repo: 'https://github.com/Bluebird-Studio/KinectSchoolScanner',
-    live: '',
-    tags: ['WPF', 'Kinect', 'C#']
-  },
-  {
-    name: 'ScalpScan Ordinal Classifier',
-    organization: 'ScalpScanClassifier',
-    status: 'Active / Research',
-    summary: 'FastAPI backend and multi-head PyTorch neural model trained on ordinal criteria for scalp-condition classification.',
-    repo: 'https://github.com/dragosandreibobu/InnovationLabs-2026-Scalp-Condition-Classifier',
-    live: '',
-    tags: ['PyTorch', 'FastAPI', 'ML']
-  },
-  {
-    name: 'Predictive Demand Prediction',
-    organization: 'Hyperspace-Intelligence',
-    status: 'Archived / ML Competition',
-    summary: 'Retail sales forecasting system using gradient-boosted trees, recursive features, and out-of-fold blending.',
-    repo: 'https://github.com/Hyperspace-Intelligence/fiicode-2026-predictive-demand-prediction',
-    live: '',
-    tags: ['Python', 'CatBoost', 'Forecasting']
-  }
+  { name: 'curricula.live platform', organization: 'curricula-live', status: 'Active', summary: 'Landing and platform surfaces for a curriculum planner organized around engine, print, schools, and mobile layers.', repo: 'https://github.com/curricula-live/landing', live: 'https://curricula.live', tags: ['Next.js', 'React', 'TypeScript'] },
+  { name: 'Software sketchbook', organization: 'DigitalChalkLab', status: 'Active', summary: 'Unified teaching notebook for frontend components, backend routes, database schemas, and distributed systems labs.', repo: 'https://github.com/DigitalChalkLab/sketchbook', live: 'https://chalkcircuit-lab.github.io/sketchbook/', tags: ['HTML', 'JavaScript', 'Teaching'] },
+  { name: 'Machine Learning Compatible Game Engine', organization: 'MLCGE Lab', status: 'Research / Thesis', summary: 'Experimental graphics suite combining a C++/OpenGL rendering core, editor interface, and ML-oriented simulation hooks.', repo: 'https://github.com/Machine-Learning-Compatible-Game-Engine/full-suite', live: '', tags: ['C++', 'OpenGL', 'Simulation'] },
+  { name: 'KinectSchoolScanner', organization: 'Bluebird-Studio', status: 'Active / Research', summary: 'WPF Kinect v1 depth/RGB room scanner that generates colored point clouds and exports ASCII PLY files for Blender.', repo: 'https://github.com/Bluebird-Studio/KinectSchoolScanner', live: '', tags: ['WPF', 'Kinect', 'C#'] },
+  { name: 'ScalpScan Ordinal Classifier', organization: 'ScalpScanClassifier', status: 'Active / Research', summary: 'FastAPI backend and multi-head PyTorch neural model trained on ordinal criteria for scalp-condition classification.', repo: 'https://github.com/dragosandreibobu/InnovationLabs-2026-Scalp-Condition-Classifier', live: '', tags: ['PyTorch', 'FastAPI', 'ML'] },
+  { name: 'Predictive Demand Prediction', organization: 'Hyperspace-Intelligence', status: 'Archived / ML Competition', summary: 'Retail sales forecasting system using gradient-boosted trees, recursive features, and out-of-fold blending.', repo: 'https://github.com/Hyperspace-Intelligence/fiicode-2026-predictive-demand-prediction', live: '', tags: ['Python', 'CatBoost', 'Forecasting'] }
 ];
 
 function selectZone(key) {
   const zone = zones[key] || zones.board;
   document.getElementById('panel-title').textContent = zone.title;
   document.getElementById('panel-body').textContent = zone.body;
-
   const link = document.getElementById('panel-link');
   link.href = zone.link;
   link.target = zone.link.startsWith('http') ? '_blank' : '';
   link.rel = zone.link.startsWith('http') ? 'noreferrer' : '';
-
   document.querySelectorAll('[data-hotspot]').forEach((button) => {
-    button.classList.toggle('active', button.dataset.hotspot === key);
+    button.classList.toggle('active', button.dataset.hotspot === key || key.startsWith(button.dataset.hotspot));
   });
 }
 
@@ -139,24 +169,20 @@ function setMode(enabled) {
   interactiveEnabled = Boolean(enabled);
   document.body.classList.toggle('interactive', interactiveEnabled);
   document.body.classList.toggle('static', !interactiveEnabled);
-
   if (toggle) {
     toggle.textContent = interactiveEnabled ? 'Interactive Mode: ON' : 'Interactive Mode: OFF';
     toggle.setAttribute('aria-pressed', String(interactiveEnabled));
   }
-
   localStorage.setItem('room-mode', interactiveEnabled ? 'interactive' : 'static');
   if (sceneApi) sceneApi.setInteractive(interactiveEnabled);
 }
 
 if (toggle) toggle.addEventListener('click', () => setMode(!interactiveEnabled));
-
 setMode(interactiveEnabled);
 initRoomScene();
 
 async function initRoomScene() {
   if (!canvas || window.matchMedia('(max-width: 760px)').matches) return;
-
   try {
     const THREE = await import('https://unpkg.com/three@0.165.0/build/three.module.js');
     sceneApi = buildRoomScene(THREE, canvas);
@@ -174,16 +200,16 @@ function buildRoomScene(THREE, canvas) {
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.1;
+  renderer.toneMappingExposure = 1.06;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x050504);
-  scene.fog = new THREE.FogExp2(0x050504, 0.022);
+  scene.fog = new THREE.FogExp2(0x050504, 0.017);
 
-  const camera = new THREE.PerspectiveCamera(37, 1, 0.1, 100);
-  const cameraTarget = new THREE.Vector3(0.12, 0.55, -1.7);
-  const baseCamera = new THREE.Vector3(0.28, 1.44, 6.28);
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
+  const cameraTarget = new THREE.Vector3(0.1, 0.56, -1.78);
+  const baseCamera = new THREE.Vector3(0.18, 1.34, 6.42);
   camera.position.copy(baseCamera);
 
   const root = new THREE.Group();
@@ -193,6 +219,7 @@ function buildRoomScene(THREE, canvas) {
   const pointer = new THREE.Vector2();
   const hitboxes = [];
   const zoneVisuals = new Map();
+  const highlightPlanes = new Map();
   const textureCache = new Map();
   const matCache = new Map();
   let hoveredZone = null;
@@ -202,7 +229,6 @@ function buildRoomScene(THREE, canvas) {
     if (!zone) return mesh;
     mesh.userData.hotspot = zone;
     mesh.userData.baseScale = mesh.scale.clone();
-    mesh.userData.targetScale = mesh.scale.clone();
     if (!Array.isArray(mesh.material) && mesh.material?.clone) {
       mesh.material = mesh.material.clone();
       if (!mesh.material.emissive) mesh.material.emissive = new THREE.Color(0x000000);
@@ -278,10 +304,29 @@ function buildRoomScene(THREE, canvas) {
     return mesh;
   }
 
-  function drawNoise(ctx, width, height, opacity = 0.06) {
+  function highlight(name, size, position, zone, options = {}) {
+    const mat = new THREE.MeshBasicMaterial({ color: options.color || 0x8fc7ff, transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide });
+    const mesh = plane(`highlight-${name}`, size, position, mat, { rx: options.rx, ry: options.ry, rz: options.rz });
+    mesh.renderOrder = 18;
+    highlightPlanes.set(zone, mesh);
+    return mesh;
+  }
+
+  function roundRect(ctx, x, y, w, h, r) {
+    const radius = Math.min(r, w / 2, h / 2);
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.arcTo(x + w, y, x + w, y + h, radius);
+    ctx.arcTo(x + w, y + h, x, y + h, radius);
+    ctx.arcTo(x, y + h, x, y, radius);
+    ctx.arcTo(x, y, x + w, y, radius);
+    ctx.closePath();
+  }
+
+  function softNoise(ctx, width, height, opacity = 0.004) {
     const image = ctx.getImageData(0, 0, width, height);
     for (let i = 0; i < image.data.length; i += 4) {
-      const value = Math.floor(Math.random() * 255);
+      const value = 118 + Math.floor(Math.random() * 34);
       image.data[i] = value;
       image.data[i + 1] = value;
       image.data[i + 2] = value;
@@ -290,100 +335,96 @@ function buildRoomScene(THREE, canvas) {
     ctx.putImageData(image, 0, 0);
   }
 
-  function makeWoodTexture(key, base = '#351d10') {
+  function makeWoodTexture(key, base = '#321b0f') {
     return canvasTexture(key, 1536, 1536, (ctx, w, h) => {
       const grad = ctx.createLinearGradient(0, 0, w, h);
       grad.addColorStop(0, base);
-      grad.addColorStop(0.45, '#5e3924');
-      grad.addColorStop(1, '#170b06');
+      grad.addColorStop(0.5, '#53321f');
+      grad.addColorStop(1, '#160b06');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
-      for (let i = 0; i < 320; i++) {
+      for (let i = 0; i < 120; i++) {
         const y = Math.random() * h;
-        ctx.strokeStyle = i % 7 === 0 ? 'rgba(244,184,112,.22)' : 'rgba(0,0,0,.20)';
-        ctx.lineWidth = Math.random() * 2.4 + 0.35;
+        ctx.strokeStyle = i % 6 === 0 ? 'rgba(231,155,88,.13)' : 'rgba(0,0,0,.13)';
+        ctx.lineWidth = Math.random() * 1.6 + 0.25;
         ctx.beginPath();
-        ctx.moveTo(-80, y);
-        for (let x = -80; x < w + 140; x += 34) ctx.lineTo(x, y + Math.sin(x * 0.016 + i) * 13 + Math.random() * 5);
+        ctx.moveTo(-60, y);
+        for (let x = -60; x < w + 100; x += 60) ctx.lineTo(x, y + Math.sin(x * 0.012 + i) * 7);
         ctx.stroke();
       }
-      drawNoise(ctx, w, h, 0.012);
     });
   }
 
   function makeWallTexture() {
-    return canvasTexture('sharp-dark-wall-v3', 1536, 1536, (ctx, w, h) => {
-      ctx.fillStyle = '#16130f';
+    return canvasTexture('clean-dark-wall-v5', 1024, 1024, (ctx, w, h) => {
+      ctx.fillStyle = '#15110e';
       ctx.fillRect(0, 0, w, h);
-      for (let y = 0; y < h; y += 7) {
-        ctx.strokeStyle = y % 35 === 0 ? 'rgba(255,255,255,.045)' : 'rgba(255,255,255,.014)';
+      const vignette = ctx.createRadialGradient(w * 0.5, h * 0.45, 30, w * 0.5, h * 0.45, w * 0.85);
+      vignette.addColorStop(0, 'rgba(255,235,200,.035)');
+      vignette.addColorStop(1, 'rgba(0,0,0,.18)');
+      ctx.fillStyle = vignette;
+      ctx.fillRect(0, 0, w, h);
+      for (let y = 0; y < h; y += 28) {
+        ctx.strokeStyle = 'rgba(255,255,255,.012)';
         ctx.beginPath();
         ctx.moveTo(0, y);
-        ctx.lineTo(w, y + Math.sin(y * 0.04) * 2);
+        ctx.lineTo(w, y);
         ctx.stroke();
       }
-      for (let x = 0; x < w; x += 17) {
-        ctx.strokeStyle = 'rgba(0,0,0,.025)';
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x + Math.sin(x) * 2, h);
-        ctx.stroke();
-      }
-      drawNoise(ctx, w, h, 0.012);
     }, true);
   }
 
   function makeBlackboardTexture() {
-    return canvasTexture('blackboard-crisp-v4', 4096, 2048, (ctx, w, h) => {
-      ctx.fillStyle = '#0f251d';
+    return canvasTexture('blackboard-clean-sections-v6', 4096, 2048, (ctx, w, h) => {
+      ctx.fillStyle = '#0f241c';
       ctx.fillRect(0, 0, w, h);
-      const dusty = ctx.createRadialGradient(w * 0.42, h * 0.55, 80, w * 0.42, h * 0.55, w * 0.72);
-      dusty.addColorStop(0, 'rgba(255,255,235,.04)');
-      dusty.addColorStop(1, 'rgba(255,255,235,0)');
-      ctx.fillStyle = dusty;
+      const sheen = ctx.createLinearGradient(0, 0, w, h);
+      sheen.addColorStop(0, 'rgba(255,255,235,.045)');
+      sheen.addColorStop(0.35, 'rgba(255,255,235,.012)');
+      sheen.addColorStop(1, 'rgba(0,0,0,.22)');
+      ctx.fillStyle = sheen;
       ctx.fillRect(0, 0, w, h);
-      drawNoise(ctx, w, h, 0.024);
-
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = 'rgba(232,234,223,.34)';
-      for (let x = 0; x <= w; x += w / 6) {
-        ctx.beginPath();
-        ctx.moveTo(x, 48);
-        ctx.lineTo(x + Math.sin(x) * 7, h - 48);
-        ctx.stroke();
-      }
+      softNoise(ctx, w, h, 0.006);
 
       const sections = [
-        ['System Architecture', ['Web → API Gateway', 'Auth → CDN', 'Postgres / Redis', 'workers / queues']],
-        ['Graph Algorithms', ['G = (V, E)', 'BFS / DFS', 'Dijkstra', 'O((V+E)logV)']],
-        ['Machine Learning', ['L = -Σ y log ŷ', 'θ ← θ - η∇L', 'features → model', 'bias / variance']],
-        ['Rendering Pipeline', ['Model → Vertex', 'Rasterizer', 'Fragment → PostFX', 'PBR / shadows']],
+        ['Systems', ['Web → API Gateway', 'Auth → CDN', 'Postgres / Redis', 'workers / queues']],
+        ['Graphs', ['G = (V, E)', 'BFS / DFS', 'Dijkstra', 'curriculum paths']],
+        ['Machine Learning', ['features → model', 'ordinal heads', 'forecasting', 'evaluation']],
+        ['Rendering', ['Model → Vertex', 'Rasterizer', 'Fragment → PostFX', 'PBR / shadows']],
         ['Infrastructure', ['Docker', 'GitHub Actions', 'Supabase', 'static deploys']],
-        ['Compiler Notes', ['tokens → AST', 'IR → ASM', 'constant folding', 'dead code elim.']]
+        ['Compilers', ['tokens → AST', 'IR → ASM', 'constant folding', 'dead code elim.']]
       ];
 
       sections.forEach((section, i) => {
         const colW = w / 6;
         const x = i * colW + 76;
         const y = 150;
-        ctx.lineWidth = 4;
-        ctx.strokeStyle = i % 2 ? 'rgba(244,210,142,.9)' : 'rgba(232,234,223,.88)';
+        if (i > 0) {
+          ctx.strokeStyle = 'rgba(232,234,223,.2)';
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(i * colW, 58);
+          ctx.lineTo(i * colW, h - 58);
+          ctx.stroke();
+        }
+        ctx.strokeStyle = i % 2 ? 'rgba(244,210,142,.86)' : 'rgba(232,234,223,.88)';
         ctx.fillStyle = ctx.strokeStyle;
-        ctx.font = '700 76px IBM Plex Mono, Consolas, monospace';
+        ctx.font = '700 78px IBM Plex Mono, Consolas, monospace';
         ctx.fillText(section[0], x, y);
+        ctx.lineWidth = 4;
         ctx.beginPath();
         ctx.moveTo(x, y + 34);
-        ctx.lineTo(x + Math.min(520, colW - 120), y + 22 + Math.sin(i) * 4);
+        ctx.lineTo(x + Math.min(470, colW - 120), y + 34);
         ctx.stroke();
-        ctx.font = '500 58px IBM Plex Mono, Consolas, monospace';
-        section[1].forEach((line, j) => ctx.fillText(line, x, y + 135 + j * 86));
+        ctx.font = '500 56px IBM Plex Mono, Consolas, monospace';
+        section[1].forEach((line, j) => ctx.fillText(line, x, y + 132 + j * 84));
       });
 
-      ctx.strokeStyle = 'rgba(232,234,223,.9)';
+      ctx.strokeStyle = 'rgba(232,234,223,.86)';
       ctx.lineWidth = 5;
       const pts = [[0, 0], [160, -110], [330, 30], [190, 160], [450, 178], [516, -52]];
       const gx = 725;
-      const gy = 950;
+      const gy = 960;
       pts.forEach(([x, y], idx) => {
         ctx.beginPath();
         ctx.arc(gx + x, gy + y, 25, 0, Math.PI * 2);
@@ -398,7 +439,7 @@ function buildRoomScene(THREE, canvas) {
         ctx.stroke();
       });
 
-      ctx.strokeStyle = 'rgba(137,240,177,.78)';
+      ctx.strokeStyle = 'rgba(137,240,177,.72)';
       ctx.lineWidth = 5;
       ctx.beginPath();
       for (let i = 0; i < 360; i++) {
@@ -407,83 +448,133 @@ function buildRoomScene(THREE, canvas) {
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       }
       ctx.stroke();
-
-      ctx.strokeStyle = 'rgba(143,199,255,.72)';
-      ctx.lineWidth = 4;
-      for (let i = 0; i < 26; i++) {
-        ctx.beginPath();
-        ctx.moveTo(2720 + i * 28, 845);
-        ctx.lineTo(2880 + i * 7, 1260 + Math.sin(i) * 34);
-        ctx.stroke();
-      }
-      ctx.fillStyle = 'rgba(232,234,223,.82)';
-      ctx.font = '600 58px IBM Plex Mono, Consolas, monospace';
-      ctx.fillText('Teaching methodology', 3200, 1180);
-      ctx.font = '500 46px IBM Plex Mono, Consolas, monospace';
-      ctx.fillText('scaffold → recall → project', 3135, 1270);
     }, true);
   }
 
   function makeScreenTexture() {
-    return canvasTexture('engine-os-crisp-v3', 2400, 1100, (ctx, w, h) => {
-      ctx.fillStyle = '#06101d';
+    return canvasTexture('engine-os-modern-v6', 2800, 1200, (ctx, w, h) => {
+      const bg = ctx.createLinearGradient(0, 0, w, h);
+      bg.addColorStop(0, '#08111f');
+      bg.addColorStop(0.55, '#0b1628');
+      bg.addColorStop(1, '#050a12');
+      ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
-      const glow = ctx.createRadialGradient(w * 0.72, h * 0.25, 60, w * 0.72, h * 0.25, 880);
-      glow.addColorStop(0, 'rgba(91,160,255,.32)');
-      glow.addColorStop(1, 'rgba(91,160,255,0)');
+
+      const glow = ctx.createRadialGradient(w * 0.72, h * 0.18, 80, w * 0.72, h * 0.18, 900);
+      glow.addColorStop(0, 'rgba(90,160,255,.34)');
+      glow.addColorStop(1, 'rgba(90,160,255,0)');
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, w, h);
-      ctx.strokeStyle = 'rgba(143,199,255,.2)';
+
+      ctx.fillStyle = 'rgba(255,255,255,.035)';
+      roundRect(ctx, 42, 42, w - 84, h - 84, 48);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(143,199,255,.22)';
       ctx.lineWidth = 3;
-      ctx.strokeRect(30, 30, w - 60, h - 60);
-      ctx.fillStyle = 'rgba(229,237,248,.88)';
-      ctx.font = '600 52px IBM Plex Mono, Consolas, monospace';
-      ctx.fillText('▣ EngineOS   Build · Simulate · Teach · Repeat', 70, 105);
-      ctx.font = '500 44px IBM Plex Mono, Consolas, monospace';
-      ctx.fillText('10:24 PM', w - 310, 105);
-      const titles = ['Projects', 'GitHub', 'Resume', 'Research', 'Teaching', 'Contact'];
-      const cardW = (w - 160) / titles.length;
-      titles.forEach((title, i) => {
-        const x = 70 + i * cardW;
-        ctx.fillStyle = 'rgba(255,255,255,.05)';
-        ctx.fillRect(x, 185, cardW - 28, 720);
-        ctx.strokeStyle = 'rgba(143,199,255,.26)';
-        ctx.strokeRect(x, 185, cardW - 28, 720);
+      ctx.stroke();
+
+      ctx.fillStyle = 'rgba(255,255,255,.055)';
+      roundRect(ctx, 85, 100, 330, h - 200, 36);
+      ctx.fill();
+      ctx.fillStyle = '#eaf2ff';
+      ctx.font = '800 58px Inter, system-ui, sans-serif';
+      ctx.fillText('EngineOS', 125, 180);
+      ctx.font = '500 28px IBM Plex Mono, Consolas, monospace';
+      ctx.fillStyle = 'rgba(226,238,255,.68)';
+      ['Projects', 'Research', 'Teaching', 'GitHub', 'Resume', 'Contact'].forEach((item, i) => {
+        const y = 285 + i * 88;
+        ctx.fillStyle = i === 0 ? 'rgba(143,199,255,.2)' : 'rgba(255,255,255,.035)';
+        roundRect(ctx, 120, y - 42, 245, 58, 18);
+        ctx.fill();
         ctx.fillStyle = '#e5edf8';
-        ctx.font = '700 52px IBM Plex Mono, Consolas, monospace';
-        ctx.fillText(title, x + 34, 265);
-        ctx.fillStyle = 'rgba(203,213,225,.82)';
-        ctx.font = '500 38px IBM Plex Mono, Consolas, monospace';
-        ['curricula.live', 'MLCGE Lab', 'ScalpScan', 'DigitalChalk', 'OpenCV'].forEach((line, j) => ctx.fillText(line, x + 34, 360 + j * 82));
+        ctx.fillText(item, 150, y);
+      });
+
+      ctx.font = '800 64px Inter, system-ui, sans-serif';
+      ctx.fillStyle = '#f8fbff';
+      ctx.fillText('Engineering Workspace', 500, 170);
+      ctx.font = '500 30px IBM Plex Mono, Consolas, monospace';
+      ctx.fillStyle = 'rgba(226,238,255,.64)';
+      ctx.fillText('Build · Simulate · Teach · Repeat', 505, 220);
+
+      const cards = [
+        ['curricula.live', 'Concept graph planner', '#8fc7ff'],
+        ['MLCGE Lab', 'OpenGL + simulation', '#f5b970'],
+        ['ScalpScan', 'Ordinal classifier', '#89f0b1'],
+        ['DigitalChalk', 'Teaching systems', '#c9a7ff']
+      ];
+      cards.forEach((card, i) => {
+        const x = 500 + (i % 2) * 640;
+        const y = 305 + Math.floor(i / 2) * 305;
+        ctx.fillStyle = 'rgba(255,255,255,.055)';
+        roundRect(ctx, x, y, 575, 240, 36);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,.11)';
+        ctx.stroke();
+        ctx.fillStyle = card[2];
+        roundRect(ctx, x + 34, y + 34, 78, 78, 22);
+        ctx.fill();
+        ctx.fillStyle = '#f8fbff';
+        ctx.font = '800 48px Inter, system-ui, sans-serif';
+        ctx.fillText(card[0], x + 138, y + 82);
+        ctx.fillStyle = 'rgba(226,238,255,.68)';
+        ctx.font = '500 34px Inter, system-ui, sans-serif';
+        ctx.fillText(card[1], x + 138, y + 132);
+        ctx.fillStyle = 'rgba(255,255,255,.055)';
+        roundRect(ctx, x + 34, y + 164, 210, 42, 18);
+        ctx.fill();
+        ctx.fillStyle = 'rgba(226,238,255,.76)';
+        ctx.font = '600 24px IBM Plex Mono, Consolas, monospace';
+        ctx.fillText('open route', x + 60, y + 193);
+      });
+
+      ctx.fillStyle = 'rgba(255,255,255,.045)';
+      roundRect(ctx, 1820, 305, 770, 545, 36);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(143,199,255,.18)';
+      ctx.stroke();
+      ctx.fillStyle = '#f8fbff';
+      ctx.font = '800 46px Inter, system-ui, sans-serif';
+      ctx.fillText('System map', 1875, 375);
+      ctx.strokeStyle = 'rgba(143,199,255,.48)';
+      ctx.lineWidth = 6;
+      const nodes = [[1940,520],[2110,455],[2280,560],[2110,685],[2420,700]];
+      nodes.forEach(([x, y]) => {
+        ctx.beginPath(); ctx.arc(x, y, 34, 0, Math.PI * 2); ctx.stroke();
+      });
+      [[0,1],[1,2],[0,3],[3,4],[2,4]].forEach(([a,b]) => {
+        ctx.beginPath(); ctx.moveTo(nodes[a][0], nodes[a][1]); ctx.lineTo(nodes[b][0], nodes[b][1]); ctx.stroke();
       });
     }, true);
   }
 
   function makeNotebookTexture() {
-    return canvasTexture('notebook-crisp-v3', 1800, 1040, (ctx, w, h) => {
+    return canvasTexture('notebook-clean-v6', 1800, 1040, (ctx, w, h) => {
       ctx.fillStyle = '#eadfbe';
       ctx.fillRect(0, 0, w, h);
-      ctx.strokeStyle = 'rgba(40,60,80,.18)';
+      ctx.strokeStyle = 'rgba(40,60,80,.16)';
       ctx.lineWidth = 2;
       for (let x = 0; x < w; x += 68) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
       for (let y = 0; y < h; y += 68) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+      ctx.strokeStyle = 'rgba(40,60,80,.28)';
+      ctx.beginPath(); ctx.moveTo(w / 2, 35); ctx.lineTo(w / 2, h - 35); ctx.stroke();
       ctx.fillStyle = '#16202d';
       ctx.font = '700 66px IBM Plex Mono, Consolas, monospace';
       ctx.fillText('Dijkstra(G, w, s)', 95, 130);
       ctx.font = '500 48px IBM Plex Mono, Consolas, monospace';
-      ['for v ∈ V: dist[v] = ∞', 'Q ← priority queue', 'relax(u, v)', 'projection matrix', 'lesson → example → task'].forEach((line, i) => ctx.fillText(line, 95, 225 + i * 84));
+      ['for v ∈ V: dist[v] = ∞', 'Q ← priority queue', 'relax(u, v)', 'projection matrix'].forEach((line, i) => ctx.fillText(line, 95, 225 + i * 84));
+      ctx.fillText('lesson → example → task', 980, 225);
+      ctx.fillText('scaffold → recall', 980, 310);
+      ctx.fillText('exercise → feedback', 980, 395);
       ctx.strokeStyle = 'rgba(20,35,55,.82)';
       ctx.lineWidth = 5;
-      ctx.beginPath(); ctx.rect(1030, 150, 560, 440); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(1115, 520); ctx.lineTo(1325, 220); ctx.lineTo(1535, 520); ctx.closePath(); ctx.stroke();
-      ctx.fillStyle = 'rgba(20,35,55,.72)';
-      ctx.fillText('P = perspective', 1040, 705);
-      drawNoise(ctx, w, h, 0.012);
+      ctx.beginPath(); ctx.rect(1040, 485, 520, 340); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(1105, 775); ctx.lineTo(1295, 535); ctx.lineTo(1495, 775); ctx.closePath(); ctx.stroke();
     }, true);
   }
 
   function makeTerminalTexture() {
-    return canvasTexture('github-terminal-crisp-v3', 1400, 820, (ctx, w, h) => {
+    return canvasTexture('terminal-clean-v6', 1400, 820, (ctx, w, h) => {
       ctx.fillStyle = '#05070b';
       ctx.fillRect(0, 0, w, h);
       ctx.strokeStyle = 'rgba(143,199,255,.2)';
@@ -502,20 +593,20 @@ function buildRoomScene(THREE, canvas) {
     }, true);
   }
 
-  const wallMaterial = material('academic-wall', { color: 0xffffff, map: makeWallTexture(), roughness: 0.95 });
-  const woodMaterial = material('dark-walnut', { color: 0xffffff, map: makeWoodTexture('dark-walnut-v3'), roughness: 0.72, metalness: 0.03 });
-  const floorMaterial = material('floor-wood', { color: 0xffffff, map: makeWoodTexture('floor-boards-v3', '#21130c'), roughness: 0.86 });
-  const blackMaterial = material('soft-black', { color: 0x05070a, roughness: 0.66, metalness: 0.05 });
+  const wallMaterial = material('academic-wall', { color: 0xffffff, map: makeWallTexture(), roughness: 0.96 });
+  const woodMaterial = material('dark-walnut', { color: 0xffffff, map: makeWoodTexture('dark-walnut-v6'), roughness: 0.72, metalness: 0.03 });
+  const floorMaterial = material('floor-wood', { color: 0xffffff, map: makeWoodTexture('floor-boards-v6', '#21130c'), roughness: 0.88 });
+  const blackMaterial = material('soft-black', { color: 0x05070a, roughness: 0.62, metalness: 0.06 });
   const brassMaterial = material('aged-brass', { color: 0x7d5629, roughness: 0.42, metalness: 0.58 });
-  const boardMaterial = material('chalk-board', { color: 0xffffff, map: makeBlackboardTexture(), roughness: 0.92 });
+  const boardMaterial = material('chalk-board', { color: 0xffffff, map: makeBlackboardTexture(), roughness: 0.9 });
   const paperMaterial = material('paper', { color: 0xffffff, map: makeNotebookTexture(), roughness: 0.88 });
   const screenTexture = makeScreenTexture();
-  const screenMaterial = material('screen', { color: 0xffffff, map: screenTexture, roughness: 0.22, emissive: new THREE.Color(0x2b67ac), emissiveIntensity: 0.48, emissiveMap: screenTexture });
-  const terminalMaterial = material('terminal-screen', { color: 0xffffff, map: makeTerminalTexture(), roughness: 0.3, emissive: new THREE.Color(0x15291e), emissiveIntensity: 0.42 });
-  const circuitMaterial = material('circuit', { color: 0x123222, roughness: 0.48, metalness: 0.16, emissive: 0x092214, emissiveIntensity: 0.22 });
+  const screenMaterial = material('screen', { color: 0xffffff, map: screenTexture, roughness: 0.18, metalness: 0.02, emissive: new THREE.Color(0x265f9f), emissiveIntensity: 0.5, emissiveMap: screenTexture });
+  const terminalMaterial = material('terminal-screen', { color: 0xffffff, map: makeTerminalTexture(), roughness: 0.3, emissive: new THREE.Color(0x15291e), emissiveIntensity: 0.38 });
+  const circuitMaterial = material('circuit', { color: 0x123222, roughness: 0.48, metalness: 0.16, emissive: 0x092214, emissiveIntensity: 0.18 });
 
-  scene.add(new THREE.HemisphereLight(0x8fb6ff, 0x1a1008, 0.62));
-  const key = new THREE.DirectionalLight(0xffd5a2, 2.2);
+  scene.add(new THREE.HemisphereLight(0x8fb6ff, 0x1a1008, 0.64));
+  const key = new THREE.DirectionalLight(0xffd5a2, 2.15);
   key.position.set(-3.8, 5.2, 3.5);
   key.castShadow = true;
   key.shadow.mapSize.set(2048, 2048);
@@ -527,13 +618,13 @@ function buildRoomScene(THREE, canvas) {
   key.shadow.camera.bottom = -7;
   scene.add(key);
 
-  const monitorGlow = new THREE.PointLight(0x7bbcff, 1.65, 5.2, 1.8);
-  monitorGlow.position.set(0.2, 0.45, 1.08);
+  const monitorGlow = new THREE.PointLight(0x7bbcff, 1.55, 5.2, 1.8);
+  monitorGlow.position.set(0.15, 0.45, 0.98);
   scene.add(monitorGlow);
-  const lampGlow = new THREE.PointLight(0xffbd7a, 3.8, 5.8, 1.4);
+  const lampGlow = new THREE.PointLight(0xffbd7a, 3.55, 5.8, 1.4);
   lampGlow.position.set(-3.2, 1.35, 1.15);
   scene.add(lampGlow);
-  const rackGlow = new THREE.PointLight(0x2f7cff, 0.8, 3.8, 2.2);
+  const rackGlow = new THREE.PointLight(0x2f7cff, 0.65, 3.8, 2.2);
   rackGlow.position.set(3.8, 0.4, -1.3);
   scene.add(rackGlow);
 
@@ -548,23 +639,39 @@ function buildRoomScene(THREE, canvas) {
   box('board-frame-bottom', [8.24, 0.16, 0.2], [0, 0.36, -2.92], woodMaterial, { hotspot: 'board' });
   box('board-frame-left', [0.16, 2.62, 0.18], [-4.1, 1.62, -2.92], woodMaterial, { hotspot: 'board' });
   box('board-frame-right', [0.16, 2.62, 0.18], [4.1, 1.62, -2.92], woodMaterial, { hotspot: 'board' });
-  hitbox('board', [8.5, 2.9, 0.42], [0, 1.62, -2.72], 'board');
+
+  const boardZones = ['board-systems', 'board-graphs', 'board-ml', 'board-rendering', 'board-infra', 'board-compilers'];
+  const boardColWidth = 7.9 / 6;
+  boardZones.forEach((zone, i) => {
+    const x = -3.95 + boardColWidth / 2 + i * boardColWidth;
+    hitbox(`board-${i}`, [boardColWidth, 2.55, 0.45], [x, 1.62, -2.72], zone);
+    highlight(`board-${i}`, [boardColWidth - 0.06, 2.28], [x, 1.62, -2.965], zone);
+  });
 
   box('desktop-slab', [7.6, 0.34, 2.15], [0, -0.62, -0.02], woodMaterial, { hotspot: 'notebook' });
   box('desk-front', [7.75, 0.9, 0.18], [0, -1.03, 1.12], woodMaterial, { hotspot: 'notebook' });
   box('desk-left-leg', [0.28, 1.3, 0.28], [-3.35, -1.1, -0.72], woodMaterial);
   box('desk-right-leg', [0.28, 1.3, 0.28], [3.35, -1.1, -0.72], woodMaterial);
-  hitbox('desk', [7.9, 0.8, 2.55], [0, -0.52, 0.02], 'notebook');
+  hitbox('desktop-left', [2.2, 0.5, 1.4], [-2.25, -0.42, 0.18], 'notebook');
+  hitbox('desktop-center', [2.4, 0.5, 1.35], [0.2, -0.42, 0.52], 'keyboard');
+  hitbox('desktop-right', [2.2, 0.5, 1.45], [2.6, -0.42, 0.55], 'circuit');
 
-  box('monitor-frame', [4.55, 1.38, 0.16], [0.25, 0.15, -0.74], blackMaterial, { hotspot: 'monitor' });
-  plane('monitor-screen', [4.28, 1.12], [0.25, 0.15, -0.635], screenMaterial, { hotspot: 'monitor' });
-  box('monitor-stand-neck', [0.22, 0.56, 0.16], [0.25, -0.52, -0.76], blackMaterial, { hotspot: 'monitor' });
-  box('monitor-stand-base', [1.1, 0.08, 0.58], [0.25, -0.84, -0.62], blackMaterial, { hotspot: 'monitor' });
-  hitbox('monitor', [4.85, 1.7, 0.5], [0.25, 0.1, -0.38], 'monitor');
+  box('monitor-frame', [4.85, 1.54, 0.13], [0.22, 0.19, -0.76], blackMaterial, { hotspot: 'monitor' });
+  plane('monitor-screen', [4.62, 1.31], [0.22, 0.19, -0.668], screenMaterial, { hotspot: 'monitor' });
+  box('monitor-bottom-bar', [4.95, 0.09, 0.18], [0.22, -0.62, -0.7], blackMaterial, { hotspot: 'monitor' });
+  box('monitor-stand-neck', [0.2, 0.56, 0.14], [0.22, -0.56, -0.78], blackMaterial, { hotspot: 'monitor' });
+  box('monitor-stand-base', [1.18, 0.07, 0.58], [0.22, -0.88, -0.62], blackMaterial, { hotspot: 'monitor' });
+  hitbox('monitor-projects', [2.42, 1.55, 0.5], [-0.86, 0.16, -0.35], 'monitor-projects');
+  hitbox('monitor-research', [2.42, 1.55, 0.5], [1.3, 0.16, -0.35], 'monitor-research');
+  highlight('monitor-projects', [2.18, 1.12], [-0.88, 0.19, -0.658], 'monitor-projects');
+  highlight('monitor-research', [2.18, 1.12], [1.3, 0.19, -0.657], 'monitor-research');
 
-  box('open-notebook', [1.92, 0.06, 1.1], [-1.55, -0.4, 0.42], paperMaterial, { hotspot: 'notebook', rz: -0.08 });
-  box('notebook-spine', [0.08, 0.07, 1.16], [-1.55, -0.36, 0.42], blackMaterial, { hotspot: 'notebook', rz: -0.08 });
-  hitbox('notebook', [2.3, 0.45, 1.42], [-1.55, -0.28, 0.42], 'notebook', { rz: -0.08 });
+  box('open-notebook', [1.92, 0.06, 1.1], [-1.55, -0.4, 0.42], paperMaterial, { hotspot: 'notebook' });
+  box('notebook-spine', [0.08, 0.07, 1.16], [-1.55, -0.36, 0.42], blackMaterial, { hotspot: 'notebook' });
+  hitbox('notebook-algorithm', [0.96, 0.42, 1.22], [-2.05, -0.28, 0.42], 'notebook-algorithm');
+  hitbox('notebook-teaching', [0.96, 0.42, 1.22], [-1.06, -0.28, 0.42], 'notebook-teaching');
+  highlight('notebook-left', [0.88, 1.0], [-2.04, -0.35, 0.42], 'notebook-algorithm', { rx: -Math.PI / 2 });
+  highlight('notebook-right', [0.88, 1.0], [-1.08, -0.35, 0.42], 'notebook-teaching', { rx: -Math.PI / 2 });
   for (let i = 0; i < 9; i++) {
     const ring = new THREE.Mesh(new THREE.TorusGeometry(0.045, 0.008, 8, 18), brassMaterial);
     ring.position.set(-1.55, -0.31, -0.08 + i * 0.12);
@@ -573,9 +680,10 @@ function buildRoomScene(THREE, canvas) {
     root.add(ring);
   }
 
-  box('keyboard', [1.75, 0.06, 0.34], [0.25, -0.38, 0.66], blackMaterial, { hotspot: 'monitor' });
+  box('keyboard', [1.75, 0.06, 0.34], [0.25, -0.38, 0.66], blackMaterial, { hotspot: 'keyboard' });
   const keyMat = material('key-mat', { color: 0x11151c, roughness: 0.55 });
-  for (let r = 0; r < 4; r++) for (let c = 0; c < 11; c++) box(`key-${r}-${c}`, [0.105, 0.018, 0.052], [-0.39 + c * 0.13, -0.33, 0.55 + r * 0.07], keyMat, { castShadow: false, hotspot: 'monitor' });
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 11; c++) box(`key-${r}-${c}`, [0.105, 0.018, 0.052], [-0.39 + c * 0.13, -0.33, 0.55 + r * 0.07], keyMat, { castShadow: false, hotspot: 'keyboard' });
+  hitbox('keyboard', [1.95, 0.34, 0.54], [0.25, -0.28, 0.66], 'keyboard');
 
   const mouse = new THREE.Mesh(new THREE.SphereGeometry(0.25, 32, 16), blackMaterial.clone());
   mouse.name = 'mouse';
@@ -583,7 +691,7 @@ function buildRoomScene(THREE, canvas) {
   mouse.scale.set(0.72, 0.22, 1.12);
   mouse.castShadow = true;
   mouse.receiveShadow = true;
-  addZoneVisual('monitor', mouse);
+  addZoneVisual('keyboard', mouse);
   root.add(mouse);
 
   plane('github-terminal', [1.46, 0.82], [2.63, -0.32, 0.22], terminalMaterial, { rx: -Math.PI / 2.7, hotspot: 'github' });
@@ -591,15 +699,25 @@ function buildRoomScene(THREE, canvas) {
   box('contact-card', [0.95, 0.055, 0.62], [3.28, -0.45, 0.92], material('brown-note', { color: 0xb88958, roughness: 0.8 }), { hotspot: 'contact', rz: 0.04 });
   hitbox('contact-card', [1.22, 0.4, 0.9], [3.28, -0.32, 0.92], 'contact', { rz: 0.04 });
 
-  const bookColors = [0x4c2f22, 0x22314a, 0x5b3b27, 0x2f4933, 0x43273a];
-  for (let i = 0; i < 5; i++) box(`book-stack-${i}`, [1.3, 0.14, 0.54], [-3.23, -0.46 + i * 0.15, -0.36], material(`book-${i}-mat`, { color: bookColors[i], roughness: 0.65 }), { hotspot: i < 2 ? 'board' : 'notebook', rz: 0.015 * (i - 2) });
-  hitbox('book-stack', [1.55, 0.95, 0.85], [-3.23, -0.25, -0.36], 'board');
+  const bookSpecs = [
+    ['book-rendering', 'Real-Time Rendering', 0x4c2f22],
+    ['book-graphs', 'Graph Algorithms', 0x22314a],
+    ['book-systems', 'Distributed Systems', 0x5b3b27],
+    ['book-ml', 'Machine Learning', 0x2f4933],
+    ['notebook', 'Teaching Methods', 0x43273a]
+  ];
+  bookSpecs.forEach(([zone, label, color], i) => {
+    box(`book-stack-${i}`, [1.3, 0.14, 0.54], [-3.23, -0.46 + i * 0.15, -0.36], material(`book-${i}-mat`, { color, roughness: 0.65 }), { hotspot: zone, rz: 0.015 * (i - 2) });
+    hitbox(`book-stack-${i}`, [1.42, 0.2, 0.68], [-3.23, -0.46 + i * 0.15, -0.36], zone, { rz: 0.015 * (i - 2) });
+  });
 
   for (let shelf = 0; shelf < 3; shelf++) {
-    box(`bookshelf-plank-${shelf}`, [1.3, 0.07, 0.42], [4.34, 1.95 - shelf * 0.48, -2.15], woodMaterial, { hotspot: 'github' });
-    for (let i = 0; i < 8; i++) box(`shelf-book-${shelf}-${i}`, [0.095, 0.36 + Math.random() * 0.14, 0.28], [3.84 + i * 0.12, 2.13 - shelf * 0.48, -2.0], material(`shelf-book-${shelf}-${i}-mat`, { color: bookColors[(i + shelf) % bookColors.length], roughness: 0.68 }), { hotspot: 'board' });
+    box(`bookshelf-plank-${shelf}`, [1.3, 0.07, 0.42], [4.34, 1.95 - shelf * 0.48, -2.15], woodMaterial, { hotspot: 'book-systems' });
+    for (let i = 0; i < 8; i++) box(`shelf-book-${shelf}-${i}`, [0.095, 0.36 + Math.random() * 0.14, 0.28], [3.84 + i * 0.12, 2.13 - shelf * 0.48, -2.0], material(`shelf-book-${shelf}-${i}-mat`, { color: bookSpecs[(i + shelf) % bookSpecs.length][2], roughness: 0.68 }), { hotspot: bookSpecs[(i + shelf) % bookSpecs.length][0] });
   }
-  hitbox('bookshelf', [1.65, 1.7, 0.72], [4.32, 1.45, -1.95], 'board');
+  hitbox('bookshelf-top', [1.65, 0.62, 0.72], [4.32, 1.95, -1.95], 'book-rendering');
+  hitbox('bookshelf-mid', [1.65, 0.62, 0.72], [4.32, 1.47, -1.95], 'book-graphs');
+  hitbox('bookshelf-low', [1.65, 0.62, 0.72], [4.32, 0.99, -1.95], 'book-systems');
 
   box('server-rack', [0.82, 1.42, 0.52], [4.1, 0.13, -1.52], material('rack-shell', { color: 0x070b12, roughness: 0.46, metalness: 0.38 }), { hotspot: 'github' });
   hitbox('server-rack', [1.1, 1.75, 0.85], [4.1, 0.13, -1.2], 'github');
@@ -610,37 +728,37 @@ function buildRoomScene(THREE, canvas) {
     root.add(led);
   }
 
-  box('circuit-board', [1.08, 0.045, 0.56], [2.22, -0.43, 0.78], circuitMaterial, { hotspot: 'monitor' });
-  hitbox('circuit-board', [1.34, 0.36, 0.82], [2.22, -0.32, 0.78], 'monitor');
+  box('circuit-board', [1.08, 0.045, 0.56], [2.22, -0.43, 0.78], circuitMaterial, { hotspot: 'circuit' });
+  hitbox('circuit-board', [1.34, 0.36, 0.82], [2.22, -0.32, 0.78], 'circuit');
   const chipMat = material('chip', { color: 0x020604, roughness: 0.5 });
-  for (let i = 0; i < 18; i++) box(`chip-${i}`, [0.09, 0.025, 0.06], [1.75 + Math.random() * 0.9, -0.38, 0.55 + Math.random() * 0.42], chipMat, { castShadow: false, hotspot: 'monitor' });
+  for (let i = 0; i < 18; i++) box(`chip-${i}`, [0.09, 0.025, 0.06], [1.75 + Math.random() * 0.9, -0.38, 0.55 + Math.random() * 0.42], chipMat, { castShadow: false, hotspot: 'circuit' });
 
   const lampBase = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.24, 0.08, 32), brassMaterial.clone());
   lampBase.position.set(-3.75, -0.38, 0.28);
   lampBase.castShadow = true;
-  addZoneVisual('notebook', lampBase);
+  addZoneVisual('notebook-teaching', lampBase);
   root.add(lampBase);
   const lampStem = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.0, 18), brassMaterial.clone());
   lampStem.position.set(-3.75, 0.12, 0.28);
   lampStem.rotation.z = -0.18;
   lampStem.castShadow = true;
-  addZoneVisual('notebook', lampStem);
+  addZoneVisual('notebook-teaching', lampStem);
   root.add(lampStem);
   const shade = new THREE.Mesh(new THREE.ConeGeometry(0.34, 0.42, 36, 1, true), material('lamp-shade', { color: 0x12100e, roughness: 0.35, metalness: 0.28 }).clone());
   shade.position.set(-3.42, 0.72, 0.45);
   shade.rotation.set(0.55, 0.05, -0.5);
   shade.castShadow = true;
-  addZoneVisual('notebook', shade);
+  addZoneVisual('notebook-teaching', shade);
   root.add(shade);
-  const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.095, 24, 12), material('bulb', { color: 0xffe2a8, emissive: 0xffb66d, emissiveIntensity: 2.6 }));
+  const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.095, 24, 12), material('bulb', { color: 0xffe2a8, emissive: 0xffb66d, emissiveIntensity: 2.4 }));
   bulb.position.set(-3.33, 0.55, 0.62);
   root.add(bulb);
-  hitbox('lamp', [1.0, 1.45, 1.0], [-3.48, 0.2, 0.5], 'notebook');
+  hitbox('lamp', [1.0, 1.45, 1.0], [-3.48, 0.2, 0.5], 'notebook-teaching');
 
   box('chalk-stick', [0.46, 0.035, 0.035], [-0.88, -0.34, 0.98], material('chalk', { color: 0xe8eadf, roughness: 0.96 }), { hotspot: 'board', rz: 0.18 });
-  box('fountain-pen', [0.62, 0.035, 0.035], [0.9, -0.34, 0.99], material('pen', { color: 0x0c0c0d, roughness: 0.38, metalness: 0.45 }), { hotspot: 'notebook', rz: -0.22 });
+  box('fountain-pen', [0.62, 0.035, 0.035], [0.9, -0.34, 0.99], material('pen', { color: 0x0c0c0d, roughness: 0.38, metalness: 0.45 }), { hotspot: 'notebook-algorithm', rz: -0.22 });
 
-  const hoverLight = new THREE.PointLight(0x8fc7ff, 0, 3.6, 1.8);
+  const hoverLight = new THREE.PointLight(0x8fc7ff, 0, 3.2, 1.8);
   scene.add(hoverLight);
 
   function setHoveredZone(zone) {
@@ -673,9 +791,7 @@ function buildRoomScene(THREE, canvas) {
     }
     setHoveredZone(pickZone(event));
   });
-
   frame.addEventListener('pointerleave', () => setHoveredZone(null));
-
   frame.addEventListener('click', (event) => {
     if (!interactive || shouldIgnorePointer(event)) return;
     const zone = pickZone(event);
@@ -699,10 +815,10 @@ function buildRoomScene(THREE, canvas) {
   function animate(time) {
     const t = time * 0.001;
     if (drift && interactive) {
-      camera.position.x = baseCamera.x + Math.sin(t * 0.22) * 0.06;
-      camera.position.y = baseCamera.y + Math.sin(t * 0.17) * 0.026;
-      camera.position.z = baseCamera.z + Math.sin(t * 0.15) * 0.068;
-      root.rotation.y = Math.sin(t * 0.1) * 0.004;
+      camera.position.x = baseCamera.x + Math.sin(t * 0.22) * 0.05;
+      camera.position.y = baseCamera.y + Math.sin(t * 0.17) * 0.022;
+      camera.position.z = baseCamera.z + Math.sin(t * 0.15) * 0.055;
+      root.rotation.y = Math.sin(t * 0.1) * 0.0035;
     } else {
       camera.position.lerp(baseCamera, 0.04);
       root.rotation.y *= 0.96;
@@ -712,24 +828,29 @@ function buildRoomScene(THREE, canvas) {
       const active = zone === hoveredZone;
       meshes.forEach((mesh) => {
         if (mesh.userData.baseScale) {
-          const target = active ? mesh.userData.baseScale.clone().multiplyScalar(1.022) : mesh.userData.baseScale;
-          mesh.scale.lerp(target, 0.16);
+          const target = active ? mesh.userData.baseScale.clone().multiplyScalar(1.006) : mesh.userData.baseScale;
+          mesh.scale.lerp(target, 0.12);
         }
         if (mesh.material?.emissive) {
           const base = mesh.material.userData.baseEmissive || new THREE.Color(0x000000);
           const baseIntensity = mesh.material.userData.baseEmissiveIntensity || 0;
-          mesh.material.emissive.lerp(active ? new THREE.Color(0x1f65ff) : base, 0.18);
-          mesh.material.emissiveIntensity += ((active ? Math.max(0.22, baseIntensity + 0.26) : baseIntensity) - mesh.material.emissiveIntensity) * 0.18;
+          mesh.material.emissive.lerp(active ? new THREE.Color(0x17478f) : base, 0.12);
+          mesh.material.emissiveIntensity += ((active ? Math.max(0.08, baseIntensity + 0.08) : baseIntensity) - mesh.material.emissiveIntensity) * 0.12;
         }
       });
     });
 
+    highlightPlanes.forEach((mesh, zone) => {
+      const active = zone === hoveredZone;
+      mesh.material.opacity += ((active ? 0.105 : 0) - mesh.material.opacity) * 0.16;
+    });
+
     if (hoveredZone) {
-      hoverLight.intensity += (1.35 - hoverLight.intensity) * 0.18;
+      hoverLight.intensity += (0.48 - hoverLight.intensity) * 0.14;
       const targetBox = hitboxes.find((box) => box.userData.hotspot === hoveredZone);
-      if (targetBox) hoverLight.position.lerp(targetBox.getWorldPosition(new THREE.Vector3()), 0.2);
+      if (targetBox) hoverLight.position.lerp(targetBox.getWorldPosition(new THREE.Vector3()), 0.18);
     } else {
-      hoverLight.intensity += (0 - hoverLight.intensity) * 0.18;
+      hoverLight.intensity += (0 - hoverLight.intensity) * 0.14;
     }
 
     camera.lookAt(cameraTarget);
