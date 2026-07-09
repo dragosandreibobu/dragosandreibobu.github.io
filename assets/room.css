@@ -1,30 +1,23 @@
 /* Interactive engineering room portfolio
-   Static-first layout inspired by a blackboard workstation on desktop
-   and a top-down desk navigation surface on mobile. */
+   Render-first layout: use high-quality static renders when present,
+   with a CSS/HTML fallback scene and interactive hotspot overlays. */
 
 :root {
   --bg: #050504;
-  --bg-soft: #0b0d10;
   --wood-900: #1c120c;
   --wood-700: #4d2f1f;
-  --wood-500: #815338;
   --chalk: #e8eadf;
-  --chalk-muted: #aeb6ad;
   --paper: #dfd0aa;
   --paper-ink: #16202d;
   --screen: #07111d;
-  --screen-soft: #0d1b2b;
   --panel: rgba(8, 10, 14, 0.78);
   --panel-strong: rgba(9, 11, 15, 0.92);
   --line: rgba(255, 255, 255, 0.1);
-  --line-strong: rgba(255, 255, 255, 0.2);
   --text: #f7f5ef;
   --muted: #a9adb7;
-  --subtle: #737b89;
   --blue: #8fc7ff;
   --green: #89f0b1;
   --orange: #f5b970;
-  --pink: #f0a6d8;
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --head: 'Outfit', var(--sans);
@@ -109,19 +102,25 @@ a { color: inherit; }
 }
 
 .lab-hero {
-  width: min(1500px, calc(100% - 1.4rem));
+  position: relative;
+  width: min(1760px, calc(100% - 1.4rem));
   margin-inline: auto;
   min-height: calc(100vh - 68px);
-  padding: clamp(1.4rem, 3.6vw, 4rem) 0;
-  display: grid;
-  grid-template-columns: minmax(280px, 0.42fr) minmax(720px, 1fr);
-  align-items: center;
-  gap: clamp(1.4rem, 3vw, 3rem);
+  padding: clamp(1rem, 2.4vw, 2.4rem) 0;
 }
 
 .hero-copy {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  z-index: 40;
+  left: clamp(1.2rem, 4vw, 4.5rem);
+  top: clamp(1.4rem, 5vw, 5rem);
+  max-width: min(640px, 54vw);
+  padding: clamp(1rem, 1.6vw, 1.55rem);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(5, 5, 4, 0.7), rgba(5, 5, 4, 0.25));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
 }
 
 .badge,
@@ -143,22 +142,24 @@ a { color: inherit; }
 .hero-copy h1 {
   max-width: 680px;
   margin-top: 1.2rem;
-  font: 800 clamp(2.4rem, 5.2vw, 5.4rem) / 0.9 var(--head);
+  font: 800 clamp(2.4rem, 5.6vw, 6rem) / 0.88 var(--head);
   letter-spacing: -0.06em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.78);
 }
 
 .hero-copy p {
-  max-width: 620px;
-  margin-top: 1.2rem;
-  color: var(--muted);
-  font-size: clamp(1rem, 1.2vw, 1.14rem);
+  max-width: 600px;
+  margin-top: 1.1rem;
+  color: rgba(247, 245, 239, 0.82);
+  font-size: clamp(1rem, 1.22vw, 1.16rem);
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.72);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.8rem;
+  margin-top: 1.6rem;
 }
 
 .btn {
@@ -168,7 +169,7 @@ a { color: inherit; }
   justify-content: center;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(255, 255, 255, 0.075);
   color: var(--text);
   padding: 0.68rem 0.95rem;
   text-decoration: none;
@@ -184,9 +185,9 @@ a { color: inherit; }
 
 .scene-frame {
   position: relative;
-  min-height: clamp(560px, 63vw, 820px);
+  min-height: calc(100vh - 108px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 28px;
+  border-radius: 32px;
   overflow: hidden;
   isolation: isolate;
   background:
@@ -196,6 +197,23 @@ a { color: inherit; }
   box-shadow: 0 42px 120px rgba(0, 0, 0, 0.48);
 }
 
+.scene-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  background-image: url('renders/engineering-room-desktop.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.004);
+  transition: opacity 0.3s ease;
+}
+
+.has-desktop-render .scene-frame::before { opacity: 1; }
+.has-desktop-render .desktop-lab { opacity: 0; pointer-events: none; }
+
 .scene-frame::after {
   content: "";
   position: absolute;
@@ -203,28 +221,20 @@ a { color: inherit; }
   z-index: 8;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.04)),
-    radial-gradient(circle at 50% 70%, transparent 30%, rgba(0, 0, 0, 0.34));
+    linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 30%, transparent 64%, rgba(0, 0, 0, 0.24)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent 46%, rgba(0, 0, 0, 0.38));
 }
 
 #room-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.35s ease;
+  display: none !important;
 }
-
-#room-canvas.ready { opacity: 0.82; }
-body.static #room-canvas { display: none; }
 
 .desktop-lab,
 .mobile-desk {
   position: absolute;
   inset: 0;
   z-index: 1;
+  transition: opacity 0.25s ease;
 }
 
 .mobile-desk { display: none; }
@@ -241,7 +251,6 @@ body.static #room-canvas { display: none; }
   box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.55), 0 14px 30px rgba(0, 0, 0, 0.26);
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 0;
   color: var(--chalk);
   overflow: hidden;
 }
@@ -506,9 +515,9 @@ body.static #room-canvas { display: none; }
 
 .status-panel {
   position: absolute;
-  z-index: 20;
-  right: 1rem;
-  bottom: 1rem;
+  z-index: 42;
+  right: clamp(1rem, 2vw, 2rem);
+  bottom: clamp(1rem, 2vw, 2rem);
   width: min(370px, calc(100% - 2rem));
   border: 1px solid rgba(255,255,255,.14);
   border-radius: 18px;
@@ -540,7 +549,7 @@ body.static #room-canvas { display: none; }
 .hotspot-layer {
   position: absolute;
   inset: 0;
-  z-index: 21;
+  z-index: 41;
   pointer-events: none;
 }
 
@@ -574,6 +583,9 @@ body.static #room-canvas { display: none; }
   border-color: rgba(143,199,255,.75);
   background: rgba(8, 18, 32, 0.86);
 }
+
+.static .hotspot-layer,
+.static .status-panel { display: none; }
 
 .h-board { top: 17%; left: 24%; }
 .h-monitor { top: 49%; left: 51%; }
@@ -654,7 +666,7 @@ body.static #room-canvas { display: none; }
   color: #d8dee9;
 }
 .m-terminal::before {
-  content: "arjun@dev:~  github.com/dragosandreibobu";
+  content: "github.com/dragosandreibobu";
   display: block;
   color: var(--green);
   font: 700 0.62rem var(--mono);
@@ -702,9 +714,7 @@ body.static #room-canvas { display: none; }
   text-decoration: none;
 }
 
-noscript {
-  display: contents;
-}
+noscript { display: contents; }
 
 .info-card:hover,
 .org-card:hover,
@@ -798,11 +808,9 @@ noscript {
 }
 
 @media (max-width: 1120px) {
-  .lab-hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
+  .hero-copy {
+    max-width: min(620px, calc(100% - 2rem));
   }
-  .hero-copy { max-width: 860px; }
   .blackboard-wall { grid-template-columns: repeat(3, 1fr); }
   .engine-grid { grid-template-columns: repeat(4, 1fr); }
 }
@@ -827,7 +835,14 @@ noscript {
   .lab-hero {
     width: min(100% - 0.7rem, 620px);
     padding-top: 1.1rem;
-    gap: 1rem;
+  }
+  .hero-copy {
+    position: absolute;
+    left: 0.8rem;
+    right: 0.8rem;
+    top: 0.9rem;
+    max-width: none;
+    padding: 1rem;
   }
   .hero-copy h1 { font-size: 2.45rem; }
   .scene-frame {
@@ -839,9 +854,14 @@ noscript {
       repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 38px),
       linear-gradient(180deg, #2a1a12, #120b07);
   }
+  .scene-frame::before {
+    background-image: url('renders/engineering-desk-mobile.webp');
+    background-position: center top;
+  }
+  .has-mobile-render .scene-frame::before { opacity: 1; }
+  .has-mobile-render .mobile-desk { opacity: 0; pointer-events: none; }
   .desktop-lab { display: none; }
   .mobile-desk { display: block; }
-  #room-canvas { display: none; }
   .status-panel {
     left: 0.75rem;
     right: 0.75rem;
@@ -868,6 +888,5 @@ noscript {
 }
 
 @media (min-width: 1600px) {
-  .lab-hero { width: min(1760px, calc(100% - 2rem)); }
-  .scene-frame { min-height: 860px; }
+  .scene-frame { min-height: calc(100vh - 96px); }
 }
