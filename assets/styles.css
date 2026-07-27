@@ -142,6 +142,14 @@ a { color: inherit; text-decoration: none; }
 .org-card:hover { padding-left: .75rem; padding-right: .75rem; background: color-mix(in srgb, var(--glow-color, var(--accent)) 20%, transparent); }
 .org-header { display: contents; }
 .org-icon { display: grid; place-items: center; width: 2rem; height: 2rem; color: var(--paper); border: 1px solid currentColor; border-radius: 50%; font-size: .85rem; }
+.org-icon.green, .org-icon.mint { color: #69d8a8; }
+.org-icon.cyan { color: #70d6e9; }
+.org-icon.orange { color: #f0a968; }
+.org-icon.red { color: #ec8585; }
+.org-icon.blue, .org-icon.navy { color: #8fafec; }
+.org-icon.purple { color: #c4a5ee; }
+.org-icon.gold { color: #e9c87d; }
+.org-icon.pink { color: #eaa1bd; }
 .org-card h3 { margin: 0; font-size: 1rem; letter-spacing: -.02em; }
 .org-desc { margin: 0; color: var(--mist); font-size: .83rem; line-height: 1.45; }
 .org-meta { display: flex; gap: .35rem; justify-content: flex-end; flex-wrap: wrap; }
