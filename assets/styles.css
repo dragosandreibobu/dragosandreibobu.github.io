@@ -695,22 +695,7 @@ body::after {
   background: #eee3c9;
 }
 
-/* Papery hover movement, never on small screens or reduced motion. */
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .intro-note, .laptop, .pillar, .project-sheet,
-  .experience-ledger, .qualification-card, .about-paper,
-  .ecosystem-map, .phone-card, .closing-note {
-    transition: transform .22s ease, box-shadow .22s ease;
-  }
-  .intro-note:hover, .pillar:hover, .project-sheet:hover,
-  .qualification-card:hover, .about-paper:hover, .ecosystem-map:hover,
-  .phone-card:hover, .closing-note:hover {
-    transform: translateY(-4px) rotate(0deg);
-    box-shadow: 0 19px 35px rgba(31, 24, 17, .23), 0 3px 8px rgba(31, 24, 17, .14);
-  }
-  .laptop:hover { transform: translateY(-4px) rotate(0deg); }
-  .chalk-notebook:hover { background: linear-gradient(135deg, #34554b, #244137); }
-}
+
 .footer {
   color: rgba(249, 250, 242, .80);
   border-color: rgba(238, 242, 232, .27);
@@ -757,4 +742,277 @@ body::after {
   }
   .topbar-inner { width: calc(100% - 1.4rem); }
   .footer { width: calc(100% - 2rem); }
+}
+
+/* ======================================================
+   RESEARCH NOTEBOARD / WHITEBOARD, PERFORMANCE & MOTION
+   ====================================================== */
+
+/* Static marker whiteboard behind the existing framed chalkboard:
+   avoids fixed-layer repaints while scrolling and interacting. */
+body {
+  background-color: #edf1ec;
+  background-image:
+    url("whiteboard.svg"),
+    linear-gradient(115deg, #f6f7f2, #edf1ec 53%, #f4f5ef);
+  background-position: center top, center;
+  background-size: 1600px 1100px, auto;
+  background-repeat: repeat, no-repeat;
+  background-attachment: scroll;
+}
+body::before, body::after { display: none; }
+.topbar {
+  background: #fafaf6;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: #d4dbd5;
+}
+/* Footer now belongs on the whiteboard, not a second dark board. */
+.footer { color: #425a5a; border-color: #b9c9c1; }
+.footer a { color: #2d5863; }
+.footer a:hover { color: #163e50; }
+
+/* Chalk-lettered section identifier gives the board an unmistakable
+   signature, including when viewed as a single-column mobile page. */
+.board-label {
+  margin: 0 0 2rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  color: #f0f5e9;
+  font: 500 clamp(1rem,1.75vw,1.35rem)/1.3 var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px rgba(245,247,235,.22);
+}
+.board-label span:first-child {
+  border-bottom: 1px solid rgba(243,248,230,.65);
+  padding-bottom: .45rem;
+}
+.board-label-sub {
+  color: #d0dcd1;
+  font: 400 .65rem/1.5 var(--mono);
+  letter-spacing: .06em;
+  text-transform: none;
+}
+
+/* Use anchors rather than JavaScript pointer event listeners: a card
+   and its heading lead to the same resource, while individual links
+   on each card remain independent and accessible. */
+.project-sheet, .chalk-notebook, .graph-paper, .laptop-screen { position: relative; }
+.project-sheet .card-cover-link,
+.pillar .card-cover-link,
+.laptop-screen .featured-title-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+.project-sheet .card-cover-link::after,
+.chalk-notebook .card-cover-link::after,
+.graph-paper .card-cover-link::after,
+.laptop-screen .featured-title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+.project-sheet .card-links, .laptop-screen .screen-links {
+  position: relative;
+  z-index: 3;
+}
+.project-sheet:hover .card-cover-link,
+.project-sheet:focus-within .card-cover-link,
+.chalk-notebook:hover .card-cover-link,
+.graph-paper:hover .card-cover-link {
+  text-decoration-color: currentColor;
+}
+.laptop-screen:hover .featured-title-link,
+.laptop-screen:focus-within .featured-title-link {
+  text-decoration-color: rgba(255,255,255,.7);
+}
+.project-sheet:focus-within, .pillar:focus-within, .laptop-screen:focus-within {
+  outline: 2px solid #3f7d86;
+  outline-offset: 4px;
+}
+.chalk-notebook:focus-within { outline-color: #e9ecd5; }
+.project-sheet .card-cover-link:focus-visible,
+.pillar .card-cover-link:focus-visible,
+.laptop-screen .featured-title-link:focus-visible { outline: none; }
+.laptop-base { text-decoration: none; }
+.laptop-base:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Topic-specific graphics: small, compositor-friendly hover changes. */
+.graph-illustration .node {
+  transition: transform .22s ease, background-color .22s ease;
+  transform-origin: center;
+}
+.graph-illustration .edge { transition: opacity .22s ease; }
+.laptop-screen:hover .graph-illustration .node,
+.laptop-screen:focus-within .graph-illustration .node {
+  transform: scale(1.2);
+  background-color: #accfd8;
+}
+.laptop-screen:hover .graph-illustration .edge { opacity: .65; }
+
+.teaching-plot {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  margin-top: auto;
+  padding-top: 1.3rem;
+  overflow: visible;
+}
+.teaching-plot rect {
+  fill: rgba(240,244,231,.035);
+  stroke: rgba(240,244,231,.66);
+  stroke-width: 1.2;
+}
+.teaching-plot text {
+  font: 500 12px var(--mono);
+  fill: #edf4e5;
+}
+.teaching-plot .teach-arrow {
+  fill: none;
+  stroke: #d0e3ce;
+  stroke-width: 1.5;
+  stroke-dasharray: 58;
+  stroke-dashoffset: 17;
+  transition: stroke-dashoffset .32s ease, stroke .2s ease;
+}
+.chalk-notebook:hover .teach-arrow,
+.chalk-notebook:focus-within .teach-arrow { stroke-dashoffset: 0; stroke: #fff; }
+
+.research-plot svg { max-height: 7.5rem; }
+.research-plot svg .research-connector {
+  fill: none; stroke: #6d9090; stroke-width: 1.5; stroke-dasharray: 3 4;
+}
+.research-plot svg g rect {
+  fill: rgba(255,255,255,.18);
+  stroke: rgba(51,99,114,.55);
+  stroke-width: 1.5;
+  transition: fill .24s ease, stroke .24s ease;
+}
+.research-plot svg .research-symbol { fill: #315d70; font: 600 24px var(--serif); }
+.research-plot svg .research-label { fill: #526b72; font: 600 9px var(--mono); }
+.research-plot svg .research-algorithms path,
+.research-plot svg .research-ml path {
+  fill: none; stroke: #416e78; stroke-width: 1.4; stroke-linecap: round;
+}
+.research-plot svg circle { fill: #446f7a; transition: r .2s ease; }
+.graph-paper:hover .research-plot rect,
+.graph-paper:focus-within .research-plot rect {
+  fill: rgba(172,207,203,.20);
+  stroke: #477b86;
+}
+.graph-paper:hover .research-plot circle,
+.graph-paper:focus-within .research-plot circle { r: 4; }
+
+/* Animate transforms, never expensive box shadows or background
+   paint layers; no handlers, timers, or continual animation loops. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .intro-note, .laptop, .pillar, .project-sheet, .experience-ledger,
+  .qualification-card, .about-paper, .ecosystem-map, .phone-card, .closing-note {
+    transition: transform .18s ease-out;
+  }
+  .project-sheet:hover {
+    transform: translate3d(0,-3px,0) rotate(var(--paper-tilt));
+  }
+  .intro-note:hover, .pillar:hover, .about-paper:hover,
+  .ecosystem-map:hover, .qualification-card:hover,
+  .phone-card:hover, .closing-note:hover {
+    transform: translate3d(0,-2px,0);
+  }
+  .laptop:hover { transform: translate3d(0,-3px,0); }
+  .chalk-notebook:hover {
+    background:
+      radial-gradient(ellipse at 74% 24%,rgba(245,249,235,.055),transparent 60%),
+      linear-gradient(135deg, #304e44,#213d35);
+  }
+}
+@media (max-width: 1020px) {
+  .board-label { margin-bottom: 1.65rem; }
+}
+@media (max-width: 780px) {
+  .desk { margin-top: 2.7rem; }
+  .board-label { font-size: 1.15rem; letter-spacing: .08em; }
+  .project-sheet, .pillar, .intro-note, .laptop, .experience-ledger,
+  .qualification-card, .about-paper, .ecosystem-map, .phone-card, .closing-note {
+    transform: none;
+  }
+  .project-sheet { min-height: 17rem; }
+  .teaching-plot { margin-top: 1rem; }
+  .research-plot { margin-top: 1rem; }
+}
+@media (max-width: 560px) {
+  body { background-size: 1250px 860px, auto; background-position: 35% top, center; }
+  .desk {
+    width: calc(100% - 1.4rem);
+    margin: 3.2rem auto 2.5rem;
+    padding: 1.2rem .9rem 2rem;
+    border-width: 7px;
+    background-size: 1150px 790px, 13px 12px, auto, auto;
+    background-position: 16% top, 0 0, center, center;
+  }
+  .board-label {
+    display: block;
+    margin: .3rem 0 1.8rem;
+    font-size: 1.28rem;
+    line-height: 1.45;
+  }
+  .board-label span:first-child { display: inline-block; }
+  .board-label-sub {
+    display: block;
+    margin-top: .5rem;
+    font-size: .69rem;
+  }
+  .intro-note { padding: 2rem 1.5rem; border-left-width: 3px; }
+  .intro-note h1 {
+    font-size: clamp(2.85rem, 12vw, 4rem);
+    letter-spacing: -.058em;
+  }
+  .intro-note .role { font-size: 1.34rem; }
+  .intro-note .role-detail { font-size: .8rem; }
+  .intro-copy { font-size: .96rem; }
+  .hero-affiliation { font-size: .65rem; }
+  .screen-topline { flex-wrap: wrap; }
+  .screen-content { padding: 1.65rem 1.25rem 1.35rem; }
+  .screen-content h2 { font-size: clamp(2.2rem,9vw,3.1rem); }
+  .graph-illustration {
+    display: block;
+    margin-top: 1.5rem;
+    min-height: 7.6rem;
+    max-height: 9rem;
+  }
+  .laptop-base { padding: 1rem; }
+  .laptop-base strong { font-size: .74rem; }
+  .pillars { margin-top: 2.4rem; gap: 1.4rem; }
+  .pillar { min-height: 0; padding: 1.8rem 1.5rem; }
+  .pillar h2 { font-size: 2.2rem; }
+  .chalk-notebook { min-height: 18rem; }
+  .graph-paper { min-height: 19rem; }
+  .teaching-plot { margin-top: 1.6rem; }
+  .research-plot { max-width: none; }
+  .project-board, .experience-grid, .about-grid, .contact-grid { margin-top: 3.5rem; }
+  .project-heading {
+    padding: 1.65rem 1.45rem;
+    margin-bottom: 1.6rem;
+    transform: rotate(-.5deg);
+  }
+  .project-sheet { padding: 1.8rem 1.55rem; min-height: 0; }
+  .project-sheet h3 { font-size: 1.55rem; }
+  .project-grid { gap: 1.7rem; }
+  .tag-list li { font-size: .65rem; }
+  .footer { font-size: .7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .graph-illustration .node, .graph-illustration .edge,
+  .teaching-plot .teach-arrow, .research-plot svg g rect,
+  .research-plot svg circle, .card-cover-link, .featured-title-link {
+    transition: none !important;
+  }
 }
