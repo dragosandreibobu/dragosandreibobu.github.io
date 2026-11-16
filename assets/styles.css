@@ -40,15 +40,14 @@ body{
     background-repeat:no-repeat,no-repeat,no-repeat;
   }
 }
-/* Marker strokes are confined to the whiteboard, fading to clear well
-   before the stars. This element never repeats or intercepts input. */
+/* A single large, non-tiling dry-erase drawing covers the whole page.
+   Its formulae extend down the page and across the whiteboard margins.
+   The illustration is static, click-through, and doesn't alter layout. */
 body::before{
-  content:"";position:absolute;inset:0 0 auto;height:1100px;
+  content:"";position:absolute;inset:0 0 0 0;
   z-index:0;pointer-events:none;
-  background:url("whiteboard.svg") center top / 1600px 1100px no-repeat;
-  opacity:.85;
-  -webkit-mask-image:radial-gradient(ellipse 1040px 860px at 50% 34%,#000 0%,rgba(0,0,0,.9) 45%,transparent 100%);
-  mask-image:radial-gradient(ellipse 1040px 860px at 50% 34%,#000 0%,rgba(0,0,0,.9) 45%,transparent 100%);
+  background:url("whiteboard.svg") center top / 4000px 5300px no-repeat;
+  opacity:.96;
 }
 .desk,.footer{position:relative;z-index:1}
 a{color:inherit}img,svg{max-width:100%}
@@ -514,10 +513,9 @@ a{color:inherit}img,svg{max-width:100%}
   /* Stay whiteboard-only on phones; never scale up a cosmic layer. */
   body{background-size:cover;background-position:center}
   body::before{
-    height:722px;opacity:.65;
-    background-size:1050px 722px;background-position:47% 0;
-    -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.8) 37%,transparent 100%);
-    mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.8) 37%,transparent 100%);
+    opacity:.72;
+    background-size:1700px auto;
+    background-position:40% top;
   }
   .topbar{padding:.35rem .35rem 0}
   .topbar-inner{width:100%;padding:.45rem .28rem .2rem}
