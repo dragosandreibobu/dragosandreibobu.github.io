@@ -8,16 +8,36 @@
   --paper-shadow:0 9px 20px rgba(23,29,20,.18),0 2px 4px rgba(23,29,20,.09);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:7rem;min-height:100%;background:#edf1eb}
+html{scroll-behavior:smooth;scroll-padding-top:7rem;min-height:100%;background:#060b17}
+/* One whiteboard in the centre; beyond it the light gradually falls into space.
+   The starfield is a single unique image, not a repeatable tile. */
 body{
-  margin:0;width:100%;min-height:100vh;min-width:320px;color:var(--ink);font:400 16px/1.65 var(--sans);
+  margin:0;width:100%;min-height:100vh;min-width:320px;position:relative;isolation:isolate;
+  color:var(--ink);font:400 16px/1.65 var(--sans);
   -webkit-font-smoothing:antialiased;
-  background-color:#eef2ed;
-  background-image:url("whiteboard.svg"),linear-gradient(115deg,#f5f7f2,#eaf0eb 52%,#f5f7f2);
-  background-position:center top,center;
-  background-size:1600px 1100px,cover;
-  background-repeat:repeat, no-repeat;
+  background-color:#060b17;
+  background-image:
+    radial-gradient(ellipse 1450px 2580px at 50% 1150px,
+      #f4f6f1 0%,#f0f4f0 31%,rgba(223,233,235,.97) 46%,
+      rgba(150,172,194,.93) 63%,rgba(57,79,113,.78) 79%,
+      rgba(13,23,45,.48) 91%,transparent 100%),
+    url("stellar-field.svg"),
+    radial-gradient(ellipse at 48% 25%,#1a2b48 0%,#090f20 62%,#050a14 100%);
+  background-position:center top,center center,center;
+  background-size:auto,cover,cover;
+  background-repeat:no-repeat,no-repeat,no-repeat;
 }
+/* Marker strokes are confined to the whiteboard, fading to clear well
+   before the stars. This element never repeats or intercepts input. */
+body::before{
+  content:"";position:absolute;inset:0 0 auto;height:1100px;
+  z-index:0;pointer-events:none;
+  background:url("whiteboard.svg") center top / 1600px 1100px no-repeat;
+  opacity:.85;
+  -webkit-mask-image:radial-gradient(ellipse 1040px 860px at 50% 34%,#000 0%,rgba(0,0,0,.9) 45%,transparent 100%);
+  mask-image:radial-gradient(ellipse 1040px 860px at 50% 34%,#000 0%,rgba(0,0,0,.9) 45%,transparent 100%);
+}
+.desk,.footer{position:relative;z-index:1}
 a{color:inherit}img,svg{max-width:100%}
 :focus-visible{outline:2px solid #508495;outline-offset:4px}
 ::selection{background:#cfe0df;color:#1c3644}
@@ -478,7 +498,13 @@ a{color:inherit}img,svg{max-width:100%}
   .ecosystem-rail em{font-size:.54rem}
 }
 @media (max-width:580px){
-  body{background-size:1050px 722px,cover;background-position:47% 0,center}
+  body{background-size:auto,cover,cover;background-position:center top,center center,center}
+  body::before{
+    height:722px;opacity:.65;
+    background-size:1050px 722px;background-position:47% 0;
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.8) 37%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.8) 37%,transparent 100%);
+  }
   .topbar{padding:.35rem .35rem 0}
   .topbar-inner{width:100%;padding:.45rem .28rem .2rem}
   .brand{font-size:1rem}
