@@ -1,72 +1,339 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" aria-hidden="true">
-  <style>
-    .blue{fill:none;stroke:#396f8b;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-    .green{fill:none;stroke:#49846b;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-    .red{fill:none;stroke:#ad7766;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
-    .thin{stroke-width:1.3}.dash{stroke-dasharray:6 7}
-    .text{font:italic 27px Georgia,serif;fill:#396f8b}
-    .label{font:18px monospace;fill:#49846b}
-    .small{font:15px monospace;fill:#a56c5e}
-  </style>
-  <g opacity=".42" transform="translate(44 70) rotate(-7)">
-    <text class="text" x="0" y="0">P → Q</text>
-    <path class="blue" d="M0 18 H96"/><text class="text" x="37" y="51">Q</text>
-    <path class="red thin" d="M-14 67 Q50 89 112 63"/>
-    <text class="small" x="6" y="114">proof obligations</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 5300" width="4000" height="5300" aria-hidden="true">
+<style>
+.formula{font:italic 31px Georgia,serif;fill:#427d9c}
+.detail{font:19px monospace;fill:#4b947b}
+.note{font:17px monospace;fill:#b07d6e}
+.line{fill:none;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.blue{stroke:#4e8ba6}.green{stroke:#6ba08a}.coral{stroke:#bb8b7d}.dash{stroke-dasharray:6 8}
+.dots{fill:none;stroke:#5899a5;stroke-width:2.4}
+</style>
+<!-- Original whiteboard topics extended into one nonrepeating 4,000 × 5,300 marker sheet. -->
+<g fill="#7dacc3"><circle cx="78" cy="421" r="1.98" opacity="0.26"/>
+<circle cx="3440" cy="2964" r="2.10" opacity="0.22"/>
+<circle cx="3399" cy="4474" r="2.14" opacity="0.31"/>
+<circle cx="524" cy="1214" r="1.67" opacity="0.28"/>
+<circle cx="3531" cy="168" r="2.61" opacity="0.12"/>
+<circle cx="3318" cy="4828" r="2.93" opacity="0.23"/>
+<circle cx="3143" cy="4770" r="1.53" opacity="0.20"/>
+<circle cx="3812" cy="729" r="2.12" opacity="0.20"/>
+<circle cx="422" cy="3540" r="2.88" opacity="0.32"/>
+<circle cx="766" cy="2543" r="1.96" opacity="0.26"/>
+<circle cx="912" cy="485" r="1.22" opacity="0.25"/>
+<circle cx="3548" cy="578" r="1.63" opacity="0.18"/>
+<circle cx="3212" cy="2570" r="2.68" opacity="0.29"/>
+<circle cx="2821" cy="3501" r="2.00" opacity="0.16"/>
+<circle cx="3043" cy="3487" r="1.12" opacity="0.14"/>
+<circle cx="3285" cy="4867" r="2.57" opacity="0.19"/>
+<circle cx="950" cy="1921" r="0.98" opacity="0.25"/>
+<circle cx="647" cy="2632" r="1.21" opacity="0.24"/>
+<circle cx="521" cy="4844" r="1.97" opacity="0.25"/>
+<circle cx="962" cy="4752" r="1.29" opacity="0.26"/>
+<circle cx="1053" cy="3864" r="2.81" opacity="0.27"/>
+<circle cx="866" cy="1574" r="2.53" opacity="0.32"/>
+<circle cx="3631" cy="719" r="2.08" opacity="0.33"/>
+<circle cx="757" cy="758" r="1.39" opacity="0.20"/>
+<circle cx="3810" cy="4377" r="2.42" opacity="0.24"/>
+<circle cx="1199" cy="2029" r="1.45" opacity="0.12"/>
+<circle cx="778" cy="1852" r="1.91" opacity="0.14"/>
+<circle cx="465" cy="3094" r="1.62" opacity="0.14"/>
+<circle cx="3339" cy="3858" r="1.58" opacity="0.22"/>
+<circle cx="784" cy="4219" r="1.72" opacity="0.15"/>
+<circle cx="3626" cy="4411" r="1.23" opacity="0.29"/>
+<circle cx="1117" cy="2916" r="2.18" opacity="0.14"/>
+<circle cx="1049" cy="1209" r="1.94" opacity="0.32"/>
+<circle cx="1188" cy="3078" r="0.80" opacity="0.28"/>
+<circle cx="1231" cy="3771" r="1.31" opacity="0.17"/>
+<circle cx="2908" cy="923" r="0.96" opacity="0.14"/>
+<circle cx="3095" cy="2323" r="1.05" opacity="0.22"/>
+<circle cx="3834" cy="480" r="2.07" opacity="0.25"/>
+<circle cx="270" cy="3551" r="0.83" opacity="0.21"/>
+<circle cx="3491" cy="4310" r="3.04" opacity="0.16"/>
+<circle cx="2874" cy="4309" r="1.46" opacity="0.20"/>
+<circle cx="1213" cy="2672" r="1.58" opacity="0.20"/>
+<circle cx="3690" cy="403" r="1.16" opacity="0.20"/>
+<circle cx="286" cy="3286" r="2.20" opacity="0.25"/>
+<circle cx="169" cy="3852" r="2.69" opacity="0.22"/>
+<circle cx="671" cy="2831" r="1.81" opacity="0.19"/>
+<circle cx="3004" cy="2174" r="2.59" opacity="0.25"/>
+<circle cx="834" cy="4034" r="1.46" opacity="0.20"/>
+<circle cx="1277" cy="1638" r="2.39" opacity="0.29"/>
+<circle cx="217" cy="2301" r="1.67" opacity="0.22"/>
+<circle cx="486" cy="2997" r="1.15" opacity="0.18"/>
+<circle cx="2756" cy="1555" r="1.98" opacity="0.24"/>
+<circle cx="3061" cy="813" r="1.70" opacity="0.33"/>
+<circle cx="316" cy="1402" r="1.04" opacity="0.16"/>
+<circle cx="3353" cy="4784" r="1.91" opacity="0.16"/>
+<circle cx="566" cy="2909" r="0.90" opacity="0.21"/>
+<circle cx="486" cy="2358" r="2.38" opacity="0.16"/>
+<circle cx="471" cy="2041" r="1.48" opacity="0.22"/>
+<circle cx="743" cy="4598" r="2.20" opacity="0.27"/>
+<circle cx="194" cy="4875" r="1.06" opacity="0.30"/>
+<circle cx="3001" cy="3502" r="1.54" opacity="0.29"/>
+<circle cx="3718" cy="406" r="1.81" opacity="0.23"/>
+<circle cx="3014" cy="2931" r="2.96" opacity="0.26"/>
+<circle cx="3865" cy="175" r="3.05" opacity="0.25"/>
+<circle cx="1222" cy="840" r="1.52" opacity="0.17"/>
+<circle cx="3259" cy="2706" r="2.50" opacity="0.23"/>
+<circle cx="3126" cy="958" r="2.35" opacity="0.13"/>
+<circle cx="3888" cy="4399" r="2.12" opacity="0.15"/>
+<circle cx="3374" cy="2407" r="0.96" opacity="0.18"/>
+<circle cx="2797" cy="4545" r="1.84" opacity="0.24"/>
+<circle cx="597" cy="380" r="1.53" opacity="0.29"/>
+<circle cx="3570" cy="3194" r="1.72" opacity="0.20"/>
+<circle cx="2950" cy="4127" r="2.37" opacity="0.22"/>
+<circle cx="3110" cy="2280" r="2.24" opacity="0.31"/>
+<circle cx="942" cy="2752" r="1.27" opacity="0.15"/>
+<circle cx="3068" cy="3366" r="1.37" opacity="0.31"/>
+<circle cx="3709" cy="1044" r="2.07" opacity="0.23"/>
+<path d="M1049 2877 H1074 M1061 2865 V2890" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.30"/>
+<path d="M3285 4146 H3306 M3295 4136 V4157" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.32"/>
+<path d="M937 1137 H961 M949 1125 V1150" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.35"/>
+<path d="M3754 2919 H3779 M3766 2906 V2932" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.20"/>
+<path d="M469 852 H487 M478 843 V861" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.21"/>
+<path d="M3163 3023 H3187 M3175 3011 V3035" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.26"/>
+<path d="M569 3123 H592 M580 3112 V3134" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.32"/>
+<path d="M3613 3061 H3631 M3622 3052 V3070" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.37"/>
+<path d="M1068 4219 H1082 M1075 4212 V4226" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.21"/>
+<path d="M2884 2994 H2906 M2895 2983 V3005" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.21"/>
+<path d="M860 3544 H875 M867 3537 V3551" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.21"/>
+<path d="M3776 4483 H3802 M3789 4470 V4496" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.34"/>
+<path d="M538 3534 H548 M543 3529 V3539" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.30"/>
+<path d="M2796 3167 H2810 M2803 3160 V3175" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.36"/>
+<path d="M800 1484 H811 M805 1478 V1490" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.19"/>
+<path d="M3619 1560 H3633 M3626 1553 V1567" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.32"/>
+<path d="M479 1999 H497 M488 1990 V2008" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.28"/>
+<path d="M2917 4313 H2933 M2925 4305 V4321" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.25"/>
+<path d="M740 2248 H757 M748 2240 V2256" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.24"/>
+<path d="M2950 639 H2962 M2956 633 V645" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.22"/>
+<path d="M372 2618 H387 M380 2610 V2625" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.33"/>
+<path d="M3526 804 H3538 M3532 798 V810" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.22"/>
+<path d="M1047 4518 H1071 M1059 4506 V4530" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.29"/>
+<path d="M3640 2415 H3660 M3650 2405 V2425" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.36"/>
+<path d="M893 123 H907 M900 117 V130" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.19"/>
+<path d="M3677 1225 H3699 M3688 1214 V1236" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.28"/>
+<path d="M745 1845 H768 M757 1834 V1856" stroke="#7eabc1" stroke-width="1.3" stroke-linecap="round" opacity="0.21"/></g>
+<g class="notegroup" opacity="0.63" transform="translate(1070 249) rotate(0.5)">
+    <text class="formula" x="0" y="0">Dijkstra(G, s)</text>
+    <text class="detail" x="8" y="32">relax(u, v) · shortest paths</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+    <text class="note" x="10" y="178">d[v] = min(d[v], d[u] + w)</text>
   </g>
-  <g opacity=".43" transform="translate(1220 75) rotate(5)">
-    <text class="text" x="0" y="0">T(n) = O(n log n)</text>
-    <path class="blue" d="M35 192 V59 M35 192 H274"/>
-    <path class="green" d="M42 180 Q95 178 135 141 T264 64"/>
-    <path class="green thin dash" d="M42 180 Q96 144 146 120 T264 41"/>
-    <text class="label" x="234" y="214">n</text>
+<g class="notegroup" opacity="0.56" transform="translate(2867 155) rotate(1.6)">
+    <text class="formula" x="0" y="0">μᵢ ← mean(Cᵢ)</text>
+    <text class="detail" x="8" y="32">k-means clustering</text>
+    <g transform="translate(18 53) scale(.88)"><g class="dots"><circle cx="30" cy="46" r="5"/><circle cx="53" cy="20" r="5"/><circle cx="86" cy="68" r="5"/><circle cx="48" cy="97" r="5"/><circle cx="174" cy="36" r="5"/><circle cx="215" cy="51" r="5"/><circle cx="178" cy="104" r="5"/></g><path class="line coral" d="M50 49 L68 67 M68 49 L50 67 M185 55 L203 73 M203 55 L185 73"/><path class="line green dash" d="M127 7 L136 119"/></g>
+    <text class="note" x="10" y="178">assign → update</text>
   </g>
-  <g opacity=".31" transform="translate(18 354) rotate(-5)">
-    <text class="text" x="7" y="0">DFS(G, v)</text>
-    <circle class="blue" cx="68" cy="63" r="10"/>
-    <circle class="blue" cx="24" cy="130" r="10"/>
-    <circle class="blue" cx="122" cy="132" r="10"/>
-    <circle class="blue" cx="92" cy="190" r="10"/>
-    <path class="green" d="M62 75 L31 119 M76 76 L114 121 M117 144 L97 178"/>
-    <path class="red thin dash" d="M30 140 Q9 174 78 188"/>
-    <text class="small" x="0" y="238">visited := ∅</text>
+<g class="notegroup" opacity="0.63" transform="translate(1159 560) rotate(2.9)">
+    <text class="formula" x="0" y="0">λx. f(x)</text>
+    <text class="detail" x="8" y="32">functional reasoning</text>
+    <g transform="translate(18 53) scale(.88)"><rect x="14" y="12" width="89" height="45" rx="4" class="line blue"/><rect x="139" y="12" width="89" height="45" rx="4" class="line green"/><path class="line blue" d="M104 34 H138 M131 27 L138 34 L131 41 M66 58 V91 H180 V58"/></g>
+    <text class="note" x="10" y="178">pure functions · invariants</text>
   </g>
-  <g opacity=".32" transform="translate(1290 371) rotate(8)">
-    <text class="text" x="0" y="0">∂L / ∂w</text>
-    <text class="label" x="9" y="37">gradient descent</text>
-    <path class="blue" d="M15 175 H235 M35 195 V61"/>
-    <path class="green" d="M46 80 C75 104 103 164 127 165 S185 96 230 83"/>
-    <circle cx="127" cy="165" r="6" fill="#ad7766"/>
-    <path class="red" d="M96 140 L116 157 L102 154"/>
+<g class="notegroup" opacity="0.68" transform="translate(2851 555) rotate(-1.6)">
+    <text class="formula" x="0" y="0">Decision tree</text>
+    <text class="detail" x="8" y="32">split by information gain</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M121 9 V35 L62 70 M121 35 L185 70 M62 70 L30 108 M62 70 L92 108 M185 70 L155 108 M185 70 L214 108"/><rect class="line green" x="9" y="105" width="41" height="22" rx="3"/><rect class="line green" x="73" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="137" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="197" y="105" width="41" height="22" rx="3"/></g>
+    <text class="note" x="10" y="178">P(+ | features)</text>
   </g>
-  <g opacity=".34" transform="translate(56 748) rotate(-4)">
-    <text class="text" x="0" y="0">k-means</text>
-    <circle class="blue" cx="34" cy="77" r="6"/><circle class="blue" cx="80" cy="62" r="6"/>
-    <circle class="blue" cx="104" cy="121" r="6"/><circle class="blue" cx="52" cy="136" r="6"/>
-    <circle class="green" cx="209" cy="98" r="6"/><circle class="green" cx="265" cy="82" r="6"/>
-    <circle class="green" cx="251" cy="147" r="6"/><circle class="green" cx="192" cy="168" r="6"/>
-    <path class="red" d="M65 98 L80 113 M80 98 L65 113 M225 117 L240 132 M240 117 L225 132"/>
-    <path class="red dash thin" d="M149 44 L156 189"/>
-    <text class="small" x="0" y="217">μᵢ ← mean(Cᵢ)</text>
+<g class="notegroup" opacity="0.67" transform="translate(1192 1045) rotate(2.5)">
+    <text class="formula" x="0" y="0">Branch and bound</text>
+    <text class="detail" x="8" y="32">optimisation</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+    <text class="note" x="10" y="178">lower ≤ optimum ≤ upper</text>
   </g>
-  <g opacity=".33" transform="translate(1213 738) rotate(5)">
-    <text class="text" x="0" y="0">SAT / CDCL</text>
-    <text class="small" x="4" y="35">(a ∨ b) ∧ (¬a ∨ c)</text>
-    <path class="blue" d="M38 67 V93 M38 93 L8 132 M38 93 L88 132 M8 132 L8 163 M88 132 L88 163"/>
-    <rect class="green" x="2" y="163" width="33" height="24" rx="3"/>
-    <rect class="green" x="73" y="163" width="33" height="24" rx="3"/>
-    <text class="label" x="10" y="180">T</text>
-    <text class="label" x="81" y="180">F</text>
-    <path class="red dash" d="M115 95 Q175 61 209 115"/>
+<g class="notegroup" opacity="0.56" transform="translate(2768 1098) rotate(2.2)">
+    <text class="formula" x="0" y="0">H(X) = −Σ p(x) log₂ p(x)</text>
+    <text class="detail" x="8" y="32">entropy · ID3</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M14 102 H245 M34 117 V14"/><path class="line green" d="M39 89 Q91 20 132 89 T235 44"/><path class="line coral dash" d="M38 65 H245"/></g>
+    <text class="note" x="10" y="178">information gain</text>
   </g>
-  <g opacity=".22" transform="translate(540 62) rotate(3)">
-    <text class="text" x="0" y="0">y = σ(wᵀx + b)</text>
-    <path class="red" d="M5 16 Q112 36 228 14"/>
-    <text class="label" x="63" y="47">machine learning</text>
+<g class="notegroup" opacity="0.66" transform="translate(1165 1521) rotate(2.6)">
+    <text class="formula" x="0" y="0">T(n) = O(n log n)</text>
+    <text class="detail" x="8" y="32">divide and conquer</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M20 111 H245 M41 124 V8"/><path class="line green" d="M48 22 C78 30 83 108 144 108 S211 43 238 22"/><path class="line coral" d="M98 62 L120 88 L109 83"/></g>
+    <text class="note" x="10" y="178">T(n) = 2T(n/2) + n</text>
   </g>
-  <g opacity=".25" transform="translate(530 999) rotate(-2)">
-    <text class="text" x="0" y="0">∀x ∈ A, P(x)</text>
-    <text class="small" x="28" y="37">formal verification</text>
-    <path class="green thin" d="M0 51 Q138 67 252 46"/>
+<g class="notegroup" opacity="0.57" transform="translate(2894 1394) rotate(-1.3)">
+    <text class="formula" x="0" y="0">C++ / OpenGL</text>
+    <text class="detail" x="8" y="32">simulation architecture</text>
+    <g transform="translate(18 53) scale(.88)"><rect class="line blue" x="21" y="10" width="74" height="54" rx="3"/><rect class="line green" x="151" y="10" width="74" height="54" rx="3"/><path class="line coral" d="M96 36 H150 M142 30 L150 36 L142 42"/><path class="line blue" d="M40 74 V103 H208 V74"/></g>
+    <text class="note" x="10" y="178">update → render → observe</text>
   </g>
+<g class="notegroup" opacity="0.56" transform="translate(966 1810) rotate(-2.2)">
+    <text class="formula" x="0" y="0">Convolution</text>
+    <text class="detail" x="8" y="32">feature extraction</text>
+    <g transform="translate(18 53) scale(.88)"><g class="dots"><circle cx="30" cy="46" r="5"/><circle cx="53" cy="20" r="5"/><circle cx="86" cy="68" r="5"/><circle cx="48" cy="97" r="5"/><circle cx="174" cy="36" r="5"/><circle cx="215" cy="51" r="5"/><circle cx="178" cy="104" r="5"/></g><path class="line coral" d="M50 49 L68 67 M68 49 L50 67 M185 55 L203 73 M203 55 L185 73"/><path class="line green dash" d="M127 7 L136 119"/></g>
+    <text class="note" x="10" y="178">(f * g)(x)</text>
+  </g>
+<g class="notegroup" opacity="0.67" transform="translate(2879 1794) rotate(1.5)">
+    <text class="formula" x="0" y="0">Dijkstra(G, s)</text>
+    <text class="detail" x="8" y="32">relax(u, v) · shortest paths</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+    <text class="note" x="10" y="178">d[v] = min(d[v], d[u] + w)</text>
+  </g>
+<g class="notegroup" opacity="0.67" transform="translate(955 2264) rotate(-4.1)">
+    <text class="formula" x="0" y="0">μᵢ ← mean(Cᵢ)</text>
+    <text class="detail" x="8" y="32">k-means clustering</text>
+    <g transform="translate(18 53) scale(.88)"><g class="dots"><circle cx="30" cy="46" r="5"/><circle cx="53" cy="20" r="5"/><circle cx="86" cy="68" r="5"/><circle cx="48" cy="97" r="5"/><circle cx="174" cy="36" r="5"/><circle cx="215" cy="51" r="5"/><circle cx="178" cy="104" r="5"/></g><path class="line coral" d="M50 49 L68 67 M68 49 L50 67 M185 55 L203 73 M203 55 L185 73"/><path class="line green dash" d="M127 7 L136 119"/></g>
+    <text class="note" x="10" y="178">assign → update</text>
+  </g>
+<g class="notegroup" opacity="0.59" transform="translate(2846 2239) rotate(4.0)">
+    <text class="formula" x="0" y="0">λx. f(x)</text>
+    <text class="detail" x="8" y="32">functional reasoning</text>
+    <g transform="translate(18 53) scale(.88)"><rect x="14" y="12" width="89" height="45" rx="4" class="line blue"/><rect x="139" y="12" width="89" height="45" rx="4" class="line green"/><path class="line blue" d="M104 34 H138 M131 27 L138 34 L131 41 M66 58 V91 H180 V58"/></g>
+    <text class="note" x="10" y="178">pure functions · invariants</text>
+  </g>
+<g class="notegroup" opacity="0.64" transform="translate(1060 2730) rotate(4.8)">
+    <text class="formula" x="0" y="0">Decision tree</text>
+    <text class="detail" x="8" y="32">split by information gain</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M121 9 V35 L62 70 M121 35 L185 70 M62 70 L30 108 M62 70 L92 108 M185 70 L155 108 M185 70 L214 108"/><rect class="line green" x="9" y="105" width="41" height="22" rx="3"/><rect class="line green" x="73" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="137" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="197" y="105" width="41" height="22" rx="3"/></g>
+    <text class="note" x="10" y="178">P(+ | features)</text>
+  </g>
+<g class="notegroup" opacity="0.59" transform="translate(2778 2612) rotate(-3.5)">
+    <text class="formula" x="0" y="0">Branch and bound</text>
+    <text class="detail" x="8" y="32">optimisation</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+    <text class="note" x="10" y="178">lower ≤ optimum ≤ upper</text>
+  </g>
+<g class="notegroup" opacity="0.67" transform="translate(1133 3179) rotate(-4.9)">
+    <text class="formula" x="0" y="0">H(X) = −Σ p(x) log₂ p(x)</text>
+    <text class="detail" x="8" y="32">entropy · ID3</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M14 102 H245 M34 117 V14"/><path class="line green" d="M39 89 Q91 20 132 89 T235 44"/><path class="line coral dash" d="M38 65 H245"/></g>
+    <text class="note" x="10" y="178">information gain</text>
+  </g>
+<g class="notegroup" opacity="0.65" transform="translate(2781 3054) rotate(-0.8)">
+    <text class="formula" x="0" y="0">T(n) = O(n log n)</text>
+    <text class="detail" x="8" y="32">divide and conquer</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M20 111 H245 M41 124 V8"/><path class="line green" d="M48 22 C78 30 83 108 144 108 S211 43 238 22"/><path class="line coral" d="M98 62 L120 88 L109 83"/></g>
+    <text class="note" x="10" y="178">T(n) = 2T(n/2) + n</text>
+  </g>
+<g class="notegroup" opacity="0.63" transform="translate(1076 3458) rotate(-1.5)">
+    <text class="formula" x="0" y="0">C++ / OpenGL</text>
+    <text class="detail" x="8" y="32">simulation architecture</text>
+    <g transform="translate(18 53) scale(.88)"><rect class="line blue" x="21" y="10" width="74" height="54" rx="3"/><rect class="line green" x="151" y="10" width="74" height="54" rx="3"/><path class="line coral" d="M96 36 H150 M142 30 L150 36 L142 42"/><path class="line blue" d="M40 74 V103 H208 V74"/></g>
+    <text class="note" x="10" y="178">update → render → observe</text>
+  </g>
+<g class="notegroup" opacity="0.57" transform="translate(2928 3571) rotate(0.9)">
+    <text class="formula" x="0" y="0">Convolution</text>
+    <text class="detail" x="8" y="32">feature extraction</text>
+    <g transform="translate(18 53) scale(.88)"><g class="dots"><circle cx="30" cy="46" r="5"/><circle cx="53" cy="20" r="5"/><circle cx="86" cy="68" r="5"/><circle cx="48" cy="97" r="5"/><circle cx="174" cy="36" r="5"/><circle cx="215" cy="51" r="5"/><circle cx="178" cy="104" r="5"/></g><path class="line coral" d="M50 49 L68 67 M68 49 L50 67 M185 55 L203 73 M203 55 L185 73"/><path class="line green dash" d="M127 7 L136 119"/></g>
+    <text class="note" x="10" y="178">(f * g)(x)</text>
+  </g>
+<g class="notegroup" opacity="0.67" transform="translate(986 3854) rotate(1.6)">
+    <text class="formula" x="0" y="0">Dijkstra(G, s)</text>
+    <text class="detail" x="8" y="32">relax(u, v) · shortest paths</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+    <text class="note" x="10" y="178">d[v] = min(d[v], d[u] + w)</text>
+  </g>
+<g class="notegroup" opacity="0.68" transform="translate(2908 3947) rotate(3.2)">
+    <text class="formula" x="0" y="0">μᵢ ← mean(Cᵢ)</text>
+    <text class="detail" x="8" y="32">k-means clustering</text>
+    <g transform="translate(18 53) scale(.88)"><g class="dots"><circle cx="30" cy="46" r="5"/><circle cx="53" cy="20" r="5"/><circle cx="86" cy="68" r="5"/><circle cx="48" cy="97" r="5"/><circle cx="174" cy="36" r="5"/><circle cx="215" cy="51" r="5"/><circle cx="178" cy="104" r="5"/></g><path class="line coral" d="M50 49 L68 67 M68 49 L50 67 M185 55 L203 73 M203 55 L185 73"/><path class="line green dash" d="M127 7 L136 119"/></g>
+    <text class="note" x="10" y="178">assign → update</text>
+  </g>
+<g class="notegroup" opacity="0.69" transform="translate(1058 4271) rotate(-4.4)">
+    <text class="formula" x="0" y="0">λx. f(x)</text>
+    <text class="detail" x="8" y="32">functional reasoning</text>
+    <g transform="translate(18 53) scale(.88)"><rect x="14" y="12" width="89" height="45" rx="4" class="line blue"/><rect x="139" y="12" width="89" height="45" rx="4" class="line green"/><path class="line blue" d="M104 34 H138 M131 27 L138 34 L131 41 M66 58 V91 H180 V58"/></g>
+    <text class="note" x="10" y="178">pure functions · invariants</text>
+  </g>
+<g class="notegroup" opacity="0.61" transform="translate(2754 4307) rotate(0.4)">
+    <text class="formula" x="0" y="0">Decision tree</text>
+    <text class="detail" x="8" y="32">split by information gain</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M121 9 V35 L62 70 M121 35 L185 70 M62 70 L30 108 M62 70 L92 108 M185 70 L155 108 M185 70 L214 108"/><rect class="line green" x="9" y="105" width="41" height="22" rx="3"/><rect class="line green" x="73" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="137" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="197" y="105" width="41" height="22" rx="3"/></g>
+    <text class="note" x="10" y="178">P(+ | features)</text>
+  </g>
+<g class="notegroup" opacity="0.56" transform="translate(1008 4735) rotate(1.6)">
+    <text class="formula" x="0" y="0">Branch and bound</text>
+    <text class="detail" x="8" y="32">optimisation</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+    <text class="note" x="10" y="178">lower ≤ optimum ≤ upper</text>
+  </g>
+<g class="notegroup" opacity="0.66" transform="translate(2946 4796) rotate(4.9)">
+    <text class="formula" x="0" y="0">H(X) = −Σ p(x) log₂ p(x)</text>
+    <text class="detail" x="8" y="32">entropy · ID3</text>
+    <g transform="translate(18 53) scale(.88)"><path class="line blue" d="M14 102 H245 M34 117 V14"/><path class="line green" d="M39 89 Q91 20 132 89 T235 44"/><path class="line coral dash" d="M38 65 H245"/></g>
+    <text class="note" x="10" y="178">information gain</text>
+  </g>
+<g class="notegroup" opacity="0.49" transform="translate(322 323) rotate(0.9)">
+  <text class="formula" x="0" y="0">H(X) = −Σ p(x) log₂ p(x)</text>
+  <text class="detail" x="6" y="35">entropy · ID3</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M14 102 H245 M34 117 V14"/><path class="line green" d="M39 89 Q91 20 132 89 T235 44"/><path class="line coral dash" d="M38 65 H245"/></g>
+ </g>
+<g class="notegroup" opacity="0.56" transform="translate(3334 377) rotate(-1.9)">
+  <text class="formula" x="0" y="0">Separating Axis Theorem</text>
+  <text class="detail" x="6" y="35">convex intersection</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M10 62 L74 25 L121 76 L82 108 L20 101 Z"/><path class="line green" d="M184 16 L227 45 L236 105 L180 110 L158 74 Z"/><path class="line coral dash" d="M142 3 V124"/><path class="line blue" d="M19 130 H236 M226 124 L236 130 L226 136"/></g>
+ </g>
+<g class="notegroup" opacity="0.51" transform="translate(612 880) rotate(2.0)">
+  <text class="formula" x="0" y="0">Decision tree</text>
+  <text class="detail" x="6" y="35">split by information gain</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M121 9 V35 L62 70 M121 35 L185 70 M62 70 L30 108 M62 70 L92 108 M185 70 L155 108 M185 70 L214 108"/><rect class="line green" x="9" y="105" width="41" height="22" rx="3"/><rect class="line green" x="73" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="137" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="197" y="105" width="41" height="22" rx="3"/></g>
+ </g>
+<g class="notegroup" opacity="0.59" transform="translate(3271 861) rotate(-1.6)">
+  <text class="formula" x="0" y="0">Record / Array / ADT</text>
+  <text class="detail" x="6" y="35">abstract data types</text>
+  <g transform="translate(9 55) scale(.68)"><rect class="line blue" x="21" y="10" width="74" height="54" rx="3"/><rect class="line green" x="151" y="10" width="74" height="54" rx="3"/><path class="line coral" d="M96 36 H150 M142 30 L150 36 L142 42"/><path class="line blue" d="M40 74 V103 H208 V74"/></g>
+ </g>
+<g class="notegroup" opacity="0.58" transform="translate(636 1399) rotate(1.8)">
+  <text class="formula" x="0" y="0">∇L(θ)</text>
+  <text class="detail" x="6" y="35">gradient descent</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M20 111 H245 M41 124 V8"/><path class="line green" d="M48 22 C78 30 83 108 144 108 S211 43 238 22"/><path class="line coral" d="M98 62 L120 88 L109 83"/></g>
+ </g>
+<g class="notegroup" opacity="0.53" transform="translate(3398 1440) rotate(2.2)">
+  <text class="formula" x="0" y="0">C++ / OpenGL</text>
+  <text class="detail" x="6" y="35">simulation architecture</text>
+  <g transform="translate(9 55) scale(.68)"><rect class="line blue" x="21" y="10" width="74" height="54" rx="3"/><rect class="line green" x="151" y="10" width="74" height="54" rx="3"/><path class="line coral" d="M96 36 H150 M142 30 L150 36 L142 42"/><path class="line blue" d="M40 74 V103 H208 V74"/></g>
+ </g>
+<g class="notegroup" opacity="0.49" transform="translate(570 2065) rotate(5.3)">
+  <text class="formula" x="0" y="0">MOMS / 2WL</text>
+  <text class="detail" x="6" y="35">SAT solver heuristics</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M121 9 V35 L62 70 M121 35 L185 70 M62 70 L30 108 M62 70 L92 108 M185 70 L155 108 M185 70 L214 108"/><rect class="line green" x="9" y="105" width="41" height="22" rx="3"/><rect class="line green" x="73" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="137" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="197" y="105" width="41" height="22" rx="3"/></g>
+ </g>
+<g class="notegroup" opacity="0.44" transform="translate(3498 2069) rotate(0.3)">
+  <text class="formula" x="0" y="0">∀ n : Nat, n + 0 = n</text>
+  <text class="detail" x="6" y="35">inductive proof · Lean</text>
+  <g transform="translate(9 55) scale(.68)"><rect x="14" y="12" width="89" height="45" rx="4" class="line blue"/><rect x="139" y="12" width="89" height="45" rx="4" class="line green"/><path class="line blue" d="M104 34 H138 M131 27 L138 34 L131 41 M66 58 V91 H180 V58"/></g>
+ </g>
+<g class="notegroup" opacity="0.55" transform="translate(326 2583) rotate(5.2)">
+  <text class="formula" x="0" y="0">λx. f(x)</text>
+  <text class="detail" x="6" y="35">functional reasoning</text>
+  <g transform="translate(9 55) scale(.68)"><rect x="14" y="12" width="89" height="45" rx="4" class="line blue"/><rect x="139" y="12" width="89" height="45" rx="4" class="line green"/><path class="line blue" d="M104 34 H138 M131 27 L138 34 L131 41 M66 58 V91 H180 V58"/></g>
+ </g>
+<g class="notegroup" opacity="0.53" transform="translate(3517 2684) rotate(-4.3)">
+  <text class="formula" x="0" y="0">BCD · two's complement</text>
+  <text class="detail" x="6" y="35">binary representation</text>
+  <g transform="translate(9 55) scale(.68)"><rect class="line blue" x="21" y="10" width="74" height="54" rx="3"/><rect class="line green" x="151" y="10" width="74" height="54" rx="3"/><path class="line coral" d="M96 36 H150 M142 30 L150 36 L142 42"/><path class="line blue" d="M40 74 V103 H208 V74"/></g>
+ </g>
+<g class="notegroup" opacity="0.57" transform="translate(572 3192) rotate(5.0)">
+  <text class="formula" x="0" y="0">Dijkstra(G, s)</text>
+  <text class="detail" x="6" y="35">relax(u, v) · shortest paths</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+ </g>
+<g class="notegroup" opacity="0.46" transform="translate(3496 3202) rotate(2.4)">
+  <text class="formula" x="0" y="0">DFS(G, v)</text>
+  <text class="detail" x="6" y="35">visited := ∅</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+ </g>
+<g class="notegroup" opacity="0.48" transform="translate(339 3754) rotate(0.3)">
+  <text class="formula" x="0" y="0">Dafny: invariant I</text>
+  <text class="detail" x="6" y="35">Hoare logic</text>
+  <g transform="translate(9 55) scale(.68)"><rect x="14" y="12" width="89" height="45" rx="4" class="line blue"/><rect x="139" y="12" width="89" height="45" rx="4" class="line green"/><path class="line blue" d="M104 34 H138 M131 27 L138 34 L131 41 M66 58 V91 H180 V58"/></g>
+ </g>
+<g class="notegroup" opacity="0.59" transform="translate(3531 3895) rotate(3.2)">
+  <text class="formula" x="0" y="0">Branch and bound</text>
+  <text class="detail" x="6" y="35">optimisation</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M18 34 L83 73 L152 22 L219 81 M83 73 L146 111 L219 81"/><g class="dots"><circle cx="18" cy="34" r="7"/><circle cx="83" cy="73" r="7"/><circle cx="152" cy="22" r="7"/><circle cx="219" cy="81" r="7"/><circle cx="146" cy="111" r="7"/></g></g>
+ </g>
+<g class="notegroup" opacity="0.57" transform="translate(546 4482) rotate(3.0)">
+  <text class="formula" x="0" y="0">SAT / CDCL</text>
+  <text class="detail" x="6" y="35">unit propagation</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M121 9 V35 L62 70 M121 35 L185 70 M62 70 L30 108 M62 70 L92 108 M185 70 L155 108 M185 70 L214 108"/><rect class="line green" x="9" y="105" width="41" height="22" rx="3"/><rect class="line green" x="73" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="137" y="105" width="41" height="22" rx="3"/><rect class="line coral" x="197" y="105" width="41" height="22" rx="3"/></g>
+ </g>
+<g class="notegroup" opacity="0.58" transform="translate(3321 4475) rotate(-1.4)">
+  <text class="formula" x="0" y="0">LZ77 · Huffman</text>
+  <text class="detail" x="6" y="35">compression</text>
+  <g transform="translate(9 55) scale(.68)"><path class="line blue" d="M14 102 H245 M34 117 V14"/><path class="line green" d="M39 89 Q91 20 132 89 T235 44"/><path class="line coral dash" d="M38 65 H245"/></g>
+ </g>
 </svg>
