@@ -21,11 +21,11 @@
         <span>Dragoș-Andrei Bobu</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#teaching">Teaching</a>
-        <a class="nav-link" href="#research">Research</a>
-        <a class="nav-link" href="#experience">Experience</a>
-        <a class="nav-link nav-cta" href="#contact">Contact</a>
+        <a class="nav-link" href="#projects"><span class="nav-index" aria-hidden="true">01</span><span>Projects</span></a>
+        <a class="nav-link" href="#teaching"><span class="nav-index" aria-hidden="true">02</span><span>Teaching</span></a>
+        <a class="nav-link" href="#research"><span class="nav-index" aria-hidden="true">03</span><span>Research</span></a>
+        <a class="nav-link" href="#experience"><span class="nav-index" aria-hidden="true">04</span><span>Experience</span></a>
+        <a class="nav-link nav-cta" href="#contact"><span class="nav-index" aria-hidden="true">05</span><span>Contact</span></a>
       </nav>
     </div>
   </header>
@@ -67,12 +67,39 @@
                 <a href="https://github.com/curricula-live/api" target="_blank" rel="noreferrer">View code <span aria-hidden="true">↗</span></a>
               </div>
             </div>
-            <div class="graph-illustration" aria-hidden="true">
-              <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span>
-              <span class="node n4"></span><span class="node n5"></span><span class="node n6"></span>
-              <span class="edge e1"></span><span class="edge e2"></span><span class="edge e3"></span>
-              <span class="edge e4"></span><span class="edge e5"></span>
-            </div>
+            <a class="graph-illustration" href="https://curricula.live" target="_blank" rel="noreferrer" aria-label="Explore curricula.live — example curriculum concept relationships">
+              <svg class="curriculum-graph" viewBox="0 0 360 220" role="img" aria-labelledby="curriculum-graph-title curriculum-graph-desc">
+                <title id="curriculum-graph-title">Curriculum knowledge graph: Array</title>
+                <desc id="curriculum-graph-desc">Array is connected to Collection and Data Structure by subtype-of relationships, and to Index by a uses relationship.</desc>
+                <g class="curriculum-edges">
+                  <path d="M147 86 L89 58"/>
+                  <path d="M213 86 L271 58"/>
+                  <path d="M148 139 L89 172"/>
+                </g>
+                <g class="curriculum-node curriculum-related">
+                  <rect x="10" y="12" width="138" height="45" rx="5"/>
+                  <text x="79" y="40" text-anchor="middle">Collection</text>
+                </g>
+                <g class="curriculum-node curriculum-related">
+                  <rect x="212" y="12" width="138" height="45" rx="5"/>
+                  <text x="281" y="40" text-anchor="middle">Data Structure</text>
+                </g>
+                <g class="curriculum-node curriculum-related">
+                  <rect x="10" y="165" width="138" height="45" rx="5"/>
+                  <text x="79" y="193" text-anchor="middle">Index</text>
+                </g>
+                <g class="curriculum-node curriculum-focus">
+                  <rect x="121" y="86" width="118" height="53" rx="6"/>
+                  <text x="180" y="119" text-anchor="middle">Array</text>
+                </g>
+                <g class="curriculum-relations">
+                  <text x="92" y="80" text-anchor="middle">subtype_of</text>
+                  <text x="269" y="80" text-anchor="middle">subtype_of</text>
+                  <text x="91" y="156" text-anchor="middle">uses</text>
+                </g>
+              </svg>
+              <span class="graph-caption">Concepts / semantic relationships</span>
+            </a>
           </div>
         </div>
         <a class="laptop-base" href="https://curricula.live" target="_blank" rel="noreferrer" aria-label="Explore the curricula.live ecosystem">
@@ -150,6 +177,16 @@
           <p class="project-number">01 · Platform engineering</p>
           <h3><a class="card-cover-link" href="https://curricula.live" target="_blank" rel="noreferrer">curricula.live — Connected Teaching Ecosystem</a></h3>
           <p>Developing a teacher-oriented ecosystem linking <span class="keyword keyword-system">curriculum knowledge graphs</span>, conceptual dependencies, <span class="keyword keyword-system">course planning</span> and <span class="keyword keyword-system">reusable learning resources</span>. Its Django and PostgreSQL foundations support interconnected instructional tools while keeping teacher judgement central.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-curricula" viewBox="0 0 554 154" role="img" aria-label="Conceptual curricula.live architecture: curriculum information is organized by Django services, stored in PostgreSQL, and used by teaching tools.">
+
+              <g class="arch-flow"><path d="M138 61 H170 M331 61 H361 M251 82 V107"/><path d="M164 56 L170 61 L164 66 M355 56 L361 61 L355 66 M246 101 L251 107 L256 101"/></g>
+              <g class="arch-node"><rect x="10" y="37" width="128" height="49" rx="4"/><text x="74" y="57" text-anchor="middle">Curriculum data</text><text class="arch-small" x="74" y="72" text-anchor="middle">concepts · links</text></g>
+              <g class="arch-node arch-core"><rect x="170" y="37" width="161" height="49" rx="4"/><text x="250" y="57" text-anchor="middle">Django services</text><text class="arch-small" x="250" y="72" text-anchor="middle">concept relationships</text></g>
+              <g class="arch-node"><rect x="361" y="37" width="183" height="49" rx="4"/><text x="452" y="57" text-anchor="middle">Teaching tools</text><text class="arch-small" x="452" y="72" text-anchor="middle">plans · pathways</text></g>
+              <g class="arch-node arch-storage"><rect x="192" y="107" width="117" height="31" rx="4"/><text x="250" y="127" text-anchor="middle">PostgreSQL</text></g>
+            </svg>
+          </div>
           <ul class="tag-list"><li>Knowledge graphs</li><li>Teacher planning</li><li>Django</li><li>PostgreSQL</li><li>Learning systems</li></ul>
           <div class="card-links">
             <a href="https://curricula.live" target="_blank" rel="noreferrer">Platform ↗</a>
@@ -162,6 +199,16 @@
           <p class="project-number">02 · Computer Science education</p>
           <h3><a class="card-cover-link" href="https://machinelearning-club.github.io/" target="_blank" rel="noreferrer">Machine Learning Club</a></h3>
           <p>Designing and teaching a structured programme for pre-university students at Seven Hills International School. It combines <span class="keyword keyword-learning">mathematical reasoning</span>, <span class="keyword keyword-learning">interactive laboratories</span> and projects, including preparation for <span class="keyword keyword-learning">FiiCode</span>, organised by the Faculty of Computer Science at Alexandru Ioan Cuza University of Iași.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-club" viewBox="0 0 360 154" role="img" aria-label="Machine Learning Club learning pathway: lessons lead to Python laboratories, student projects, and FiiCode preparation.">
+
+              <g class="arch-flow"><path d="M111 49 H127 M235 49 H251 M305 77 V103"/><path d="M121 44 L127 49 L121 54 M245 44 L251 49 L245 54 M300 97 L305 103 L310 97"/></g>
+              <g class="arch-node"><rect x="8" y="21" width="103" height="56" rx="4"/><text x="59" y="45" text-anchor="middle">Lessons</text><text class="arch-small" x="59" y="61" text-anchor="middle">concepts</text></g>
+              <g class="arch-node arch-core"><rect x="127" y="21" width="108" height="56" rx="4"/><text x="181" y="45" text-anchor="middle">Python labs</text><text class="arch-small" x="181" y="61" text-anchor="middle">experiments</text></g>
+              <g class="arch-node"><rect x="251" y="21" width="101" height="56" rx="4"/><text x="302" y="45" text-anchor="middle">Projects</text><text class="arch-small" x="302" y="61" text-anchor="middle">application</text></g>
+              <g class="arch-node arch-terminal"><rect x="237" y="103" width="115" height="37" rx="4"/><text x="294" y="127" text-anchor="middle">FiiCode</text></g>
+            </svg>
+          </div>
           <ul class="tag-list"><li>Machine learning</li><li>Python</li><li>Mathematics</li><li>FiiCode preparation</li></ul>
           <div class="card-links"><a href="https://machinelearning-club.github.io/" target="_blank" rel="noreferrer">Course website &amp; materials ↗</a></div>
         </article>
@@ -170,6 +217,16 @@
           <p class="project-number">03 · C++ / simulation</p>
           <h3><a class="card-cover-link" href="https://Machine-Learning-Compatible-Game-Engine.github.io" target="_blank" rel="noreferrer">Machine Learning-Compatible Game Engine</a></h3>
           <p>A modular <span class="keyword keyword-engine">C++ engine</span> exposing simulation environments to <span class="keyword keyword-engine">machine-learning agents</span> through <span class="keyword keyword-engine">reusable interfaces</span> and extensible components.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-engine" viewBox="0 0 360 154" role="img" aria-label="Machine Learning-Compatible Game Engine architecture: C++ simulation core, OpenGL rendering, and a machine-learning agent interface.">
+
+              <g class="arch-flow"><path d="M112 56 H142 M241 56 H257 M191 82 V109"/><path d="M136 51 L142 56 L136 61 M251 51 L257 56 L251 61 M186 103 L191 109 L196 103"/></g>
+              <g class="arch-node"><rect x="8" y="30" width="104" height="52" rx="4"/><text x="60" y="51" text-anchor="middle">C++</text><text class="arch-small" x="60" y="68" text-anchor="middle">simulation</text></g>
+              <g class="arch-node arch-core"><rect x="142" y="30" width="99" height="52" rx="4"/><text x="191" y="51" text-anchor="middle">Engine</text><text class="arch-small" x="191" y="68" text-anchor="middle">interfaces</text></g>
+              <g class="arch-node"><rect x="257" y="30" width="95" height="52" rx="4"/><text x="304" y="51" text-anchor="middle">OpenGL</text><text class="arch-small" x="304" y="68" text-anchor="middle">rendering</text></g>
+              <g class="arch-node arch-terminal"><rect x="131" y="109" width="120" height="35" rx="4"/><text x="191" y="131" text-anchor="middle">ML agents</text></g>
+            </svg>
+          </div>
           <ul class="tag-list"><li>C++</li><li>OpenGL</li><li>Simulation</li><li>Architecture</li></ul>
           <div class="card-links"><a href="https://Machine-Learning-Compatible-Game-Engine.github.io" target="_blank" rel="noreferrer">Research lab ↗</a></div>
         </article>
@@ -178,6 +235,17 @@
           <p class="project-number">04 · Applied machine learning</p>
           <h3><a class="card-cover-link" href="https://github.com/dragosandreibobu/fiicode-2026-ai-bank-telemarketing-prediction" target="_blank" rel="noreferrer">FiiCode AI/ML — 1st Place</a></h3>
           <p>Advanced through two stages with <span class="keyword keyword-learning">ensemble models</span> for supply-chain and bank-marketing prediction, balancing model performance with clear experimentation.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-fiicode" viewBox="0 0 360 154" role="img" aria-label="FiiCode machine-learning pipeline: data preparation feeds CatBoost and LightGBM models, combined for predictions.">
+
+              <g class="arch-flow"><path d="M83 76 H113 M205 76 H233 M233 76 V47 H258 M233 76 V112 H258 M304 47 H324 V76 M304 112 H324 V76"/><path d="M107 71 L113 76 L107 81 M252 42 L258 47 L252 52 M252 107 L258 112 L252 117"/></g>
+              <g class="arch-node"><rect x="6" y="53" width="77" height="46" rx="4"/><text x="44" y="72" text-anchor="middle">Data</text><text class="arch-small" x="44" y="87" text-anchor="middle">inputs</text></g>
+              <g class="arch-node arch-core"><rect x="113" y="53" width="92" height="46" rx="4"/><text x="159" y="72" text-anchor="middle">Features</text><text class="arch-small" x="159" y="87" text-anchor="middle">training</text></g>
+              <g class="arch-node"><rect x="258" y="30" width="58" height="34" rx="4"/><text class="arch-small" x="287" y="51" text-anchor="middle">CatBoost</text></g>
+              <g class="arch-node"><rect x="258" y="95" width="58" height="34" rx="4"/><text class="arch-small" x="287" y="116" text-anchor="middle">LightGBM</text></g>
+              <g class="arch-node arch-terminal"><rect x="324" y="57" width="32" height="42" rx="4"/><text class="arch-small" x="340" y="74" text-anchor="middle">ML</text><text class="arch-small" x="340" y="88" text-anchor="middle">out</text></g>
+            </svg>
+          </div>
           <ul class="tag-list"><li>Python</li><li>CatBoost</li><li>LightGBM</li><li>Data analysis</li></ul>
           <div class="card-links"><a href="https://github.com/dragosandreibobu/fiicode-2026-ai-bank-telemarketing-prediction" target="_blank" rel="noreferrer">Repository ↗</a></div>
         </article>
@@ -186,6 +254,16 @@
           <p class="project-number">05 · Forecasting</p>
           <h3><a class="card-cover-link" href="https://github.com/dragosandreibobu/airhack-2026-Passenger-Flow-Predictor" target="_blank" rel="noreferrer">Air Hack Iași — Passenger Flow Predictor</a></h3>
           <p>A <span class="keyword keyword-learning">passenger-flow forecasting</span> system for airport planning and operational decision support, awarded second place at Air Hack Iași.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-airhack" viewBox="0 0 360 154" role="img" aria-label="Passenger forecasting pipeline: operational input data flows to a forecasting model, passenger demand estimate, and planning.">
+
+              <g class="arch-flow"><path d="M94 75 H120 M236 75 H260 M308 102 V118"/><path d="M114 70 L120 75 L114 80 M254 70 L260 75 L254 80 M303 112 L308 118 L313 112"/></g>
+              <g class="arch-node"><rect x="8" y="52" width="86" height="47" rx="4"/><text x="51" y="71" text-anchor="middle">Input</text><text class="arch-small" x="51" y="86" text-anchor="middle">data</text></g>
+              <g class="arch-node arch-core"><rect x="120" y="52" width="116" height="47" rx="4"/><text x="178" y="71" text-anchor="middle">Forecasting</text><text class="arch-small" x="178" y="86" text-anchor="middle">model</text></g>
+              <g class="arch-node"><rect x="260" y="52" width="92" height="47" rx="4"/><text x="306" y="71" text-anchor="middle">Demand</text><text class="arch-small" x="306" y="86" text-anchor="middle">estimate</text></g>
+              <g class="arch-node arch-terminal"><rect x="258" y="118" width="94" height="30" rx="4"/><text x="305" y="137" text-anchor="middle">Planning</text></g>
+            </svg>
+          </div>
           <ul class="tag-list"><li>Forecasting</li><li>Python</li><li>Operational data</li></ul>
           <div class="card-links"><a href="https://github.com/dragosandreibobu/airhack-2026-Passenger-Flow-Predictor" target="_blank" rel="noreferrer">Repository ↗</a></div>
         </article>
