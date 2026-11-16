@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#d9c8a8">
-  <meta name="description" content="Dragoș-Andrei Bobu — software engineer, Computer Science educator, and researcher building maintainable web applications, learning systems, and experimental software.">
-  <title>Dragoș-Andrei Bobu — Software Engineer & Educator</title>
+  <meta name="theme-color" content="#eef2ed">
+  <meta name="description" content="Dragoș-Andrei Bobu — Computer Scientist, software engineer, Cambridge Computer Science teacher, and researcher working across algorithms, formal methods, machine learning, and educational systems.">
+  <title>Dragoș-Andrei Bobu — Computer Scientist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -21,11 +21,11 @@
         <span>Dragoș-Andrei Bobu</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#research">Research</a>
-        <a href="#about">About</a>
-        <a class="nav-cta" href="#contact">Contact</a>
+        <a class="nav-link" href="#projects"><span class="nav-index" aria-hidden="true">01</span><span>Projects</span></a>
+        <a class="nav-link" href="#teaching"><span class="nav-index" aria-hidden="true">02</span><span>Teaching</span></a>
+        <a class="nav-link" href="#research"><span class="nav-index" aria-hidden="true">03</span><span>Research</span></a>
+        <a class="nav-link" href="#experience"><span class="nav-index" aria-hidden="true">04</span><span>Experience</span></a>
+        <a class="nav-link nav-cta" href="#contact"><span class="nav-index" aria-hidden="true">05</span><span>Contact</span></a>
       </nav>
     </div>
   </header>
@@ -33,86 +33,153 @@
   <main id="main" class="desk">
     <section id="intro" class="intro-grid" aria-labelledby="intro-title">
       <article class="intro-note paper-card">
-        <p class="eyebrow">Hi, I’m</p>
         <h1 id="intro-title">Dragoș-Andrei<br><span>Bobu</span></h1>
-        <p class="role">Software Engineer <span>&amp;</span> Educator</p>
+        <p class="role">Computer Scientist</p>
+        <p class="role-detail">Software Engineer | Teacher | Researcher</p>
         <div class="pencil-line" aria-hidden="true"></div>
-        <p class="intro-copy">I build maintainable tools, teach complex ideas clearly, and explore systems that make learning more structured.</p>
+        <p class="intro-copy">I build software and learning systems, teach Computer Science, and explore reliable algorithms and intelligent tools.</p>
         <div class="intro-actions">
           <a class="button button-primary" href="#projects">Explore selected work</a>
           <a class="button button-quiet" href="https://github.com/dragosandreibobu" target="_blank" rel="noreferrer">GitHub profile</a>
         </div>
-        <p class="handwritten build-note">&gt; let’s build something useful.</p>
+        <p class="hero-affiliation">Cambridge Computer Science teacher · Iași, Romania</p>
       </article>
 
       <article class="laptop" aria-labelledby="featured-title">
         <div class="laptop-screen">
           <div class="screen-topline">
             <span>Featured project</span>
-            <span aria-hidden="true">● ● ●</span>
+            <span>01 / Featured initiative</span>
           </div>
           <div class="screen-content">
             <div>
-              <p class="screen-kicker">Knowledge infrastructure</p>
-              <h2 id="featured-title">curricula.live</h2>
-              <p>A Django and PostgreSQL backend for curriculum concepts, typed relations, and reliable learning-path services.</p>
+              <p class="screen-kicker">Curriculum knowledge &amp; teaching infrastructure</p>
+              <h2 id="featured-title"><a class="featured-title-link" href="https://curricula.live" target="_blank" rel="noreferrer">curricula.live</a></h2>
+              <p>An evolving ecosystem connecting curriculum concepts and prerequisites with teacher-led planning, learning sequences and reusable instructional resources.</p>
               <ul class="tech-pills" aria-label="Technologies">
-                <li>Python 3.12</li>
-                <li>Django 5.2</li>
-                <li>PostgreSQL</li>
-                <li>pytest</li>
+                <li>Knowledge graphs</li>
+                <li>Lesson planning</li>
+                <li>Learning pathways</li>
+                <li>Python · Django</li>
               </ul>
               <div class="screen-links">
                 <a href="https://curricula.live" target="_blank" rel="noreferrer">Visit platform <span aria-hidden="true">↗</span></a>
                 <a href="https://github.com/curricula-live/api" target="_blank" rel="noreferrer">View code <span aria-hidden="true">↗</span></a>
               </div>
             </div>
-            <div class="graph-illustration" aria-hidden="true">
-              <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span>
-              <span class="node n4"></span><span class="node n5"></span><span class="node n6"></span>
-              <span class="edge e1"></span><span class="edge e2"></span><span class="edge e3"></span>
-              <span class="edge e4"></span><span class="edge e5"></span>
-            </div>
+            <a class="graph-illustration" href="https://curricula.live" target="_blank" rel="noreferrer" aria-label="Explore curricula.live — example curriculum concept relationships">
+              <svg class="curriculum-graph" viewBox="0 0 360 220" role="img" aria-labelledby="curriculum-graph-title curriculum-graph-desc">
+                <title id="curriculum-graph-title">Curriculum knowledge graph: Array</title>
+                <desc id="curriculum-graph-desc">Array is connected to Collection and Data Structure by subtype-of relationships, and to Index by a uses relationship.</desc>
+                <g class="curriculum-edges">
+                  <path d="M147 86 L89 58"/>
+                  <path d="M213 86 L271 58"/>
+                  <path d="M148 139 L89 172"/>
+                </g>
+                <g class="curriculum-node curriculum-related">
+                  <rect x="10" y="12" width="138" height="45" rx="5"/>
+                  <text x="79" y="40" text-anchor="middle">Collection</text>
+                </g>
+                <g class="curriculum-node curriculum-related">
+                  <rect x="212" y="12" width="138" height="45" rx="5"/>
+                  <text x="281" y="40" text-anchor="middle">Data Structure</text>
+                </g>
+                <g class="curriculum-node curriculum-related">
+                  <rect x="10" y="165" width="138" height="45" rx="5"/>
+                  <text x="79" y="193" text-anchor="middle">Index</text>
+                </g>
+                <g class="curriculum-node curriculum-focus">
+                  <rect x="121" y="86" width="118" height="53" rx="6"/>
+                  <text x="180" y="119" text-anchor="middle">Array</text>
+                </g>
+                <g class="curriculum-relations">
+                  <text x="92" y="80" text-anchor="middle">subtype_of</text>
+                  <text x="269" y="80" text-anchor="middle">subtype_of</text>
+                  <text x="91" y="156" text-anchor="middle">uses</text>
+                </g>
+              </svg>
+              <span class="graph-caption">Concepts / semantic relationships</span>
+            </a>
           </div>
         </div>
-        <div class="laptop-base">
+        <a class="laptop-base" href="https://curricula.live" target="_blank" rel="noreferrer" aria-label="Explore the curricula.live ecosystem">
           <span class="folder-symbol" aria-hidden="true"></span>
-          <strong>PROJECTS</strong>
-          <small>Things I’ve built</small>
-        </div>
+          <strong>Research &amp; education</strong>
+          <small>Selected software initiatives</small>
+        </a>
       </article>
     </section>
 
     <section class="pillars" aria-label="Core areas">
       <a class="pillar notebook notebook-projects" href="#projects">
-        <span class="object-icon" aria-hidden="true">⌁</span>
+        <span class="object-icon" aria-hidden="true">01 /</span>
         <h2>Projects</h2>
         <p>Web applications, APIs, engines, predictive systems, and small tools built around real needs.</p>
-        <span class="object-link">Open the project notebook →</span>
+        <svg class="project-pillar-diagram" viewBox="0 0 320 112" role="img" aria-label="Three architectural layers connected through an interface, services, and data flow">
+          <path class="system-links" d="M103 51 H117 M206 51 H220 M111 46 L117 51 L111 56 M214 46 L220 51 L214 56"/>
+          <g class="system-module system-interface">
+            <rect x="2" y="26" width="101" height="51" rx="2"/>
+            <text class="system-title" x="52" y="47" text-anchor="middle">Interface</text>
+            <text class="system-detail" x="52" y="63" text-anchor="middle">presentation</text>
+          </g>
+          <g class="system-module system-services">
+            <rect x="117" y="26" width="89" height="51" rx="2"/>
+            <text class="system-title" x="161" y="47" text-anchor="middle">Services</text>
+            <text class="system-detail" x="161" y="63" text-anchor="middle">logic · APIs</text>
+          </g>
+          <g class="system-module system-data">
+            <rect x="220" y="26" width="98" height="51" rx="2"/>
+            <text class="system-title" x="269" y="47" text-anchor="middle">Data</text>
+            <text class="system-detail" x="269" y="63" text-anchor="middle">state · models</text>
+          </g>
+          <path class="system-foundation" d="M50 88 H270 M50 83 V93 M270 83 V93"/>
+          <text class="system-caption" x="160" y="105" text-anchor="middle">SYSTEM ARCHITECTURE</text>
+        </svg>
+        <span class="object-link">View selected projects →</span>
       </a>
 
       <article id="teaching" class="pillar chalk-notebook">
-        <span class="object-icon" aria-hidden="true">⌁</span>
-        <h2>Teaching</h2>
-        <p>I break down formal Computer Science ideas through heuristic questions, practical laboratories, guided projects, and reflective assessment.</p>
-        <div class="chalk-diagram" aria-hidden="true">
-          <span class="teacher-head"></span><span class="teacher-body"></span>
-          <span class="student s1"></span><span class="student s2"></span><span class="student s3"></span>
-          <span class="chalk-arrow a1">→</span><span class="chalk-arrow a2">↗</span>
-        </div>
+        <span class="object-icon" aria-hidden="true">02 /</span>
+        <h2><a class="card-cover-link" href="#experience">Teaching</a></h2>
+        <p><span class="keyword keyword-teaching">Cambridge IGCSE and AS Level</span> Computer Science teacher at Seven Hills International School, with a background in teaching <span class="keyword keyword-teaching">Informatics and ICT</span>.</p>
+        <p class="pillar-detail">Conceptual foundations · Practical laboratories · Mathematical reasoning</p>
+        <svg class="teaching-plot" viewBox="0 0 330 92" role="img" aria-label="Teaching process from question through algorithm to understanding">
+          <rect x="5" y="19" width="86" height="48" rx="3"/>
+          <rect x="122" y="19" width="86" height="48" rx="3"/>
+          <rect x="239" y="19" width="86" height="48" rx="3"/>
+          <path class="teach-arrow" d="M93 43 H118 M112 38 L118 43 L112 48 M210 43 H235 M229 38 L235 43 L229 48"/>
+          <text x="48" y="47" text-anchor="middle">Question</text>
+          <text x="165" y="47" text-anchor="middle">Algorithm</text>
+          <text x="282" y="47" text-anchor="middle">Reason</text>
+        </svg>
       </article>
 
       <article id="research" class="pillar graph-paper">
-        <span class="object-icon" aria-hidden="true">⌕</span>
-        <h2>Research</h2>
-        <p>Exploring knowledge representation, software systems, machine learning, graphics, and the design of better learning tools.</p>
-        <div class="research-plot" aria-hidden="true">
-          <svg viewBox="0 0 280 120" role="img">
-            <path d="M18 92H264M32 104V16" class="axis"/>
-            <path d="M34 78 C58 22, 74 24, 94 70 S130 108, 150 58 S190 24, 208 78 S234 98, 258 48" class="curve"/>
-            <circle cx="94" cy="70" r="4"/><circle cx="150" cy="58" r="4"/><circle cx="208" cy="78" r="4"/>
+        <span class="object-icon" aria-hidden="true">03 /</span>
+        <h2><a class="card-cover-link" href="https://github.com/Formal-Computing" target="_blank" rel="noreferrer">Research</a></h2>
+        <p>My interests span <span class="keyword keyword-research">formal methods</span>, <span class="keyword keyword-research">software verification</span>, <span class="keyword keyword-research">algorithms</span>, <span class="keyword keyword-research">computer graphics</span>, <span class="keyword keyword-research">machine learning</span> and <span class="keyword keyword-research">intelligent systems</span>.</p>
+        <div class="research-plot">
+          <svg viewBox="0 0 330 115" role="img" aria-label="Three linked fields: formal proofs, algorithms, and machine learning">
+            <path class="research-connector" d="M94 51 H121 M208 51 H234"/>
+            <g class="research-proof">
+              <rect x="3" y="12" width="91" height="78" rx="3"/>
+              <text class="research-symbol" x="48" y="51" text-anchor="middle">⊢ P</text>
+              <text class="research-label" x="48" y="77" text-anchor="middle">PROOF</text>
+            </g>
+            <g class="research-algorithms">
+              <rect x="121" y="12" width="87" height="78" rx="3"/>
+              <path d="M141 45 L162 30 L188 47 L168 62 L141 45"/>
+              <circle cx="141" cy="45" r="3"/><circle cx="162" cy="30" r="3"/><circle cx="188" cy="47" r="3"/><circle cx="168" cy="62" r="3"/>
+              <text class="research-label" x="165" y="80" text-anchor="middle">ALGORITHMS</text>
+            </g>
+            <g class="research-ml">
+              <rect x="234" y="12" width="93" height="78" rx="3"/>
+              <path d="M254 35 L276 28 L304 36 M254 35 L276 54 L304 36 M254 62 L276 54 L304 62"/>
+              <circle cx="254" cy="35" r="3"/><circle cx="254" cy="62" r="3"/><circle cx="276" cy="28" r="3"/><circle cx="276" cy="54" r="3"/><circle cx="304" cy="36" r="3"/><circle cx="304" cy="62" r="3"/>
+              <text class="research-label" x="281" y="80" text-anchor="middle">ML SYSTEMS</text>
+            </g>
           </svg>
-          <span>T(n) = O(n log n)</span>
+          <span>Proofs · Algorithms · Intelligent systems</span>
         </div>
       </article>
     </section>
@@ -120,79 +187,141 @@
     <section id="projects" class="project-board" aria-labelledby="projects-title">
       <div class="section-heading project-heading">
         <p class="eyebrow">Selected work</p>
-        <h2 id="projects-title">Built, tested, documented.</h2>
-        <p>A concise set of projects that support the software-engineering, teaching, and research parts of my work.</p>
+        <h2 id="projects-title">Selected projects and initiatives.</h2>
+        <p>Software systems, teaching infrastructure and research-oriented applications, documented through their objectives, methods and implementation.</p>
       </div>
 
       <div class="project-grid">
         <article class="project-sheet featured-sheet">
           <div class="sheet-pin" aria-hidden="true"></div>
           <p class="project-number">01 · Platform engineering</p>
-          <h3>curricula.live — Curriculum Graph Backend</h3>
-          <p>Developing a Django 5.2 and Python 3.12 service for curriculum concepts and typed relations, with PostgreSQL connectivity, environment-based configuration, focused pull requests, and automated tests.</p>
-          <ul class="tag-list"><li>Django</li><li>Python</li><li>PostgreSQL</li><li>REST</li><li>pytest</li></ul>
+          <h3><a class="card-cover-link" href="https://curricula.live" target="_blank" rel="noreferrer">curricula.live — Connected Teaching Ecosystem</a></h3>
+          <p>Developing three complementary teaching surfaces: <span class="keyword keyword-system">curricula.live</span> for concept graphs and planning, <span class="keyword keyword-system">textbook.curricula.live</span> for structured learning material, and <span class="keyword keyword-system">notebook.curricula.live</span> for interactive work. Their distinct roles form one coherent educational ecosystem.</p>
+          <div class="ecosystem-architecture" role="group" aria-label="Three complementary products: curricula.live for curriculum concepts and planning, textbook.curricula.live for structured teaching material, notebook.curricula.live for interactive working activities">
+            <div class="ecosystem-surfaces">
+              <div class="ecosystem-surface ecosystem-primary">
+                <span class="ecosystem-label">PLAN · ORGANISE</span>
+                <strong>curricula.live</strong>
+                <span class="ecosystem-role">Concepts &amp; lesson planning</span>
+              </div>
+              <div class="ecosystem-surface ecosystem-textbook">
+                <span class="ecosystem-label">READ · REFERENCE</span>
+                <strong>textbook.<wbr>curricula.live</strong>
+                <span class="ecosystem-role">Structured course material</span>
+              </div>
+              <div class="ecosystem-surface ecosystem-notebook">
+                <span class="ecosystem-label">PRACTISE · EXPLORE</span>
+                <strong>notebook.<wbr>curricula.live</strong>
+                <span class="ecosystem-role">Interactive working space</span>
+              </div>
+            </div>
+            <div class="ecosystem-rail" aria-hidden="true"><span></span><em>Complementary learning surfaces</em><span></span></div>
+          </div>
+          <ul class="tag-list"><li>Knowledge graphs</li><li>Teacher planning</li><li>Django</li><li>PostgreSQL</li><li>Learning systems</li></ul>
           <div class="card-links">
+            <a href="https://curricula.live" target="_blank" rel="noreferrer">Platform ↗</a>
             <a href="https://github.com/curricula-live/api" target="_blank" rel="noreferrer">Repository ↗</a>
             <a href="https://curricula-live.github.io" target="_blank" rel="noreferrer">Project studio ↗</a>
           </div>
         </article>
 
         <article class="project-sheet">
-          <p class="project-number">02 · C++ / simulation</p>
-          <h3>Machine Learning-Compatible Game Engine</h3>
-          <p>A modular C++ engine exposing simulation environments to machine-learning agents through reusable interfaces and extensible components.</p>
+          <p class="project-number">02 · Computer Science education</p>
+          <h3><a class="card-cover-link" href="https://machinelearning-club.github.io/" target="_blank" rel="noreferrer">Machine Learning Club</a></h3>
+          <p>Designing and teaching a structured programme for pre-university students at Seven Hills International School. It combines <span class="keyword keyword-learning">mathematical reasoning</span>, <span class="keyword keyword-learning">interactive laboratories</span> and projects, including preparation for <span class="keyword keyword-learning">FiiCode</span>, organised by the Faculty of Computer Science at Alexandru Ioan Cuza University of Iași.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-club" viewBox="0 0 360 154" role="img" aria-label="Machine Learning Club learning pathway: lessons lead to Python laboratories, student projects, and FiiCode preparation.">
+
+              <g class="arch-flow"><path d="M111 49 H127 M235 49 H251 M305 77 V103"/><path d="M121 44 L127 49 L121 54 M245 44 L251 49 L245 54 M300 97 L305 103 L310 97"/></g>
+              <g class="arch-node"><rect x="8" y="21" width="103" height="56" rx="4"/><text x="59" y="45" text-anchor="middle">Lessons</text><text class="arch-small" x="59" y="61" text-anchor="middle">concepts</text></g>
+              <g class="arch-node arch-core"><rect x="127" y="21" width="108" height="56" rx="4"/><text x="181" y="45" text-anchor="middle">Python labs</text><text class="arch-small" x="181" y="61" text-anchor="middle">experiments</text></g>
+              <g class="arch-node"><rect x="251" y="21" width="101" height="56" rx="4"/><text x="302" y="45" text-anchor="middle">Projects</text><text class="arch-small" x="302" y="61" text-anchor="middle">application</text></g>
+              <g class="arch-node arch-terminal"><rect x="237" y="103" width="115" height="37" rx="4"/><text x="294" y="127" text-anchor="middle">FiiCode</text></g>
+            </svg>
+          </div>
+          <ul class="tag-list"><li>Machine learning</li><li>Python</li><li>Mathematics</li><li>FiiCode preparation</li></ul>
+          <div class="card-links"><a href="https://machinelearning-club.github.io/" target="_blank" rel="noreferrer">Course website &amp; materials ↗</a></div>
+        </article>
+
+        <article class="project-sheet">
+          <p class="project-number">03 · C++ / simulation</p>
+          <h3><a class="card-cover-link" href="https://Machine-Learning-Compatible-Game-Engine.github.io" target="_blank" rel="noreferrer">Machine Learning-Compatible Game Engine</a></h3>
+          <p>A modular <span class="keyword keyword-engine">C++ engine</span> exposing simulation environments to <span class="keyword keyword-engine">machine-learning agents</span> through <span class="keyword keyword-engine">reusable interfaces</span> and extensible components.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-engine" viewBox="0 0 360 154" role="img" aria-label="Machine Learning-Compatible Game Engine architecture: C++ simulation core, OpenGL rendering, and a machine-learning agent interface.">
+
+              <g class="arch-flow"><path d="M112 56 H142 M241 56 H257 M191 82 V109"/><path d="M136 51 L142 56 L136 61 M251 51 L257 56 L251 61 M186 103 L191 109 L196 103"/></g>
+              <g class="arch-node"><rect x="8" y="30" width="104" height="52" rx="4"/><text x="60" y="51" text-anchor="middle">C++</text><text class="arch-small" x="60" y="68" text-anchor="middle">simulation</text></g>
+              <g class="arch-node arch-core"><rect x="142" y="30" width="99" height="52" rx="4"/><text x="191" y="51" text-anchor="middle">Engine</text><text class="arch-small" x="191" y="68" text-anchor="middle">interfaces</text></g>
+              <g class="arch-node"><rect x="257" y="30" width="95" height="52" rx="4"/><text x="304" y="51" text-anchor="middle">OpenGL</text><text class="arch-small" x="304" y="68" text-anchor="middle">rendering</text></g>
+              <g class="arch-node arch-terminal"><rect x="131" y="109" width="120" height="35" rx="4"/><text x="191" y="131" text-anchor="middle">ML agents</text></g>
+            </svg>
+          </div>
           <ul class="tag-list"><li>C++</li><li>OpenGL</li><li>Simulation</li><li>Architecture</li></ul>
           <div class="card-links"><a href="https://Machine-Learning-Compatible-Game-Engine.github.io" target="_blank" rel="noreferrer">Research lab ↗</a></div>
         </article>
 
         <article class="project-sheet">
-          <p class="project-number">03 · Applied machine learning</p>
-          <h3>FiiCode AI/ML — 1st Place</h3>
-          <p>Advanced through two stages with ensemble models for supply-chain and bank-marketing prediction, balancing model performance with clear experimentation.</p>
+          <p class="project-number">04 · Applied machine learning</p>
+          <h3><a class="card-cover-link" href="https://github.com/dragosandreibobu/fiicode-2026-ai-bank-telemarketing-prediction" target="_blank" rel="noreferrer">FiiCode AI/ML — 1st Place</a></h3>
+          <p>Advanced through two stages with <span class="keyword keyword-learning">ensemble models</span> for supply-chain and bank-marketing prediction, balancing model performance with clear experimentation.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-fiicode" viewBox="0 0 360 154" role="img" aria-label="FiiCode machine-learning pipeline: data preparation feeds CatBoost and LightGBM models, combined for predictions.">
+
+              <g class="arch-flow"><path d="M83 76 H113 M205 76 H233 M233 76 V47 H258 M233 76 V112 H258 M304 47 H324 V76 M304 112 H324 V76"/><path d="M107 71 L113 76 L107 81 M252 42 L258 47 L252 52 M252 107 L258 112 L252 117"/></g>
+              <g class="arch-node"><rect x="6" y="53" width="77" height="46" rx="4"/><text x="44" y="72" text-anchor="middle">Data</text><text class="arch-small" x="44" y="87" text-anchor="middle">inputs</text></g>
+              <g class="arch-node arch-core"><rect x="113" y="53" width="92" height="46" rx="4"/><text x="159" y="72" text-anchor="middle">Features</text><text class="arch-small" x="159" y="87" text-anchor="middle">training</text></g>
+              <g class="arch-node"><rect x="258" y="30" width="58" height="34" rx="4"/><text class="arch-small" x="287" y="51" text-anchor="middle">CatBoost</text></g>
+              <g class="arch-node"><rect x="258" y="95" width="58" height="34" rx="4"/><text class="arch-small" x="287" y="116" text-anchor="middle">LightGBM</text></g>
+              <g class="arch-node arch-terminal"><rect x="324" y="57" width="32" height="42" rx="4"/><text class="arch-small" x="340" y="74" text-anchor="middle">ML</text><text class="arch-small" x="340" y="88" text-anchor="middle">out</text></g>
+            </svg>
+          </div>
           <ul class="tag-list"><li>Python</li><li>CatBoost</li><li>LightGBM</li><li>Data analysis</li></ul>
           <div class="card-links"><a href="https://github.com/dragosandreibobu/fiicode-2026-ai-bank-telemarketing-prediction" target="_blank" rel="noreferrer">Repository ↗</a></div>
         </article>
 
         <article class="project-sheet">
-          <p class="project-number">04 · Forecasting</p>
-          <h3>Air Hack Iași — Passenger Flow Predictor</h3>
-          <p>A passenger-flow forecasting system for airport planning and operational decision support, awarded second place at Air Hack Iași.</p>
+          <p class="project-number">05 · Forecasting</p>
+          <h3><a class="card-cover-link" href="https://github.com/dragosandreibobu/airhack-2026-Passenger-Flow-Predictor" target="_blank" rel="noreferrer">Air Hack Iași — Passenger Flow Predictor</a></h3>
+          <p>A <span class="keyword keyword-learning">passenger-flow forecasting</span> system for airport planning and operational decision support, awarded second place at Air Hack Iași.</p>
+          <div class="project-architecture">
+            <svg class="architecture-svg architecture-airhack" viewBox="0 0 360 154" role="img" aria-label="Passenger forecasting pipeline: operational input data flows to a forecasting model, passenger demand estimate, and planning.">
+
+              <g class="arch-flow"><path d="M94 75 H120 M236 75 H260 M308 102 V118"/><path d="M114 70 L120 75 L114 80 M254 70 L260 75 L254 80 M303 112 L308 118 L313 112"/></g>
+              <g class="arch-node"><rect x="8" y="52" width="86" height="47" rx="4"/><text x="51" y="71" text-anchor="middle">Input</text><text class="arch-small" x="51" y="86" text-anchor="middle">data</text></g>
+              <g class="arch-node arch-core"><rect x="120" y="52" width="116" height="47" rx="4"/><text x="178" y="71" text-anchor="middle">Forecasting</text><text class="arch-small" x="178" y="86" text-anchor="middle">model</text></g>
+              <g class="arch-node"><rect x="260" y="52" width="92" height="47" rx="4"/><text x="306" y="71" text-anchor="middle">Demand</text><text class="arch-small" x="306" y="86" text-anchor="middle">estimate</text></g>
+              <g class="arch-node arch-terminal"><rect x="258" y="118" width="94" height="30" rx="4"/><text x="305" y="137" text-anchor="middle">Planning</text></g>
+            </svg>
+          </div>
           <ul class="tag-list"><li>Forecasting</li><li>Python</li><li>Operational data</li></ul>
           <div class="card-links"><a href="https://github.com/dragosandreibobu/airhack-2026-Passenger-Flow-Predictor" target="_blank" rel="noreferrer">Repository ↗</a></div>
         </article>
 
-        <article class="project-sheet">
-          <p class="project-number">05 · Networking</p>
-          <h3>Chess-CLI</h3>
-          <p>A console multiplayer chess application built around TCP sockets, client-server communication, game state, and reliable command handling.</p>
-          <ul class="tag-list"><li>C</li><li>TCP sockets</li><li>Linux</li><li>CLI</li></ul>
-          <div class="card-links"><a href="https://github.com/dragosandreibobu/Chess-CLI" target="_blank" rel="noreferrer">Repository ↗</a></div>
-        </article>
 
-        <article class="project-sheet">
-          <p class="project-number">06 · Teaching systems</p>
-          <h3>Digital learning laboratories</h3>
-          <p>Interactive laboratories connecting networks, packet analysis, version-controlled cloud development, application deployment, visual assets, and 3D scenes.</p>
-          <ul class="tag-list"><li>Curriculum design</li><li>GitHub</li><li>Web</li><li>3D</li></ul>
-          <div class="card-links"><a href="https://github.com/dragosandreibobu" target="_blank" rel="noreferrer">Browse technical work ↗</a></div>
-        </article>
+
+
       </div>
     </section>
 
-    <section class="experience-grid" aria-label="Experience and qualifications">
+    <section id="experience" class="experience-grid" aria-label="Experience and qualifications">
       <article class="experience-ledger">
         <div class="section-heading compact">
           <p class="eyebrow">Experience</p>
-          <h2>Engineering through education.</h2>
+          <h2>Teaching and technical practice.</h2>
         </div>
         <ol class="timeline">
           <li>
+            <div class="timeline-date">2026—Present</div>
+            <div><h3>Cambridge Computer Science Teacher</h3><p>Seven Hills International School</p><span>Teaching Cambridge IGCSE and AS Level Computer Science, with an emphasis on algorithms, computational thinking, programming and structured examination preparation. Developing the Machine Learning Club as a complementary pre-university programme.</span></div>
+          </li>
+          <li>
             <div class="timeline-date">2025—2026</div>
-            <div><h3>Computer Science Teacher / Full-Stack Developer</h3><p>Paradis International College</p><span>Built and maintained educational and operational web applications; owned small changes from requirements through implementation, testing, deployment, documentation, and user follow-up.</span></div>
+            <div><h3>Informatics &amp; ICT Teacher / Full-Stack Developer</h3><p>Paradis International College</p><span>Built and maintained educational and operational web applications; owned small changes from requirements through implementation, testing, deployment, documentation, and user follow-up.</span></div>
           </li>
           <li>
             <div class="timeline-date">2024—2025</div>
-            <div><h3>Computer Science Teacher / Systems Administrator</h3><p>Școala Gimnazială „Ion Ghica”</p><span>Administered Windows and Linux workstations, classroom software, local infrastructure, and recurring technical support workflows.</span></div>
+            <div><h3>Informatics &amp; ICT Teacher / Systems Administrator</h3><p>Școala Gimnazială „Ion Ghica”</p><span>Administered Windows and Linux workstations, classroom software, local infrastructure, and recurring technical support workflows.</span></div>
           </li>
           <li>
             <div class="timeline-date">2019—2024</div>
@@ -214,30 +343,10 @@
       </aside>
     </section>
 
-    <section id="about" class="about-grid" aria-labelledby="about-title">
-      <article class="about-paper">
-        <p class="eyebrow">About</p>
-        <h2 id="about-title">Builder, educator, systems thinker.</h2>
-        <p>My work sits between software engineering, Computer Science education, and research. I prefer explicit architecture, small focused changes, dependable testing, and documentation that makes a system understandable long after it was built.</p>
-        <p>I use AI-assisted development critically: generated output is reviewed through code reading, diffs, tests, debugging, and independent reasoning rather than accepted as a substitute for understanding.</p>
-      </article>
-
-      <article class="ecosystem-map">
-        <p class="eyebrow">Project ecosystem</p>
-        <h2>Studios and archives</h2>
-        <div class="ecosystem-links">
-          <a href="https://curricula-live.github.io" target="_blank" rel="noreferrer"><strong>curricula.live</strong><span>Curriculum graphs and learning systems</span></a>
-          <a href="https://Machine-Learning-Compatible-Game-Engine.github.io" target="_blank" rel="noreferrer"><strong>MLCGE Lab</strong><span>C++, graphics, simulation, ML interfaces</span></a>
-          <a href="https://UAIC-BSc-ComputerScience.github.io" target="_blank" rel="noreferrer"><strong>UAIC BSc Computer Science</strong><span>Coursework and systems archive</span></a>
-          <a href="https://UAIC-BSc-Math.github.io" target="_blank" rel="noreferrer"><strong>UAIC Mathematics</strong><span>Mathematical computing and research notes</span></a>
-        </div>
-      </article>
-    </section>
-
     <section id="contact" class="contact-grid" aria-labelledby="contact-title">
       <article class="phone-card">
         <p class="eyebrow">Contact</p>
-        <h2 id="contact-title">Meaningful conversations are welcome.</h2>
+        <h2 id="contact-title">Contact and collaboration.</h2>
         <div class="contact-buttons">
           <a href="mailto:dragosandreibobu@gmail.com">Email</a>
           <a href="https://www.linkedin.com/in/bobudragos" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -245,10 +354,11 @@
         </div>
       </article>
 
-      <blockquote class="closing-note">
-        <p>“Code is how I express curiosity.<br>Teaching is how I give it back.”</p>
-        <cite>— Dragoș-Andrei Bobu</cite>
-      </blockquote>
+      <aside class="closing-note">
+        <p class="eyebrow">Areas of interest</p>
+        <h2>Algorithms, reliable software, intelligent systems, and education.</h2>
+        <p>Open to research exchange and collaboration in formal methods, software engineering, machine learning, and educational technology.</p>
+      </aside>
     </section>
   </main>
 

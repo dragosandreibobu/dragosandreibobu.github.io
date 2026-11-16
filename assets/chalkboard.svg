@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" aria-hidden="true">
+  <defs>
+
+    <style>
+      .formula{font-family:Georgia,serif;font-style:italic;font-size:27px;fill:#faf9ef;letter-spacing:.5px}
+      .small{font-family:monospace;font-size:19px;fill:#f7f8f0}
+      .tiny{font-family:monospace;font-size:15px;fill:#f7f8f0}
+      .draw{fill:none;stroke:#f7f8f0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+      .fine{fill:none;stroke:#f7f8f0;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+      .dashed{stroke-dasharray:5 8}
+    </style>
+  </defs>
+  <!-- Hand-drawn mathematical notes are intentionally low contrast and decorative. -->
+  <g opacity=".37" transform="translate(43 96) rotate(-7)">
+    <text class="small" x="0" y="0">Dijkstra(G, s)</text>
+    <text class="tiny" x="7" y="29">dist[s] := 0</text>
+    <text class="tiny" x="7" y="54">relax(u, v)</text>
+    <text class="tiny" x="-14" y="82">d[v] = min(d[v], d[u]+w)</text>
+    <path class="draw" d="M25 119 L90 150 L176 105 L232 151 M90 150 L144 193 L232 151"/>
+    <circle class="draw" cx="25" cy="119" r="10"/><circle class="draw" cx="90" cy="150" r="10"/>
+    <circle class="draw" cx="176" cy="105" r="10"/><circle class="draw" cx="232" cy="151" r="10"/>
+    <circle class="draw" cx="144" cy="193" r="10"/>
+    <text class="tiny" x="75" y="114">3</text><text class="tiny" x="134" y="121">5</text><text class="tiny" x="206" y="112">2</text>
+  </g>
+  <g opacity=".34" transform="translate(1233 110) rotate(6)">
+    <text class="formula" x="0" y="0">f(n) = g(n) + h(n)</text>
+    <text class="tiny" x="40" y="32">A* search</text>
+    <path class="draw" d="M22 76 L80 137 L167 95 L251 174"/>
+    <path class="fine dashed" d="M22 76 L120 56 L251 174"/>
+    <path class="draw" d="M236 170 L251 174 L248 158"/>
+    <circle class="draw" cx="22" cy="76" r="6"/><circle class="draw" cx="80" cy="137" r="6"/>
+    <circle class="draw" cx="167" cy="95" r="6"/><circle class="draw" cx="251" cy="174" r="6"/>
+  </g>
+  <g opacity=".34" transform="translate(34 446) rotate(-4)">
+    <text class="formula" x="0" y="0">H(X) = -Σ p(x) log₂ p(x)</text>
+    <text class="tiny" x="20" y="32">ID3: information gain</text>
+    <path class="draw" d="M135 53 L82 105 L31 144 M82 105 L120 151 M135 53 L209 108 L180 156 M209 108 L250 148"/>
+    <rect class="fine" x="115" y="39" width="40" height="29" rx="3"/>
+    <rect class="fine" x="60" y="91" width="42" height="26" rx="3"/>
+    <rect class="fine" x="187" y="95" width="44" height="26" rx="3"/>
+    <text class="tiny" x="118" y="58">A?</text>
+  </g>
+  <g opacity=".31" transform="translate(1311 418) rotate(7)">
+    <text class="formula" x="-22" y="0">y = σ(wᵀx + b)</text>
+    <text class="tiny" x="10" y="32">perceptron</text>
+    <path class="fine" d="M12 164 H250 M45 190 V48"/>
+    <path class="draw" d="M50 154 C88 155 117 148 138 115 S196 63 246 62"/>
+    <path class="fine dashed" d="M50 111 H250"/>
+    <text class="tiny" x="236" y="187">x</text>
+    <text class="tiny" x="19" y="60">1</text>
+  </g>
+  <g opacity=".37" transform="translate(37 780) rotate(-6)">
+    <text class="small" x="0" y="0">Separating Axis Theorem</text>
+    <path class="draw" d="M22 94 L80 60 L126 108 L83 146 L24 132 Z"/>
+    <path class="draw" d="M218 65 L270 85 L272 138 L210 152 L186 107 Z"/>
+    <path class="fine dashed" d="M165 39 V179"/>
+    <path class="fine" d="M22 183 H272 M258 175 L272 183 L258 191"/>
+    <text class="tiny" x="157" y="22">u</text>
+    <text class="tiny" x="58" y="111">A</text><text class="tiny" x="230" y="113">B</text>
+    <text class="tiny" x="7" y="229">max(A·u) &lt; min(B·u)</text>
+  </g>
+  <g opacity=".34" transform="translate(1226 782) rotate(5)">
+    <text class="formula" x="0" y="0">μₖ = (1/|Cₖ|) Σ x</text>
+    <text class="tiny" x="26" y="27">k-means clustering</text>
+    <circle class="fine" cx="66" cy="90" r="4"/><circle class="fine" cx="45" cy="120" r="4"/>
+    <circle class="fine" cx="99" cy="115" r="4"/><circle class="fine" cx="82" cy="146" r="4"/>
+    <path class="draw" d="M60 105 L74 119 M74 105 L60 119"/>
+    <circle class="fine" cx="203" cy="82" r="4"/><circle class="fine" cx="237" cy="120" r="4"/>
+    <circle class="fine" cx="185" cy="142" r="4"/><circle class="fine" cx="219" cy="165" r="4"/>
+    <path class="draw" d="M209 116 L223 130 M223 116 L209 130"/>
+    <path class="fine dashed" d="M140 65 L158 175"/>
+    <text class="tiny" x="20" y="204">CDCL · two watched literals</text>
+  </g>
+  <g opacity=".19" transform="translate(594 77) rotate(3)">
+    <text class="small" x="0" y="0">∀ n : Nat, n + 0 = n</text>
+    <text class="tiny" x="53" y="35">Lean / Dafny · verified algorithms</text>
+  </g>
+  <g opacity=".18" transform="translate(612 1011) rotate(-3)">
+    <text class="small" x="0" y="0">BFS: O(V + E)</text>
+    <text class="tiny" x="55" y="30">MOV R1, #0  ·  ADD R1, #1</text>
+  </g>
+  <g opacity=".18" transform="translate(633 516) rotate(-7)">
+    <text class="formula" x="0" y="0">∇L(θ)  →  θ − η∇L</text>
+    <text class="tiny" x="70" y="35">gradient descent</text>
+  </g>
+</svg>
