@@ -254,6 +254,96 @@ a{color:inherit}img,svg{max-width:100%}
 .card-links a:hover{text-decoration-color:currentColor}
 
 
+
+/* Small systems diagram on the Projects notebook (no scripting). */
+.project-pillar-diagram{
+  display:block;width:100%;max-width:345px;max-height:105px;
+  margin:1.15rem 0 .5rem;overflow:visible;
+}
+.project-pillar-diagram .system-links{
+  fill:none;stroke:#608b90;stroke-width:1.65;stroke-linecap:round;
+  transition:stroke .2s ease;
+}
+.project-pillar-diagram .system-module rect{
+  fill:#fcfbf5;stroke:#86a2a5;stroke-width:1.5;
+  transition:fill .2s ease,stroke .2s ease;
+}
+.project-pillar-diagram .system-services rect{
+  fill:#e4eeeb;stroke:#598b91;stroke-width:1.7;
+}
+.project-pillar-diagram .system-title{
+  font:600 13px var(--mono);fill:#38636d;
+}
+.project-pillar-diagram .system-detail{
+  font:400 10px var(--mono);fill:#5c7a7a;
+}
+.project-pillar-diagram .system-foundation{
+  fill:none;stroke:#8ca4a3;stroke-width:1;stroke-dasharray:3 4;
+}
+.project-pillar-diagram .system-caption{
+  fill:#607c7e;font:500 9px var(--mono);letter-spacing:1px;
+}
+.notebook-projects:hover .system-services rect,
+.notebook-projects:focus-visible .system-services rect{
+  fill:#d0e4df;stroke:#3d7982;
+}
+.notebook-projects:hover .system-links,
+.notebook-projects:focus-visible .system-links{stroke:#376f79}
+
+/* Compact three-product ecosystem map: each surface has a distinct
+   pedagogical role; the shared rail is conceptual, not a backend claim. */
+.ecosystem-architecture{
+  width:100%;position:relative;z-index:2;pointer-events:none;
+  margin:1.05rem 0 .15rem;padding:.55rem .62rem .35rem;
+  border:1px solid #d3dfdb;border-left:2px solid #86a8a7;
+  background:linear-gradient(145deg,#f3f7f3,#f8f7f0);
+}
+.ecosystem-surfaces{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;
+}
+.ecosystem-surface{
+  position:relative;display:flex;flex-direction:column;min-width:0;
+  justify-content:center;gap:.17rem;min-height:74px;
+  padding:.45rem .6rem;border:1px solid #a8c0bb;border-radius:2px;
+  background:#fffdf7;transition:border-color .2s ease,background-color .2s ease;
+}
+.ecosystem-primary{border-top:2px solid #3e7886;background:#e9f1ee}
+.ecosystem-textbook{border-top:2px solid #7e977c}
+.ecosystem-notebook{border-top:2px solid #7c8eaf}
+.ecosystem-surface::after{
+  content:"";position:absolute;bottom:-.48rem;left:50%;
+  width:1px;height:.48rem;background:#93b1ad;
+}
+.ecosystem-label{
+  display:block;font:600 .51rem/1.3 var(--mono);
+  letter-spacing:.065em;color:#728c89;
+}
+.ecosystem-surface strong{
+  display:block;overflow-wrap:anywhere;
+  color:#2c545f;font:600 clamp(.63rem,1.02vw,.81rem)/1.25 var(--mono);
+  letter-spacing:-.035em;
+}
+.ecosystem-role{
+  color:#657c7b;font:400 .62rem/1.3 var(--sans);
+}
+.ecosystem-rail{
+  position:relative;display:flex;justify-content:center;align-items:center;
+  min-height:20px;padding-top:.26rem;margin-top:.4rem;text-align:center;
+}
+.ecosystem-rail::before{
+  content:"";position:absolute;top:0;left:16.66%;right:16.66%;
+  border-top:1px solid #9cb5b0;
+}
+.ecosystem-rail span{display:none}
+.ecosystem-rail em{
+  display:inline-block;font:500 .58rem/1.2 var(--mono);
+  letter-spacing:.025em;color:#6b8583;font-style:normal;
+}
+.featured-sheet:hover .ecosystem-surface,
+.featured-sheet:focus-within .ecosystem-surface{border-color:#719c96}
+.featured-sheet:hover .ecosystem-primary,
+.featured-sheet:focus-within .ecosystem-primary{background:#dcece7}
+
 /* Architecture as first-class project documentation, not decoration. */
 .project-architecture{
   width:100%;margin:1.3rem 0 .25rem;padding:.5rem .6rem;
@@ -368,6 +458,22 @@ a{color:inherit}img,svg{max-width:100%}
   .featured-sheet{grid-column:span 12}
   .contact-grid{grid-template-columns:1fr}
   .desk{border-width:7px}
+}
+@media (max-width:580px){
+  .project-pillar-diagram{margin:1.2rem 0 .55rem;max-height:94px}
+  .ecosystem-architecture{margin:1rem 0 .15rem;padding:.5rem .55rem}
+  .ecosystem-surfaces{grid-template-columns:1fr;gap:.33rem}
+  .ecosystem-surface{
+    min-height:0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+    gap:0 .5rem;align-items:center;padding:.42rem .6rem;
+  }
+  .ecosystem-surface .ecosystem-label{grid-column:1/-1;font-size:.49rem}
+  .ecosystem-surface strong{font-size:.7rem}
+  .ecosystem-role{font-size:.6rem;text-align:right}
+  .ecosystem-surface::after{display:none}
+  .ecosystem-rail{min-height:17px;margin-top:.2rem}
+  .ecosystem-rail::before{display:none}
+  .ecosystem-rail em{font-size:.54rem}
 }
 @media (max-width:580px){
   body{background-size:1050px 722px,cover;background-position:47% 0,center}
