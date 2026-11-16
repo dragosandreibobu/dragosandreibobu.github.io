@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" aria-hidden="true">
   <defs>
-    <filter id="chalk" x="-5%" y="-8%" width="110%" height="116%">
-      <feTurbulence type="fractalNoise" baseFrequency=".025" numOctaves="2" seed="7" result="grain"/>
-      <feDisplacementMap in="SourceGraphic" in2="grain" scale="1.0" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
+
     <style>
       .formula{font-family:Georgia,serif;font-style:italic;font-size:27px;fill:#faf9ef;letter-spacing:.5px}
       .small{font-family:monospace;font-size:19px;fill:#f7f8f0}
@@ -14,7 +11,7 @@
     </style>
   </defs>
   <!-- Hand-drawn mathematical notes are intentionally low contrast and decorative. -->
-  <g opacity=".37" filter="url(#chalk)" transform="translate(43 96) rotate(-7)">
+  <g opacity=".37" transform="translate(43 96) rotate(-7)">
     <text class="small" x="0" y="0">Dijkstra(G, s)</text>
     <text class="tiny" x="7" y="29">dist[s] := 0</text>
     <text class="tiny" x="7" y="54">relax(u, v)</text>
@@ -25,7 +22,7 @@
     <circle class="draw" cx="144" cy="193" r="10"/>
     <text class="tiny" x="75" y="114">3</text><text class="tiny" x="134" y="121">5</text><text class="tiny" x="206" y="112">2</text>
   </g>
-  <g opacity=".34" filter="url(#chalk)" transform="translate(1233 110) rotate(6)">
+  <g opacity=".34" transform="translate(1233 110) rotate(6)">
     <text class="formula" x="0" y="0">f(n) = g(n) + h(n)</text>
     <text class="tiny" x="40" y="32">A* search</text>
     <path class="draw" d="M22 76 L80 137 L167 95 L251 174"/>
@@ -34,7 +31,7 @@
     <circle class="draw" cx="22" cy="76" r="6"/><circle class="draw" cx="80" cy="137" r="6"/>
     <circle class="draw" cx="167" cy="95" r="6"/><circle class="draw" cx="251" cy="174" r="6"/>
   </g>
-  <g opacity=".34" filter="url(#chalk)" transform="translate(34 446) rotate(-4)">
+  <g opacity=".34" transform="translate(34 446) rotate(-4)">
     <text class="formula" x="0" y="0">H(X) = -Σ p(x) log₂ p(x)</text>
     <text class="tiny" x="20" y="32">ID3: information gain</text>
     <path class="draw" d="M135 53 L82 105 L31 144 M82 105 L120 151 M135 53 L209 108 L180 156 M209 108 L250 148"/>
@@ -43,7 +40,7 @@
     <rect class="fine" x="187" y="95" width="44" height="26" rx="3"/>
     <text class="tiny" x="118" y="58">A?</text>
   </g>
-  <g opacity=".31" filter="url(#chalk)" transform="translate(1311 418) rotate(7)">
+  <g opacity=".31" transform="translate(1311 418) rotate(7)">
     <text class="formula" x="-22" y="0">y = σ(wᵀx + b)</text>
     <text class="tiny" x="10" y="32">perceptron</text>
     <path class="fine" d="M12 164 H250 M45 190 V48"/>
@@ -52,7 +49,7 @@
     <text class="tiny" x="236" y="187">x</text>
     <text class="tiny" x="19" y="60">1</text>
   </g>
-  <g opacity=".37" filter="url(#chalk)" transform="translate(37 780) rotate(-6)">
+  <g opacity=".37" transform="translate(37 780) rotate(-6)">
     <text class="small" x="0" y="0">Separating Axis Theorem</text>
     <path class="draw" d="M22 94 L80 60 L126 108 L83 146 L24 132 Z"/>
     <path class="draw" d="M218 65 L270 85 L272 138 L210 152 L186 107 Z"/>
@@ -62,7 +59,7 @@
     <text class="tiny" x="58" y="111">A</text><text class="tiny" x="230" y="113">B</text>
     <text class="tiny" x="7" y="229">max(A·u) &lt; min(B·u)</text>
   </g>
-  <g opacity=".34" filter="url(#chalk)" transform="translate(1226 782) rotate(5)">
+  <g opacity=".34" transform="translate(1226 782) rotate(5)">
     <text class="formula" x="0" y="0">μₖ = (1/|Cₖ|) Σ x</text>
     <text class="tiny" x="26" y="27">k-means clustering</text>
     <circle class="fine" cx="66" cy="90" r="4"/><circle class="fine" cx="45" cy="120" r="4"/>
@@ -74,15 +71,15 @@
     <path class="fine dashed" d="M140 65 L158 175"/>
     <text class="tiny" x="20" y="204">CDCL · two watched literals</text>
   </g>
-  <g opacity=".19" filter="url(#chalk)" transform="translate(594 77) rotate(3)">
+  <g opacity=".19" transform="translate(594 77) rotate(3)">
     <text class="small" x="0" y="0">∀ n : Nat, n + 0 = n</text>
     <text class="tiny" x="53" y="35">Lean / Dafny · verified algorithms</text>
   </g>
-  <g opacity=".18" filter="url(#chalk)" transform="translate(612 1011) rotate(-3)">
+  <g opacity=".18" transform="translate(612 1011) rotate(-3)">
     <text class="small" x="0" y="0">BFS: O(V + E)</text>
     <text class="tiny" x="55" y="30">MOV R1, #0  ·  ADD R1, #1</text>
   </g>
-  <g opacity=".18" filter="url(#chalk)" transform="translate(633 516) rotate(-7)">
+  <g opacity=".18" transform="translate(633 516) rotate(-7)">
     <text class="formula" x="0" y="0">∇L(θ)  →  θ − η∇L</text>
     <text class="tiny" x="70" y="35">gradient descent</text>
   </g>
