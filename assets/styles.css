@@ -417,3 +417,344 @@ img, svg { max-width: 100%; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
 }
+
+
+/* ===============================================================
+   ACADEMIC IDEA BOARD — tactile paper over an algorithm chalkboard
+   Keeps the editorial structure while restoring the original mood.
+   =============================================================== */
+
+:root {
+  --board: #bea27a;
+  --board-edge: #6c5038;
+  --board-edge-deep: #493527;
+  --paper: #fbf7ed;
+  --paper-soft: #f5efdf;
+  --paper-blue: #f6f7f4;
+  --paper-ink: #263d48;
+  --board-shadow: 0 13px 30px rgba(32, 26, 20, .22), 0 2px 6px rgba(32, 26, 20, .12);
+  --tape: rgba(228, 209, 163, .79);
+  --chalkboard: #1d332d;
+  --chalkboard-dark: #12251f;
+  --page: #1d332d;
+  --surface: var(--paper);
+  --surface-alt: var(--paper-soft);
+  --surface-warm: var(--paper-blue);
+  --shadow: var(--board-shadow);
+}
+body {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 20% 16%, rgba(233, 242, 225, .06), transparent 48%),
+    radial-gradient(ellipse at 83% 78%, rgba(230, 235, 220, .045), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, .016) 0 2px, transparent 2px 6px),
+    linear-gradient(120deg, var(--chalkboard), var(--chalkboard-dark));
+}
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: url("chalkboard.svg") center 0 / 1600px 1100px repeat;
+  opacity: .95;
+}
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, .038) .4px, transparent 1.1px) 0 0 / 13px 11px,
+    radial-gradient(circle at 63% 60%, rgba(255, 255, 255, .03) .4px, transparent 1.2px) 5px 7px / 17px 15px;
+  opacity: .7;
+}
+.topbar {
+  background: rgba(250, 248, 242, .96);
+  border-bottom: 1px solid rgba(29, 51, 45, .25);
+}
+.topbar .brand-mark { border-radius: 50%; border-width: 1.5px; }
+:focus-visible { outline-color: #7dc1b6; }
+
+/* The ideaboard itself, including its wooden frame and cork grain. */
+.desk {
+  width: min(calc(100% - 5rem), 1280px);
+  margin: clamp(3rem, 6vw, 6rem) auto 4rem;
+  padding: clamp(2.4rem, 4.4vw, 4.5rem) clamp(1.4rem, 4.3vw, 4.2rem);
+  background-color: var(--board);
+  background-image:
+    radial-gradient(circle, rgba(75, 50, 26, .11) .65px, transparent 1.4px),
+    radial-gradient(circle, rgba(255, 248, 222, .21) .65px, transparent 1.2px),
+    radial-gradient(ellipse at 28% 12%, rgba(255, 246, 218, .12), transparent 44%),
+    linear-gradient(112deg, #c8ae87 0%, #bca078 48%, #c7ac85 100%);
+  background-size: 8px 9px, 11px 12px, auto, auto;
+  background-position: 0 0, 4px 6px, center, center;
+  border: 9px solid var(--board-edge);
+  outline: 2px solid var(--board-edge-deep);
+  border-radius: 3px;
+  box-shadow:
+    0 35px 65px rgba(0,0,0,.32),
+    0 8px 20px rgba(0,0,0,.22),
+    inset 0 0 0 2px rgba(65,43,22,.13),
+    inset 0 0 50px rgba(76,47,28,.10);
+}
+.desk > section { position: relative; }
+.intro-grid, .pillars, .project-grid, .experience-grid, .about-grid, .contact-grid {
+  gap: clamp(1.35rem, 2.45vw, 2.15rem);
+}
+.pillars { margin-top: clamp(3.5rem, 6vw, 5rem); }
+.project-board, .experience-grid, .about-grid, .contact-grid {
+  margin-top: clamp(4.2rem, 7vw, 6.8rem);
+}
+
+/* Lightly irregular paper edges, subtle grain, and physical shadows. */
+.paper-card, .project-sheet, .experience-ledger, .qualification-card,
+.about-paper, .ecosystem-map, .phone-card, .closing-note, .pillar {
+  position: relative;
+  color: var(--paper-ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 15% 18%, rgba(255,255,255,.7), transparent 36%),
+    radial-gradient(circle at 80% 73%, rgba(128,100,63,.04), transparent 43%),
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(120,101,71,.007) 5px 6px);
+  border: 1px solid rgba(96, 75, 50, .22);
+  border-radius: 1px;
+  box-shadow: var(--board-shadow);
+}
+.paper-card { border-left: 2px solid #385568; }
+.intro-note { transform: rotate(-.95deg); }
+.intro-note::before,
+.qualification-card::before,
+.about-paper::before,
+.ecosystem-map::before,
+.phone-card::before,
+.closing-note::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: -.72rem; left: 50%;
+  width: 6.3rem; height: 1.35rem;
+  transform: translateX(-50%) rotate(-2deg);
+  background:
+    linear-gradient(90deg, transparent, rgba(255,255,255,.2) 23%, transparent 70%),
+    var(--tape);
+  border: 1px solid rgba(157, 133, 91, .14);
+  box-shadow: 0 2px 4px rgba(54,37,18,.1);
+  pointer-events: none;
+}
+.qualification-card::before, .ecosystem-map::before { transform: translateX(-50%) rotate(4deg); }
+.intro-note h1 { color: #223944; }
+.intro-note h1 span { color: #315f6b; }
+.hero-affiliation { color: #62727a; }
+
+/* The featured project remains a dark technical sheet rather than another pale card. */
+.laptop {
+  position: relative;
+  transform: rotate(.75deg);
+  filter: drop-shadow(0 11px 12px rgba(49,32,21,.16));
+}
+.laptop::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: -.7rem; left: 50%;
+  width: 5.4rem; height: 1.2rem;
+  transform: translateX(-50%) rotate(2deg);
+  background: var(--tape);
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  pointer-events: none;
+}
+.laptop-screen {
+  background: #172f3c;
+  border: 8px solid #35464d;
+  border-bottom-width: 11px;
+  border-radius: 6px 6px 2px 2px;
+  box-shadow: 0 15px 28px rgba(45,31,20,.20);
+}
+.screen-topline { background: #1c3641; }
+.screen-content h2 { color: #fff; }
+.screen-content p:not(.screen-kicker) { color: #d2dfe2; }
+.laptop-base {
+  background: linear-gradient(#d7d2c6, #aaa99f);
+  border: 1px solid #92968f;
+  color: #364951;
+  border-radius: 0 0 7px 7px;
+  box-shadow: 0 7px 11px rgba(44,27,15,.12);
+}
+.laptop-base strong { color: #263d47; }
+.laptop-base small { color: #4b5b5c; }
+
+/* Three tactile, distinct surfaces: notebook, small chalkboard, graph paper. */
+.pillar { padding: clamp(1.65rem, 2.5vw, 2.25rem); }
+.notebook-projects {
+  transform: rotate(-1.1deg);
+  background-color: #eee5d3;
+  background-image:
+    linear-gradient(90deg, transparent 0 1.75rem, rgba(159,86,70,.13) 1.75rem calc(1.75rem + 1px), transparent calc(1.75rem + 1px)),
+    repeating-linear-gradient(0deg, transparent 0 28px, rgba(71,114,146,.12) 28px 29px);
+  border-left: 11px solid #394d4d;
+}
+.notebook-projects::before {
+  content: "";
+  position: absolute; left: -5px; top: 1.5rem; bottom: 1.5rem;
+  width: 5px;
+  background: repeating-linear-gradient(to bottom, #e1d7bb 0 6px, transparent 6px 19px);
+  pointer-events: none;
+}
+.chalk-notebook {
+  transform: rotate(.75deg);
+  color: #f4f4e8;
+  background:
+    radial-gradient(ellipse at 74% 24%, rgba(245,249,235,.055), transparent 60%),
+    linear-gradient(135deg, #304e44, #213d35);
+  border: 8px solid #554b35;
+  box-shadow: var(--board-shadow), inset 0 0 0 1px rgba(255,255,255,.10);
+}
+.chalk-notebook h2,
+.chalk-notebook .object-icon { color: #f7f5e8; }
+.chalk-notebook p { color: #e2e8dc; }
+.chalk-notebook .pillar-detail {
+  color: #c4d8c6;
+  border-top: 1px solid rgba(244,247,234,.22);
+  padding-top: .8rem;
+}
+.graph-paper {
+  transform: rotate(-.75deg);
+  background-color: #f8f7ef;
+  background-image:
+    linear-gradient(rgba(62,112,146,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(62,112,146,.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  border-left: 7px solid #d5d5cc;
+}
+.research-plot { margin-top: auto; }
+.research-plot svg { filter: contrast(.85); }
+
+/* A dedicated titled sheet avoids dark-on-cork readability problems. */
+.project-heading {
+  max-width: 51rem;
+  padding: clamp(1.5rem, 2.7vw, 2.35rem);
+  margin-bottom: 2.8rem;
+  border: 1px solid rgba(96,75,50,.2);
+  background: #fcf8f0;
+  box-shadow: var(--board-shadow);
+  transform: rotate(-.55deg);
+}
+.project-heading h2 { color: var(--ink); }
+.project-heading > p:last-child { color: var(--muted); }
+.project-grid { row-gap: clamp(1.6rem, 2.8vw, 2.4rem); }
+.project-sheet {
+  --paper-tilt: .4deg;
+  transform: rotate(var(--paper-tilt));
+  padding: clamp(1.6rem, 2.6vw, 2.3rem);
+  overflow: visible;
+}
+.project-sheet:nth-child(3n + 1) { --paper-tilt: -.75deg; }
+.project-sheet:nth-child(3n + 2) { --paper-tilt: .7deg; }
+.project-sheet:nth-child(3n) { --paper-tilt: -.35deg; }
+.project-sheet::before {
+  content: "";
+  position: absolute;
+  z-index: 3; top: .68rem; right: .86rem;
+  width: 1.03rem; height: 1.03rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 33% 27%, #ddab8e 0 12%, #a35a4b 38%, #663c32 92%);
+  box-shadow: inset 0 -1px 2px rgba(45,25,18,.25), 0 3px 4px rgba(38,27,20,.3);
+  pointer-events: none;
+}
+.project-sheet .sheet-pin { display: none; }
+.project-sheet:nth-child(2) { background-color: #f5f5ed; }
+.project-sheet:nth-child(4) { background-color: #f9f6ef; }
+.featured-sheet {
+  background: #f4eee1;
+  border-top: 2px solid #7d8f90;
+}
+.featured-sheet h3 { max-width: 43rem; }
+.tag-list li { background: rgba(255,255,255,.4); border-color: rgba(88,99,92,.21); }
+
+/* Ruled teaching experience, archival qualification sheet, loose notes. */
+.experience-ledger {
+  transform: rotate(-.55deg);
+  background-color: #fbf9f2;
+  background-image: repeating-linear-gradient(0deg, transparent 0 31px, rgba(78,115,145,.05) 31px 32px);
+}
+.qualification-card {
+  transform: rotate(.95deg);
+  background: #eee6d5;
+}
+.about-paper { transform: rotate(-.65deg); }
+.ecosystem-map {
+  transform: rotate(.65deg);
+  background: #f5efdf;
+}
+.phone-card { transform: rotate(-.45deg); }
+.closing-note {
+  transform: rotate(.6deg);
+  background: #eee3c9;
+}
+
+/* Papery hover movement, never on small screens or reduced motion. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .intro-note, .laptop, .pillar, .project-sheet,
+  .experience-ledger, .qualification-card, .about-paper,
+  .ecosystem-map, .phone-card, .closing-note {
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+  .intro-note:hover, .pillar:hover, .project-sheet:hover,
+  .qualification-card:hover, .about-paper:hover, .ecosystem-map:hover,
+  .phone-card:hover, .closing-note:hover {
+    transform: translateY(-4px) rotate(0deg);
+    box-shadow: 0 19px 35px rgba(31, 24, 17, .23), 0 3px 8px rgba(31, 24, 17, .14);
+  }
+  .laptop:hover { transform: translateY(-4px) rotate(0deg); }
+  .chalk-notebook:hover { background: linear-gradient(135deg, #34554b, #244137); }
+}
+.footer {
+  color: rgba(249, 250, 242, .80);
+  border-color: rgba(238, 242, 232, .27);
+  padding-bottom: 1.3rem;
+}
+.footer a { color: #eef4e9; }
+.footer a:hover { color: #fff; }
+
+/* Narrower boards reduce visual tilt and preserve readable margins. */
+@media (max-width: 1020px) {
+  .desk {
+    width: min(calc(100% - 2.6rem), 1280px);
+    margin-top: 3.2rem;
+    padding: 2.5rem clamp(1.2rem, 3.2vw, 2.4rem);
+  }
+}
+@media (max-width: 780px) {
+  .desk {
+    width: calc(100% - 2rem);
+    padding: 2rem clamp(.95rem, 2.5vw, 1.6rem);
+    border-width: 7px;
+  }
+  .pillars, .project-board, .experience-grid, .about-grid, .contact-grid { margin-top: 3.5rem; }
+  .project-heading { padding: 1.4rem; }
+  .project-grid { gap: 1.5rem; }
+  .intro-note, .laptop, .pillar, .project-sheet, .experience-ledger,
+  .qualification-card, .about-paper, .ecosystem-map, .phone-card, .closing-note,
+  .project-heading { transform: none; }
+}
+@media (max-width: 560px) {
+  .desk {
+    width: calc(100% - 1rem);
+    margin: 1.9rem auto 2rem;
+    padding: 1.6rem .8rem 2rem;
+    border-width: 5px;
+  }
+  .intro-note, .pillar, .project-sheet, .experience-ledger,
+  .qualification-card, .about-paper, .ecosystem-map, .phone-card, .closing-note { padding: 1.45rem; }
+  .project-heading { padding: 1.25rem; margin-bottom: 1.7rem; }
+  .laptop-screen { border-width: 5px; border-bottom-width: 8px; }
+  .intro-note::before, .qualification-card::before, .about-paper::before,
+  .ecosystem-map::before, .phone-card::before, .closing-note::before {
+    width: 4.5rem; height: 1rem; top: -.5rem;
+  }
+  .topbar-inner { width: calc(100% - 1.4rem); }
+  .footer { width: calc(100% - 2rem); }
+}
