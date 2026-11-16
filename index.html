@@ -115,6 +115,26 @@
         <span class="object-icon" aria-hidden="true">01 /</span>
         <h2>Projects</h2>
         <p>Web applications, APIs, engines, predictive systems, and small tools built around real needs.</p>
+        <svg class="project-pillar-diagram" viewBox="0 0 320 112" role="img" aria-label="Three architectural layers connected through an interface, services, and data flow">
+          <path class="system-links" d="M103 51 H117 M206 51 H220 M111 46 L117 51 L111 56 M214 46 L220 51 L214 56"/>
+          <g class="system-module system-interface">
+            <rect x="2" y="26" width="101" height="51" rx="2"/>
+            <text class="system-title" x="52" y="47" text-anchor="middle">Interface</text>
+            <text class="system-detail" x="52" y="63" text-anchor="middle">presentation</text>
+          </g>
+          <g class="system-module system-services">
+            <rect x="117" y="26" width="89" height="51" rx="2"/>
+            <text class="system-title" x="161" y="47" text-anchor="middle">Services</text>
+            <text class="system-detail" x="161" y="63" text-anchor="middle">logic · APIs</text>
+          </g>
+          <g class="system-module system-data">
+            <rect x="220" y="26" width="98" height="51" rx="2"/>
+            <text class="system-title" x="269" y="47" text-anchor="middle">Data</text>
+            <text class="system-detail" x="269" y="63" text-anchor="middle">state · models</text>
+          </g>
+          <path class="system-foundation" d="M50 88 H270 M50 83 V93 M270 83 V93"/>
+          <text class="system-caption" x="160" y="105" text-anchor="middle">SYSTEM ARCHITECTURE</text>
+        </svg>
         <span class="object-link">View selected projects →</span>
       </a>
 
@@ -177,15 +197,25 @@
           <p class="project-number">01 · Platform engineering</p>
           <h3><a class="card-cover-link" href="https://curricula.live" target="_blank" rel="noreferrer">curricula.live — Connected Teaching Ecosystem</a></h3>
           <p>Developing a teacher-oriented ecosystem linking <span class="keyword keyword-system">curriculum knowledge graphs</span>, conceptual dependencies, <span class="keyword keyword-system">course planning</span> and <span class="keyword keyword-system">reusable learning resources</span>. Its Django and PostgreSQL foundations support interconnected instructional tools while keeping teacher judgement central.</p>
-          <div class="project-architecture">
-            <svg class="architecture-svg architecture-curricula" viewBox="0 0 554 154" role="img" aria-label="Conceptual curricula.live architecture: curriculum information is organized by Django services, stored in PostgreSQL, and used by teaching tools.">
-
-              <g class="arch-flow"><path d="M138 61 H170 M331 61 H361 M251 82 V107"/><path d="M164 56 L170 61 L164 66 M355 56 L361 61 L355 66 M246 101 L251 107 L256 101"/></g>
-              <g class="arch-node"><rect x="10" y="37" width="128" height="49" rx="4"/><text x="74" y="57" text-anchor="middle">Curriculum data</text><text class="arch-small" x="74" y="72" text-anchor="middle">concepts · links</text></g>
-              <g class="arch-node arch-core"><rect x="170" y="37" width="161" height="49" rx="4"/><text x="250" y="57" text-anchor="middle">Django services</text><text class="arch-small" x="250" y="72" text-anchor="middle">concept relationships</text></g>
-              <g class="arch-node"><rect x="361" y="37" width="183" height="49" rx="4"/><text x="452" y="57" text-anchor="middle">Teaching tools</text><text class="arch-small" x="452" y="72" text-anchor="middle">plans · pathways</text></g>
-              <g class="arch-node arch-storage"><rect x="192" y="107" width="117" height="31" rx="4"/><text x="250" y="127" text-anchor="middle">PostgreSQL</text></g>
-            </svg>
+          <div class="ecosystem-architecture" role="group" aria-label="Three complementary products: curricula.live for curriculum concepts and planning, textbook.curricula.live for structured teaching material, notebook.curricula.live for interactive working activities">
+            <div class="ecosystem-surfaces">
+              <div class="ecosystem-surface ecosystem-primary">
+                <span class="ecosystem-label">PLAN · ORGANISE</span>
+                <strong>curricula.live</strong>
+                <span class="ecosystem-role">Concepts &amp; lesson planning</span>
+              </div>
+              <div class="ecosystem-surface ecosystem-textbook">
+                <span class="ecosystem-label">READ · REFERENCE</span>
+                <strong>textbook.<wbr>curricula.live</strong>
+                <span class="ecosystem-role">Structured course material</span>
+              </div>
+              <div class="ecosystem-surface ecosystem-notebook">
+                <span class="ecosystem-label">PRACTISE · EXPLORE</span>
+                <strong>notebook.<wbr>curricula.live</strong>
+                <span class="ecosystem-role">Interactive working space</span>
+              </div>
+            </div>
+            <div class="ecosystem-rail" aria-hidden="true"><span></span><em>Complementary learning surfaces</em><span></span></div>
           </div>
           <ul class="tag-list"><li>Knowledge graphs</li><li>Teacher planning</li><li>Django</li><li>PostgreSQL</li><li>Learning systems</li></ul>
           <div class="card-links">
