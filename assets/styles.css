@@ -483,22 +483,22 @@ body::after {
   width: min(calc(100% - 5rem), 1280px);
   margin: clamp(3rem, 6vw, 6rem) auto 4rem;
   padding: clamp(2.4rem, 4.4vw, 4.5rem) clamp(1.4rem, 4.3vw, 4.2rem);
-  background-color: var(--board);
+  background-color: #213b33;
   background-image:
-    radial-gradient(circle, rgba(75, 50, 26, .11) .65px, transparent 1.4px),
-    radial-gradient(circle, rgba(255, 248, 222, .21) .65px, transparent 1.2px),
-    radial-gradient(ellipse at 28% 12%, rgba(255, 246, 218, .12), transparent 44%),
-    linear-gradient(112deg, #c8ae87 0%, #bca078 48%, #c7ac85 100%);
-  background-size: 8px 9px, 11px 12px, auto, auto;
-  background-position: 0 0, 4px 6px, center, center;
+    url("chalkboard.svg"),
+    radial-gradient(circle, rgba(245, 246, 232, .06) .5px, transparent 1.5px),
+    radial-gradient(ellipse at 28% 12%, rgba(246, 249, 231, .06), transparent 46%),
+    linear-gradient(115deg, #27453b 0%, #1c352e 56%, #21392f 100%);
+  background-size: 1600px 1100px, 13px 12px, auto, auto;
+  background-position: center top, 0 0, center, center;
   border: 9px solid var(--board-edge);
   outline: 2px solid var(--board-edge-deep);
   border-radius: 3px;
   box-shadow:
     0 35px 65px rgba(0,0,0,.32),
     0 8px 20px rgba(0,0,0,.22),
-    inset 0 0 0 2px rgba(65,43,22,.13),
-    inset 0 0 50px rgba(76,47,28,.10);
+    inset 0 0 0 2px rgba(249,246,226,.09),
+    inset 0 0 55px rgba(0,0,0,.20);
 }
 .desk > section { position: relative; }
 .intro-grid, .pillars, .project-grid, .experience-grid, .about-grid, .contact-grid {
